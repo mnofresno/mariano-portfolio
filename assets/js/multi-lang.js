@@ -28,8 +28,8 @@
         var langIndex = 0;
 
         switchLangBtn.on("click", () => {
-            lang = langs[++langIndex % langs.length];
             switchLangSpan.text(lang);
+            lang = langs[++langIndex % langs.length];
             changeTo(lang)
         })
 
@@ -41,7 +41,4 @@
         }
         changeTo(lang);
     });
-
-    var lang = "en";
-
 })();
