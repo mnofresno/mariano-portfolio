@@ -148,6 +148,14 @@ h1, h2, h3, h4, h5, h6 {
 /*--------------------------------------------------------------
 # Navigation Menu
 --------------------------------------------------------------*/
+.nav-menu a.switch-language span, .nav-menu a:hover.switch-language span, .nav-menu a:focus.switch-language span {
+  display: block;
+  color: grey;
+  font-weight: bold;
+  text-align: center;
+  padding: 2px;
+}
+
 /**
 * Desktop Navigation 
 */
