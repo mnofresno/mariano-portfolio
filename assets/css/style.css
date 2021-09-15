@@ -275,6 +275,16 @@ h1, h2, h3, h4, h5, h6 {
   position: relative;
 }
 
+@media (max-width: 992px) {
+  #hero {
+    width: 100%;
+    height: 100vh;
+    background-position: left;
+    background-size: cover;
+    position: relative;  
+  }
+}
+
 @media (min-width: 992px) {
   #hero {
     padding-left: 160px;
