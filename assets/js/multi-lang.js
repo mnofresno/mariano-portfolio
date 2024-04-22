@@ -10,7 +10,7 @@
             socialFooter: "You can contact me through all these social networks or using the contact information in the 'About' section.",
             servicesSubtitle: "If you need any of these services please feel free to contact me so we can achieve together a solution that suits your needs:",
             serviceTechTeams: "Technical Teams",
-            serviceTechTeamsDesc: "Technical evaluation of IT profiles, work management with teams formed ad-hoc by project.",
+            serviceTechTeamsDesc: "Conducting technical assessments of IT profiles, and orchestrating project-specific task management with ad-hoc teams.",
             serviceDev: "Systems Development",
             serviceDevDesc: "I build Web applications and also command line tools, desktop systems. Multi-architecture, multi-pattern designs. Embedded systems.",
             servicePerformance: "Optimization",
