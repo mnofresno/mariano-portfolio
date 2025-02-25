@@ -814,3 +814,36 @@ section.hide-work-in-progress, li.hide-work-in-progress {
 .bxl-cults3d-white {
   background-image: url('../img/cults-3d-logo-white.svg');
 }
+
+
+.skill {
+  position: relative;
+  cursor: pointer;
+}
+
+.skill:hover::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  background: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 5px;
+  white-space: nowrap;
+  font-size: 14px;
+  bottom: 150%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+}
+
+.skill:hover::before {
+  content: "";
+  position: absolute;
+  bottom: 120%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 5px;
+  border-style: solid;
+  border-color: rgba(0, 0, 0, 0.8) transparent transparent transparent;
+  z-index: 10;
+}
