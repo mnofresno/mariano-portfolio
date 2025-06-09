@@ -1,0 +1,11 @@
+{
+  "name": "mariano-portfolio",
+  "version": "1.0.0",
+  "description": "Portfolio site",
+  "scripts": {
+    "test": "jest"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0"
+  }
+}
