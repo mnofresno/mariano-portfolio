@@ -1,0 +1,12 @@
+{
+  "name": "mariano-portfolio-server",
+  "version": "1.0.0",
+  "description": "Servidor de archivos estáticos para desarrollo del portfolio de Mariano",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}
