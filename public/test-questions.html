@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test de Preguntas Específicas</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 800px; margin: 20px auto; padding: 20px; }
+        .question { background: #e3f2fd; padding: 15px; margin: 10px 0; border-radius: 5px; border-left: 4px solid #2196f3; }
+        .answer { background: #f1f8e9; padding: 15px; margin: 5px 0 20px 0; border-radius: 5px; border-left: 4px solid #4caf50; }
+        .test-button { padding: 10px 20px; margin: 5px; background: #0078FF; color: white; border: none; border-radius: 5px; cursor: pointer; }
+        .status { padding: 10px; margin: 10px 0; border-radius: 5px; }
+        .success { background: #d4edda; color: #155724; }
+        .error { background: #f8d7da; color: #721c24; }
+        .loading { background: #fff3cd; color: #856404; }
+    </style>
+</head>
+<body>
+    <h1>Test de Preguntas Específicas del Chatbot RAG</h1>
+    
+    <div id="status" class="status">Listo para probar</div>
+    
+    <div id="test-results"></div>
+    
+    <button class="test-button" onclick="runAllTests()">Ejecutar Todas las Pruebas</button>
+    <button class="test-button" onclick="clearResults()">Limpiar Resultados</button>
+
+    <script>
+        const testQuestions = [
+            "¡Hola! ¿En qué puedo ayudarte?",
+            "hola",
+            "Sabe mariano sobre kubernetes?",
+            "Teléfono?",
+            "qué teléfono tiene?",
+            "¿Cuáles son sus habilidades?",
+            "¿Cómo contactarlo?",
+            "¿Qué servicios ofrece?",
+            "¿Tiene experiencia con Docker?",
+            "¿Conoce React?",
+            "¿Su email?",
+            "¿LinkedIn?"
+        ];
+
+        let ragChatbot = null;
+
+        async function initializeRAG() {
+            if (ragChatbot) return ragChatbot;
+            
+            try {
+                updateStatus('Inicializando sistema RAG...', 'loading');
+                
+                if (!window.RAGChatbot) {
+                    const script = document.createElement('script');
+                    script.src = '/chatbot/chatbot-rag.js';
+                    await new Promise((resolve, reject) => {
+                        script.onload = resolve;
+                        script.onerror = reject;
+                        document.head.appendChild(script);
+                    });
+                }
+                
+                ragChatbot = new RAGChatbot();
+                await ragChatbot.initialize();
+                
+                updateStatus('Sistema RAG inicializado correctamente', 'success');
+                return ragChatbot;
+                
+            } catch (error) {
+                updateStatus(`Error inicializando RAG: ${error.message}`, 'error');
+                throw error;
+            }
+        }
+
+        function updateStatus(message, type = 'success') {
+            const statusDiv = document.getElementById('status');
+            statusDiv.textContent = message;
+            statusDiv.className = `status ${type}`;
+        }
+
+        function addQuestion(question) {
+            const resultsDiv = document.getElementById('test-results');
+            const questionDiv = document.createElement('div');
+            questionDiv.className = 'question';
+            questionDiv.innerHTML = `<strong>Pregunta:</strong> ${question}`;
+            resultsDiv.appendChild(questionDiv);
+            return questionDiv;
+        }
+
+        function addAnswer(answer, questionDiv) {
+            const answerDiv = document.createElement('div');
+            answerDiv.className = 'answer';
+            answerDiv.innerHTML = `<strong>Respuesta:</strong> ${answer}`;
+            questionDiv.appendChild(answerDiv);
+        }
+
+        async function testQuestion(question) {
+            const questionDiv = addQuestion(question);
+            
+            try {
+                if (!ragChatbot) {
+                    await initializeRAG();
+                }
+                
+                const answer = await ragChatbot.processQuery(question);
+                addAnswer(answer, questionDiv);
+                
+            } catch (error) {
+                addAnswer(`Error: ${error.message}`, questionDiv);
+                console.error('Error en pregunta:', question, error);
+            }
+        }
+
+        async function runAllTests() {
+            clearResults();
+            updateStatus('Ejecutando todas las pruebas...', 'loading');
+            
+            for (let i = 0; i < testQuestions.length; i++) {
+                const question = testQuestions[i];
+                updateStatus(`Probando pregunta ${i + 1}/${testQuestions.length}: ${question}`, 'loading');
+                
+                await testQuestion(question);
+                
+                // Pequeña pausa entre preguntas
+                await new Promise(resolve => setTimeout(resolve, 100));
+            }
+            
+            updateStatus('Todas las pruebas completadas', 'success');
+        }
+
+        function clearResults() {
+            document.getElementById('test-results').innerHTML = '';
+            updateStatus('Resultados limpiados', 'success');
+        }
+
+        // Auto-inicializar al cargar
+        window.addEventListener('load', () => {
+            updateStatus('Página cargada, listo para probar', 'success');
+        });
+    </script>
+</body>
+</html>
+

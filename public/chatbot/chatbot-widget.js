@@ -119,6 +119,26 @@ function initChatbotWidget(customConfig) {
     messagesDiv.scrollTop = messagesDiv.scrollHeight;
     return typingMsg;
   }
+  // Carga dinámica de chatbot-rag.js para modo RAG
+  function loadRAGScriptIfNeeded(cb) {
+    if (window.ChatbotRAGLoaded) return cb && cb();
+    if (window.RAGChatbot) {
+      window.ChatbotRAGLoaded = true;
+      return cb && cb();
+    }
+    const script = document.createElement('script');
+    script.src = '/chatbot/chatbot-rag.js';
+    script.onload = () => { 
+      window.ChatbotRAGLoaded = true;
+      if (cb) cb(); 
+    };
+    script.onerror = () => {
+      console.error('Error cargando chatbot-rag.js');
+      if (cb) cb();
+    };
+    document.head.appendChild(script);
+  }
+
   // Carga dinámica de chatbot-demo.js si está en demoMode y no está cargado
   function loadDemoScriptIfNeeded(cb) {
     if (!config.demoMode) return cb && cb();
@@ -137,14 +157,30 @@ function initChatbotWidget(customConfig) {
     const typingMsg = showTyping();
     try {
       if (config.demoMode) {
-        loadDemoScriptIfNeeded(() => {
-          if (window.chatbotDemoSend) {
-            window.chatbotDemoSend(val, (from, text) => {
+        // Usar sistema RAG en lugar del demo
+        loadRAGScriptIfNeeded(async () => {
+          if (window.ragChatbot) {
+            try {
+              const response = await window.ragChatbot.processQuery(val);
               if (typingMsg.parentNode) typingMsg.remove();
-              addMsg(from, text);
-            });
+              addMsg('bot', response);
+            } catch (error) {
+              console.error('Error en RAG:', error);
+              if (typingMsg.parentNode) typingMsg.remove();
+              addMsg('bot', 'Lo siento, hubo un error procesando tu consulta.');
+            }
           } else {
-            if (typingMsg.parentNode) typingMsg.remove();
+            // Fallback al demo si RAG no está disponible
+            loadDemoScriptIfNeeded(() => {
+              if (window.chatbotDemoSend) {
+                window.chatbotDemoSend(val, (from, text) => {
+                  if (typingMsg.parentNode) typingMsg.remove();
+                  addMsg(from, text);
+                });
+              } else {
+                if (typingMsg.parentNode) typingMsg.remove();
+              }
+            });
           }
         });
       } else {

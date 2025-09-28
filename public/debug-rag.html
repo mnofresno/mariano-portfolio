@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Debug RAG</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 800px; margin: 20px auto; padding: 20px; }
+        .debug { background: #f8f9fa; padding: 15px; margin: 10px 0; border-radius: 5px; border-left: 4px solid #007bff; }
+        .error { border-left-color: #dc3545; background: #f8d7da; }
+        .success { border-left-color: #28a745; background: #d4edda; }
+        .warning { border-left-color: #ffc107; background: #fff3cd; }
+        button { padding: 10px 20px; margin: 5px; background: #0078FF; color: white; border: none; border-radius: 5px; cursor: pointer; }
+        pre { background: #f1f1f1; padding: 10px; border-radius: 3px; overflow-x: auto; }
+    </style>
+</head>
+<body>
+    <h1>Debug del Sistema RAG</h1>
+    
+    <div id="debug-output"></div>
+    
+    <button onclick="debugRAG()">Debug RAG</button>
+    <button onclick="testQuery()">Probar Consulta</button>
+    <button onclick="clearDebug()">Limpiar</button>
+
+    <script>
+        function addDebug(message, type = 'debug') {
+            const output = document.getElementById('debug-output');
+            const div = document.createElement('div');
+            div.className = `debug ${type}`;
+            div.innerHTML = `<strong>${new Date().toLocaleTimeString()}:</strong> ${message}`;
+            output.appendChild(div);
+        }
+
+        function clearDebug() {
+            document.getElementById('debug-output').innerHTML = '';
+        }
+
+        async function debugRAG() {
+            clearDebug();
+            addDebug('Iniciando debug del sistema RAG...', 'debug');
+            
+            try {
+                // Verificar si el script ya está cargado
+                if (window.RAGChatbot) {
+                    addDebug('RAGChatbot ya está disponible', 'success');
+                } else {
+                    addDebug('Cargando script RAG...', 'debug');
+                    const script = document.createElement('script');
+                    script.src = '/chatbot/chatbot-rag.js';
+                    await new Promise((resolve, reject) => {
+                        script.onload = resolve;
+                        script.onerror = reject;
+                        document.head.appendChild(script);
+                    });
+                    addDebug('Script RAG cargado', 'success');
+                }
+                
+                // Crear instancia
+                addDebug('Creando instancia RAG...', 'debug');
+                const ragChatbot = new RAGChatbot();
+                addDebug('Instancia creada', 'success');
+                
+                // Probar extracción de contenido
+                addDebug('Probando extracción de contenido...', 'debug');
+                const content = ragChatbot.extractWebsiteContent();
+                addDebug(`Contenido extraído: ${JSON.stringify(content, null, 2)}`, 'debug');
+                
+                // Inicializar
+                addDebug('Inicializando sistema...', 'debug');
+                await ragChatbot.initialize();
+                addDebug('Sistema inicializado', 'success');
+                
+                // Mostrar base de conocimiento
+                addDebug(`Base de conocimiento: ${ragChatbot.knowledgeBase.length} documentos`, 'success');
+                ragChatbot.knowledgeBase.forEach((doc, index) => {
+                    addDebug(`Doc ${index + 1}: ${doc.id} - ${doc.content.substring(0, 100)}...`, 'debug');
+                });
+                
+            } catch (error) {
+                addDebug(`Error: ${error.message}`, 'error');
+                addDebug(`Stack: ${error.stack}`, 'error');
+                console.error('Error completo:', error);
+            }
+        }
+
+        async function testQuery() {
+            addDebug('Probando consulta...', 'debug');
+            
+            try {
+                if (!window.RAGChatbot) {
+                    addDebug('RAGChatbot no está disponible', 'error');
+                    return;
+                }
+                
+                const ragChatbot = new RAGChatbot();
+                await ragChatbot.initialize();
+                
+                const query = '¿Quién es Mariano Fresno?';
+                addDebug(`Pregunta: ${query}`, 'debug');
+                
+                const response = await ragChatbot.processQuery(query);
+                addDebug(`Respuesta: ${response}`, 'success');
+                
+            } catch (error) {
+                addDebug(`Error en consulta: ${error.message}`, 'error');
+                console.error('Error completo:', error);
+            }
+        }
+
+        // Auto-debug al cargar
+        window.addEventListener('load', () => {
+            addDebug('Página cargada, listo para debug', 'success');
+        });
+    </script>
+</body>
+</html>

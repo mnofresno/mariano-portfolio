@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Simple RAG</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 600px; margin: 50px auto; padding: 20px; }
+        .test-result { margin: 10px 0; padding: 10px; border-radius: 5px; }
+        .success { background-color: #d4edda; color: #155724; }
+        .error { background-color: #f8d7da; color: #721c24; }
+        .info { background-color: #d1ecf1; color: #0c5460; }
+        button { padding: 10px 20px; margin: 5px; background: #0078FF; color: white; border: none; border-radius: 5px; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <h1>Test Simple del Sistema RAG</h1>
+    
+    <div id="results"></div>
+    
+    <button onclick="testRAG()">Probar Sistema RAG</button>
+    <button onclick="testExtraction()">Probar Extracción de Contenido</button>
+    <button onclick="testQuery()">Probar Consulta</button>
+
+    <script>
+        function addResult(message, type = 'info') {
+            const resultsDiv = document.getElementById('results');
+            const div = document.createElement('div');
+            div.className = `test-result ${type}`;
+            div.textContent = message;
+            resultsDiv.appendChild(div);
+        }
+
+        function clearResults() {
+            document.getElementById('results').innerHTML = '';
+        }
+
+        async function testRAG() {
+            clearResults();
+            addResult('Iniciando test del sistema RAG...', 'info');
+            
+            try {
+                // Cargar el script RAG
+                if (!window.RAGChatbot) {
+                    const script = document.createElement('script');
+                    script.src = '/chatbot/chatbot-rag.js';
+                    await new Promise((resolve, reject) => {
+                        script.onload = resolve;
+                        script.onerror = reject;
+                        document.head.appendChild(script);
+                    });
+                }
+                
+                addResult('Script RAG cargado correctamente', 'success');
+                
+                // Crear instancia
+                const ragChatbot = new RAGChatbot();
+                addResult('Instancia RAG creada', 'success');
+                
+                // Inicializar
+                await ragChatbot.initialize();
+                addResult('Sistema RAG inicializado correctamente', 'success');
+                
+                // Mostrar base de conocimiento
+                addResult(`Base de conocimiento extraída: ${ragChatbot.knowledgeBase.length} documentos`, 'info');
+                ragChatbot.knowledgeBase.forEach((doc, index) => {
+                    addResult(`Documento ${index + 1}: ${doc.id} - ${doc.content.substring(0, 100)}...`, 'info');
+                });
+                
+            } catch (error) {
+                addResult(`Error: ${error.message}`, 'error');
+                console.error('Error completo:', error);
+            }
+        }
+
+        async function testExtraction() {
+            clearResults();
+            addResult('Probando extracción de contenido...', 'info');
+            
+            try {
+                const ragChatbot = new RAGChatbot();
+                const content = ragChatbot.extractWebsiteContent();
+                
+                addResult('Extracción completada', 'success');
+                addResult(`Información personal: ${JSON.stringify(content.personalInfo, null, 2)}`, 'info');
+                addResult(`Habilidades: ${content.skills.length} encontradas`, 'info');
+                addResult(`Servicios: ${content.services.length} encontrados`, 'info');
+                
+            } catch (error) {
+                addResult(`Error en extracción: ${error.message}`, 'error');
+                console.error('Error completo:', error);
+            }
+        }
+
+        async function testQuery() {
+            clearResults();
+            addResult('Probando consulta...', 'info');
+            
+            try {
+                const ragChatbot = new RAGChatbot();
+                await ragChatbot.initialize();
+                
+                const testQueries = [
+                    '¿Quién es Mariano Fresno?',
+                    '¿Cuáles son sus habilidades?',
+                    '¿Cómo contactarlo?'
+                ];
+                
+                for (const query of testQueries) {
+                    addResult(`Pregunta: ${query}`, 'info');
+                    const response = await ragChatbot.processQuery(query);
+                    addResult(`Respuesta: ${response}`, 'success');
+                }
+                
+            } catch (error) {
+                addResult(`Error en consulta: ${error.message}`, 'error');
+                console.error('Error completo:', error);
+            }
+        }
+    </script>
+</body>
+</html>

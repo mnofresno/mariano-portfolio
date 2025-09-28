@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test WhatsApp y Fallback</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 800px; margin: 20px auto; padding: 20px; }
+        .test-section { background: #f8f9fa; padding: 20px; margin: 20px 0; border-radius: 8px; border-left: 4px solid #007bff; }
+        .question { background: #e3f2fd; padding: 15px; margin: 10px 0; border-radius: 5px; border-left: 4px solid #2196f3; }
+        .answer { background: #f1f8e9; padding: 15px; margin: 5px 0 20px 0; border-radius: 5px; border-left: 4px solid #4caf50; }
+        .test-button { padding: 10px 20px; margin: 5px; background: #0078FF; color: white; border: none; border-radius: 5px; cursor: pointer; }
+        .status { padding: 10px; margin: 10px 0; border-radius: 5px; }
+        .success { background: #d4edda; color: #155724; }
+        .error { background: #f8d7da; color: #721c24; }
+        .loading { background: #fff3cd; color: #856404; }
+        .whatsapp-test { background: #e8f5e8; padding: 15px; margin: 10px 0; border-radius: 5px; border: 2px solid #25D366; }
+    </style>
+    <!-- Boxicons para el ícono de WhatsApp -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+    <h1>Test de WhatsApp y Fallback del Chatbot RAG</h1>
+    
+    <div id="status" class="status">Listo para probar</div>
+    
+    <div class="test-section">
+        <h2>🧪 Pruebas de WhatsApp</h2>
+        <div id="whatsapp-tests"></div>
+        <button class="test-button" onclick="testWhatsAppFeatures()">Probar Funciones de WhatsApp</button>
+    </div>
+    
+    <div class="test-section">
+        <h2>🔄 Pruebas de Fallback</h2>
+        <div id="fallback-tests"></div>
+        <button class="test-button" onclick="testFallbackFeatures()">Probar Fallback</button>
+    </div>
+    
+    <div class="test-section">
+        <h2>🌐 Pruebas Multiidioma</h2>
+        <div id="language-tests"></div>
+        <button class="test-button" onclick="testLanguageFeatures()">Probar Multiidioma</button>
+    </div>
+    
+    <button class="test-button" onclick="clearAllResults()">Limpiar Todos los Resultados</button>
+
+    <script>
+        let ragChatbot = null;
+
+        async function initializeRAG() {
+            if (ragChatbot) return ragChatbot;
+            
+            try {
+                updateStatus('Inicializando sistema RAG...', 'loading');
+                
+                if (!window.RAGChatbot) {
+                    const script = document.createElement('script');
+                    script.src = '/chatbot/chatbot-rag.js';
+                    await new Promise((resolve, reject) => {
+                        script.onload = resolve;
+                        script.onerror = reject;
+                        document.head.appendChild(script);
+                    });
+                }
+                
+                ragChatbot = new RAGChatbot();
+                await ragChatbot.initialize();
+                
+                updateStatus('Sistema RAG inicializado correctamente', 'success');
+                return ragChatbot;
+                
+            } catch (error) {
+                updateStatus(`Error inicializando RAG: ${error.message}`, 'error');
+                throw error;
+            }
+        }
+
+        function updateStatus(message, type = 'success') {
+            const statusDiv = document.getElementById('status');
+            statusDiv.textContent = message;
+            statusDiv.className = `status ${type}`;
+        }
+
+        function addTestResult(containerId, question, answer, type = 'normal') {
+            const container = document.getElementById(containerId);
+            const testDiv = document.createElement('div');
+            testDiv.className = type === 'whatsapp' ? 'whatsapp-test' : 'question';
+            
+            const questionDiv = document.createElement('div');
+            questionDiv.innerHTML = `<strong>Pregunta:</strong> ${question}`;
+            testDiv.appendChild(questionDiv);
+            
+            const answerDiv = document.createElement('div');
+            answerDiv.className = 'answer';
+            answerDiv.innerHTML = `<strong>Respuesta:</strong><br>${answer}`;
+            testDiv.appendChild(answerDiv);
+            
+            container.appendChild(testDiv);
+        }
+
+        async function testWhatsAppFeatures() {
+            const container = document.getElementById('whatsapp-tests');
+            container.innerHTML = '';
+            
+            const whatsappQuestions = [
+                "¿Cuál es el teléfono de Mariano?",
+                "¿Cómo puedo contactarlo?",
+                "Teléfono?",
+                "¿Su número de WhatsApp?"
+            ];
+            
+            try {
+                if (!ragChatbot) {
+                    await initializeRAG();
+                }
+                
+                for (const question of whatsappQuestions) {
+                    const answer = await ragChatbot.processQuery(question);
+                    addTestResult('whatsapp-tests', question, answer, 'whatsapp');
+                }
+                
+            } catch (error) {
+                addTestResult('whatsapp-tests', 'Error', `Error: ${error.message}`, 'whatsapp');
+            }
+        }
+
+        async function testFallbackFeatures() {
+            const container = document.getElementById('fallback-tests');
+            container.innerHTML = '';
+            
+            const fallbackQuestions = [
+                "¿Cuál es el color favorito de Mariano?",
+                "¿Qué música le gusta?",
+                "¿Cuál es su comida preferida?",
+                "¿Tiene mascotas?",
+                "¿Qué hace en su tiempo libre?"
+            ];
+            
+            try {
+                if (!ragChatbot) {
+                    await initializeRAG();
+                }
+                
+                for (const question of fallbackQuestions) {
+                    const answer = await ragChatbot.processQuery(question);
+                    addTestResult('fallback-tests', question, answer, 'normal');
+                }
+                
+            } catch (error) {
+                addTestResult('fallback-tests', 'Error', `Error: ${error.message}`, 'normal');
+            }
+        }
+
+        async function testLanguageFeatures() {
+            const container = document.getElementById('language-tests');
+            container.innerHTML = '';
+            
+            // Simular cambio de idioma
+            const originalLang = document.documentElement.lang;
+            
+            try {
+                if (!ragChatbot) {
+                    await initializeRAG();
+                }
+                
+                // Test en español
+                document.documentElement.lang = 'es';
+                const questionES = "¿Cuál es tu color favorito?";
+                const answerES = await ragChatbot.processQuery(questionES);
+                addTestResult('language-tests', `[ES] ${questionES}`, answerES, 'normal');
+                
+                // Test en inglés
+                document.documentElement.lang = 'en';
+                const questionEN = "What is your favorite color?";
+                const answerEN = await ragChatbot.processQuery(questionEN);
+                addTestResult('language-tests', `[EN] ${questionEN}`, answerEN, 'normal');
+                
+                // Restaurar idioma original
+                document.documentElement.lang = originalLang;
+                
+            } catch (error) {
+                addTestResult('language-tests', 'Error', `Error: ${error.message}`, 'normal');
+                document.documentElement.lang = originalLang;
+            }
+        }
+
+        function clearAllResults() {
+            document.getElementById('whatsapp-tests').innerHTML = '';
+            document.getElementById('fallback-tests').innerHTML = '';
+            document.getElementById('language-tests').innerHTML = '';
+            updateStatus('Resultados limpiados', 'success');
+        }
+
+        // Auto-inicializar al cargar
+        window.addEventListener('load', () => {
+            updateStatus('Página cargada, listo para probar', 'success');
+        });
+    </script>
+</body>
+</html>

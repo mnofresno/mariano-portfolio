@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test RAG Chatbot</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .chat-container {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .message {
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .user-message {
+            background-color: #e3f2fd;
+            text-align: right;
+        }
+        .bot-message {
+            background-color: #f1f1f1;
+            text-align: left;
+        }
+        .input-container {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        input[type="text"] {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #0078FF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .status {
+            padding: 10px;
+            background-color: #e8f5e8;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        .error {
+            background-color: #ffebee;
+            color: #c62828;
+        }
+    </style>
+</head>
+<body>
+    <h1>Test del Sistema RAG Chatbot</h1>
+    
+    <div id="status" class="status">
+        Inicializando sistema RAG...
+    </div>
+    
+    <div class="chat-container">
+        <div id="messages"></div>
+        <div class="input-container">
+            <input type="text" id="userInput" placeholder="Escribe tu pregunta sobre Mariano Fresno..." />
+            <button onclick="sendMessage()">Enviar</button>
+        </div>
+    </div>
+
+    <div class="chat-container">
+        <h3>Preguntas de ejemplo:</h3>
+        <ul>
+            <li>¿Quién es Mariano Fresno?</li>
+            <li>¿Cuáles son sus habilidades técnicas?</li>
+            <li>¿Qué servicios ofrece?</li>
+            <li>¿Cómo puedo contactarlo?</li>
+            <li>¿Cuál es su experiencia profesional?</li>
+            <li>¿Dónde vive?</li>
+            <li>¿Cuáles son sus redes sociales?</li>
+        </ul>
+    </div>
+
+    <script src="/chatbot/chatbot-rag.js"></script>
+    <script>
+        let ragChatbot = null;
+        let isInitialized = false;
+
+        // Inicializar el sistema RAG
+        async function initializeRAG() {
+            try {
+                const statusDiv = document.getElementById('status');
+                statusDiv.textContent = 'Cargando sistema RAG...';
+                
+                ragChatbot = new RAGChatbot();
+                await ragChatbot.initialize();
+                
+                statusDiv.textContent = 'Sistema RAG inicializado correctamente. ¡Puedes hacer preguntas!';
+                statusDiv.className = 'status';
+                isInitialized = true;
+                
+                // Mostrar información extraída
+                console.log('Base de conocimiento extraída:', ragChatbot.knowledgeBase);
+                
+            } catch (error) {
+                console.error('Error inicializando RAG:', error);
+                const statusDiv = document.getElementById('status');
+                statusDiv.textContent = 'Error inicializando el sistema RAG: ' + error.message;
+                statusDiv.className = 'status error';
+            }
+        }
+
+        // Enviar mensaje
+        async function sendMessage() {
+            const input = document.getElementById('userInput');
+            const message = input.value.trim();
+            
+            if (!message || !isInitialized) return;
+            
+            // Mostrar mensaje del usuario
+            addMessage('user', message);
+            input.value = '';
+            
+            // Mostrar indicador de carga
+            const loadingId = addMessage('bot', 'Procesando...');
+            
+            try {
+                const response = await ragChatbot.processQuery(message);
+                
+                // Reemplazar mensaje de carga con respuesta
+                const messagesDiv = document.getElementById('messages');
+                const loadingMsg = document.getElementById(loadingId);
+                if (loadingMsg) {
+                    loadingMsg.innerHTML = `<div class="bot-message">${response}</div>`;
+                }
+                
+            } catch (error) {
+                console.error('Error procesando mensaje:', error);
+                const messagesDiv = document.getElementById('messages');
+                const loadingMsg = document.getElementById(loadingId);
+                if (loadingMsg) {
+                    loadingMsg.innerHTML = `<div class="bot-message error">Error: ${error.message}</div>`;
+                }
+            }
+        }
+
+        // Agregar mensaje al chat
+        function addMessage(sender, text) {
+            const messagesDiv = document.getElementById('messages');
+            const messageId = 'msg_' + Date.now();
+            const messageDiv = document.createElement('div');
+            messageDiv.id = messageId;
+            messageDiv.innerHTML = `<div class="${sender}-message">${text}</div>`;
+            messagesDiv.appendChild(messageDiv);
+            messagesDiv.scrollTop = messagesDiv.scrollHeight;
+            return messageId;
+        }
+
+        // Permitir envío con Enter
+        document.getElementById('userInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                sendMessage();
+            }
+        });
+
+        // Inicializar cuando se carga la página
+        window.addEventListener('load', initializeRAG);
+    </script>
+</body>
+</html>
