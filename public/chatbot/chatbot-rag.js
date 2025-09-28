@@ -294,7 +294,7 @@ if (typeof window !== 'undefined' && window.RAGChatbot) {
     }
 
     // Información "About"
-    if (content.about.mainText || content.about.subtext || content.about.footer) {
+    if (content.about && (content.about.mainText || content.about.subtext || content.about.footer)) {
       const aboutText = [content.about.mainText, content.about.subtext, content.about.footer]
         .filter(text => text)
         .join(' ');
@@ -448,6 +448,8 @@ if (typeof window !== 'undefined' && window.RAGChatbot) {
 
   // Detectar idioma de la página
   getLanguage() {
+    const htmlLang = document.documentElement.getAttribute('lang');
+    if (htmlLang && (htmlLang === 'es' || htmlLang === 'en')) return htmlLang;
     const langBtn = document.getElementById('switch-lang');
     if (langBtn && langBtn.textContent.trim().toLowerCase() === 'es') return 'es';
     return 'en';

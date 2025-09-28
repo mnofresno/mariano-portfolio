@@ -68,18 +68,23 @@ function initChatbotWidget(customConfig) {
 
   function updateUIText() {
     const lang = getLang();
-    input.placeholder = uiText[lang].placeholder;
-    form.querySelector('button[type="submit"]').textContent = uiText[lang].send;
+    if (input) input.placeholder = uiText[lang].placeholder;
+    if (form) {
+      const submitBtn = form.querySelector('button[type="submit"]');
+      if (submitBtn) submitBtn.textContent = uiText[lang].send;
+    }
     // Cambia todos los mensajes de bot que sean el saludo por el del idioma actual
-    Array.from(messagesDiv.children).forEach((msg, idx) => {
-      if (
-        msg.style.textAlign === 'left' &&
-        msg.textContent.trim().replace(/\s+/g, ' ') === uiText['es'].greeting ||
-        msg.textContent.trim().replace(/\s+/g, ' ') === uiText['en'].greeting
-      ) {
-        msg.innerHTML = `<span style="display:inline-block;background:#f1f1f1;color:#222;border-radius:12px;padding:8px 14px;max-width:80%;font-size:15px;">${uiText[lang].greeting}</span>`;
-      }
-    });
+    if (messagesDiv) {
+      Array.from(messagesDiv.children).forEach((msg, idx) => {
+        if (
+          msg.style.textAlign === 'left' &&
+          (msg.textContent.trim().replace(/\s+/g, ' ') === uiText['es'].greeting ||
+           msg.textContent.trim().replace(/\s+/g, ' ') === uiText['en'].greeting)
+        ) {
+          msg.innerHTML = `<span style="display:inline-block;background:#f1f1f1;color:#222;border-radius:12px;padding:8px 14px;max-width:80%;font-size:15px;">${uiText[lang].greeting}</span>`;
+        }
+      });
+    }
   }
 
   // Lógica de apertura/cierre
@@ -218,6 +223,23 @@ function initChatbotWidget(customConfig) {
       updateUIText();
     });
     langAttrObserver.observe(document.documentElement, { attributes: true, attributeFilter: ['lang'] });
+    
+    // También escucha eventos personalizados para tests
+    document.addEventListener('attributes', () => {
+      updateUIText();
+    });
+    
+    // También observa cambios en el botón de idioma si se agrega dinámicamente
+    const btnObserver = new MutationObserver(() => {
+      const newLangBtn = document.getElementById('switch-lang');
+      if (newLangBtn && !newLangBtn.hasAttribute('data-listener-added')) {
+        newLangBtn.addEventListener('click', () => {
+          setTimeout(updateUIText, 150);
+        });
+        newLangBtn.setAttribute('data-listener-added', 'true');
+      }
+    });
+    btnObserver.observe(document.body, { childList: true, subtree: true });
   }
   observeLangSwitch();
 

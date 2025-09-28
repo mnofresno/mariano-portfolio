@@ -8,6 +8,7 @@ module.exports = {
     'public/chatbot/**/*.js',
     '!public/chatbot/**/*.min.js',
     '!public/chatbot/**/vendor/**',
+    '!public/chatbot/chatbot-bundle.js',
   ],
   coverageReporters: ['text', 'lcov', 'html'],
   coverageDirectory: 'coverage',
@@ -18,5 +19,8 @@ module.exports = {
   setupFilesAfterEnv: ['<rootDir>/jest.setup.js'],
   moduleNameMapping: {
     '^@/(.*)$': '<rootDir>/public/$1'
-  }
+  },
+  transformIgnorePatterns: [
+    'node_modules/(?!(.*\\.mjs$))'
+  ]
 };
