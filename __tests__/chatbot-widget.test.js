@@ -44,6 +44,26 @@ describe('Chatbot Widget', () => {
     expect(botMsg.textContent).toMatch(/hello|hi/i);
   });
 
+  test('loads RAG system in demo mode', async () => {
+    // Mock RAG system
+    window.RAGChatbot = jest.fn().mockImplementation(() => ({
+      initialize: jest.fn().mockResolvedValue(),
+      processQuery: jest.fn().mockResolvedValue('RAG response')
+    }));
+    window.ChatbotRAGLoaded = false;
+
+    await loadWidget(true, 'en');
+    document.getElementById('chatbot-fab').click();
+    
+    const input = document.getElementById('chatbot-input');
+    input.value = 'test question';
+    document.getElementById('chatbot-form').dispatchEvent(new Event('submit', { bubbles: true, cancelable: true }));
+    
+    await new Promise(r => setTimeout(r, 200));
+    
+    expect(window.RAGChatbot).toHaveBeenCalled();
+  });
+
   test('shows WhatsApp CTA after user input in demo mode', async () => {
     await loadWidget(true, 'en');
     document.getElementById('chatbot-fab').click();
@@ -105,5 +125,48 @@ describe('Chatbot Widget', () => {
     await new Promise(r => setTimeout(r, 200));
     const inputEs = document.getElementById('chatbot-input');
     expect(inputEs.placeholder).toMatch(/escribe|mensaje/i);
+  });
+
+  test('handles RAG system errors gracefully', async () => {
+    // Mock RAG system with error
+    window.RAGChatbot = jest.fn().mockImplementation(() => ({
+      initialize: jest.fn().mockRejectedValue(new Error('RAG Error')),
+      processQuery: jest.fn().mockRejectedValue(new Error('RAG Error'))
+    }));
+    window.ChatbotRAGLoaded = false;
+
+    await loadWidget(true, 'en');
+    document.getElementById('chatbot-fab').click();
+    
+    const input = document.getElementById('chatbot-input');
+    input.value = 'test question';
+    document.getElementById('chatbot-form').dispatchEvent(new Event('submit', { bubbles: true, cancelable: true }));
+    
+    await new Promise(r => setTimeout(r, 200));
+    
+    // Should fallback to demo mode
+    expect(window.RAGChatbot).toHaveBeenCalled();
+  });
+
+  test('loads demo script as fallback when RAG fails', async () => {
+    // Mock demo system
+    window.chatbotDemoSend = jest.fn();
+    window.ChatbotDemoLoaded = false;
+    
+    // Mock RAG system that fails to load
+    window.RAGChatbot = undefined;
+    window.ChatbotRAGLoaded = false;
+
+    await loadWidget(true, 'en');
+    document.getElementById('chatbot-fab').click();
+    
+    const input = document.getElementById('chatbot-input');
+    input.value = 'test question';
+    document.getElementById('chatbot-form').dispatchEvent(new Event('submit', { bubbles: true, cancelable: true }));
+    
+    await new Promise(r => setTimeout(r, 200));
+    
+    // Should attempt to load demo script
+    expect(document.querySelector('script[src="/chatbot/chatbot-demo.js"]')).toBeTruthy();
   });
 });
