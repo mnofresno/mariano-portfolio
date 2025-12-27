@@ -1,99 +1,144 @@
 # yaml-language-server: $schema=https://raw.githubusercontent.com/rendercv/rendercv/refs/tags/v2.6/schema.json
 cv:
-  name: Mariano Fresno
-  headline: Full Stack Developer / Software Engineer
-  location: Buenos Aires, Argentina
-  email: your-email@example.com
-  phone: +54 9 11 1234-5678
-  website: https://marianonofresno.com
-  photo:
+  name: Mariano Martín Fresno
+  headline: Senior Software Engineer | Tech Lead | AI, Cloud & Distributed Systems
+  location: Argentina
+  email: mnofresno@gmail.com
+  phone: +54 9 11 6250-2232
+  website:
+  photo: images/photo.webp
   social_networks:
     - network: GitHub
       username: mnofresno
     - network: LinkedIn
-      username: mariano-fresno
-  custom_connections:
+      username: mariano-martin-fresno
+
   sections:
     Summary:
-      - Full Stack Developer with experience in web development, mobile applications and backend systems. Specialized in modern technologies such as Node.js, Python, Angular and React. Passionate about creating scalable and high-quality solutions.
-    education:
-      - institution: University of Buenos Aires
-        area: Computer Engineering
-        degree: Bachelor's Degree
-        start_date: 2015-09
-        end_date: 2020-06
-        location: Buenos Aires, Argentina
-        summary:
-        highlights:
-          - Computer Science and Software Engineering
-      - institution: Advanced Course
-        area: Full Stack Development
-        degree: Certification
-        start_date: 2021-01
-        end_date: 2021-12
-        location:
-        summary:
-        highlights:
-          - Modern web development technologies
+      - Senior Software Engineer and Technical Leader with strong background in distributed systems, cloud infrastructure, AI-driven automation, and large-scale platforms. Proven experience mentoring engineers, leading teams, and delivering production-grade systems using Python, TypeScript, Kubernetes, Kafka, and AWS.
+
     experience:
-      - company: Current Company
-        position: Senior Full Stack Developer
-        start_date: 2021-01
+      - company: Healthee
+        position: Customer Success Engineer / Senior Full Stack Developer
+        start_date: 2025-08
         end_date: present
-        location:
-        summary: Development and maintenance of web and mobile applications. Technical leadership in large-scale projects.
+        location: Buenos Aires, Argentina
+        summary: Full-stack development and technical enablement for customer success teams.
         highlights:
-          - Development of RESTful APIs with Node.js and Express
-          - Frontend implementation with Angular and React
-          - MySQL and PostgreSQL database management
-          - CI/CD implementation with Docker and GitHub Actions
-      - company: Previous Company
-        position: Backend Developer
-        start_date: 2019-06
-        end_date: 2020-12
-        location:
-        summary: Development of backend services and APIs.
+          - Frontend development with React, React Native, and Vue.js
+          - Backend services with Node.js and TypeScript
+          - Microservices deployed with Docker and Kubernetes
+          - CI/CD pipelines using GitHub Actions
+          - AWS services including Amplify, Secrets Manager, DynamoDB
+          - Observability and troubleshooting with BetterStack
+
+      - company: Proofpoint
+        position: Senior Software Engineer
+        start_date: 2024-12
+        end_date: 2025-08
+        location: Cupertino, CA, United States
+        summary: Design and development of large-scale cybersecurity systems.
         highlights:
-          - Microservices development with Python and Flask
-          - SQL query optimization
-          - Automated testing implementation
-    projects:
-      - name: Personal Portfolio
-        start_date: 2024-01
-        end_date: present
-        location:
-        summary: Personal website developed with modern technologies.
-        highlights:
-          - Responsive and accessible design
-          - AI chatbot integration
-          - Performance optimization
-      - name: Management System
+          - Distributed systems using Kafka and Flink
+          - Cloud automation and scalable infrastructure
+          - Security-focused data pipelines
+
+      - company: Avature
+        position: Staff Engineer
         start_date: 2023-06
         end_date: 2024-12
-        location:
-        summary: Complete management system developed with Laravel and Angular.
+        location: Argentina
+        summary: Technical leadership across data and platform teams.
         highlights:
-          - Modular and scalable architecture
-          - Complete RESTful API
-          - Interactive dashboard
+          - AWS EMR and data processing pipelines
+          - Python and PHP development
+          - CI/CD automation and Linux server management
+          - Docker and Docker Compose orchestration
+          - Metrics and monitoring with Prometheus
+          - Configuration normalization and validation with Pydantic
+
+      - company: Avature
+        position: Technical Leader
+        start_date: 2019-12
+        end_date: 2023-07
+        location: Argentina
+        summary: Team leadership and API platform ownership.
+        highlights:
+          - Led a team of 4 engineers
+          - API platform with automatic OpenAPI specification generation
+          - Kong API Gateway and Kubernetes
+          - Code reviews, hiring interviews, and performance reviews
+          - Observability with Grafana, Prometheus, ELK
+          - Infrastructure automation with Puppet and Terraform
+
+      - company: Avature
+        position: Senior Software Engineer
+        start_date: 2018-12
+        end_date: 2019-12
+        location: Argentina
+        summary: Backend and integration framework development.
+        highlights:
+          - Integration framework using PHP and JavaScript
+          - Apache NiFi custom processors in Java
+          - Core product feature development
+
+      - company: d3
+        position: Full Stack Engineer
+        start_date: 2015-01
+        end_date: 2018-11
+        location: Argentina
+        summary: Enterprise and healthcare systems development.
+        highlights:
+          - HL7-compliant medical systems (Java, Spring, HAPI-FHIR, Angular)
+          - .NET Core and ASP.NET systems
+          - Ionic and AngularJS mobile applications
+          - C++ multimedia systems (audio streaming, DirectShow, ffmpeg)
+
+    education:
+      - institution: Universidad de Buenos Aires
+        area: Physical Sciences
+        degree: Licenciatura (40% completed)
+        start_date: 2008
+        end_date: 2012
+        location: Buenos Aires, Argentina
+
+      - institution: Universidad de Buenos Aires
+        area: Philosophy
+        degree: Licenciatura (Introductory studies)
+        start_date: 2012
+        end_date: 2013
+        location: Buenos Aires, Argentina
+
+      - institution: República Francesa
+        area: Electronics and Communications
+        degree: Electronic Technician
+        start_date: 1999
+        end_date: 2005
+        location: Argentina
+
     skills:
       - label: Programming Languages
-        details: JavaScript, TypeScript, Python, PHP, Java
-      - label: Frontend Frameworks
-        details: Angular, React, Vue.js, Bootstrap
-      - label: Backend Frameworks
-        details: Node.js, Express, Laravel, Flask, Django
-      - label: Databases
-        details: MySQL, PostgreSQL, MongoDB, Redis
-      - label: DevOps
-        details: Docker, Git, CI/CD, Linux, Nginx
+        details: Python, TypeScript, JavaScript, Go (learning), PHP, Java, C#
+      - label: Cloud & Infrastructure
+        details: AWS, Kubernetes, Docker, Terraform, Linux
+      - label: Data & Streaming
+        details: Kafka, Flink, EMR, DynamoDB, PostgreSQL, MongoDB
+      - label: AI & Automation
+        details: LLMs, NLP, AI-driven automation, prompt engineering
+      - label: Observability & DevOps
+        details: Prometheus, Grafana, ELK, CI/CD, GitHub Actions
+      - label: Leadership
+        details: Technical mentoring, code reviews, hiring, performance reviews
+
     Languages:
       - Spanish (Native)
-      - English (Advanced)
-      - Portuguese (Intermediate)
+      - English (Professional Working)
+
 design:
   theme: classic
+
 locale:
   language: english
+
 settings:
-  current_date: '2025-01-27'
+  current_date: "2025-01-27"

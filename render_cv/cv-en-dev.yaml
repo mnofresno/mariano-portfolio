@@ -1,0 +1,127 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/rendercv/rendercv/refs/tags/v2.6/schema.json
+cv:
+  name: Mariano Martín Fresno
+  headline: Senior Full Stack Developer | Software Engineer | Modern Web & Cloud Technologies
+  location: Argentina
+  email: mnofresno@gmail.com
+  phone: +54 9 11 6250-2232
+  website:
+  photo: images/photo.webp
+  social_networks:
+    - network: GitHub
+      username: mnofresno
+    - network: LinkedIn
+      username: mariano-martin-fresno
+
+  sections:
+    Summary:
+      - Senior Full Stack Developer with extensive experience building scalable web applications, mobile apps, and backend systems. Strong expertise in modern JavaScript/TypeScript ecosystems, cloud platforms, and full-stack development. Proven track record delivering production-grade applications using React, Node.js, Python, and AWS.
+
+    experience:
+      - company: Healthee
+        position: Senior Full Stack Developer
+        start_date: 2025-08
+        end_date: present
+        location: Buenos Aires, Argentina
+        summary: Full-stack development of healthcare applications with focus on user experience and performance.
+        highlights:
+          - Frontend development with React, React Native, and Vue.js
+          - Backend services with Node.js and TypeScript
+          - Microservices architecture deployed with Docker and Kubernetes
+          - CI/CD pipelines using GitHub Actions
+          - AWS services including Amplify, Secrets Manager, DynamoDB
+          - Performance optimization and debugging with BetterStack
+
+      - company: Proofpoint
+        position: Senior Software Engineer
+        start_date: 2024-12
+        end_date: 2025-08
+        location: Cupertino, CA, United States
+        summary: Development of large-scale distributed systems and data processing pipelines.
+        highlights:
+          - Distributed systems development using Kafka and Flink
+          - Cloud infrastructure automation and scaling
+          - Security-focused data pipeline development
+          - High-performance system optimization
+
+      - company: Avature
+        position: Staff Engineer
+        start_date: 2023-06
+        end_date: 2024-12
+        location: Argentina
+        summary: Full-stack development and platform engineering.
+        highlights:
+          - Python and PHP backend development
+          - AWS EMR and data processing pipeline implementation
+          - CI/CD automation and infrastructure as code
+          - Docker and Docker Compose orchestration
+          - System monitoring and metrics with Prometheus
+          - Configuration management with Pydantic
+
+      - company: Avature
+        position: Senior Software Engineer
+        start_date: 2018-12
+        end_date: 2023-07
+        location: Argentina
+        summary: Backend and integration framework development.
+        highlights:
+          - Integration framework development using PHP and JavaScript
+          - Apache NiFi custom processors in Java
+          - RESTful API development and OpenAPI specifications
+          - Core product feature development
+          - Database design and optimization
+
+      - company: d3
+        position: Full Stack Engineer
+        start_date: 2015-01
+        end_date: 2018-11
+        location: Argentina
+        summary: Enterprise application development across multiple technology stacks.
+        highlights:
+          - HL7-compliant medical systems (Java, Spring, HAPI-FHIR, Angular)
+          - .NET Core and ASP.NET web applications
+          - Ionic and AngularJS mobile applications
+          - C++ multimedia systems (audio streaming, DirectShow, ffmpeg)
+
+    education:
+      - institution: Universidad de Buenos Aires
+        area: Physical Sciences
+        degree: Licenciatura (40% completed)
+        start_date: 2008
+        end_date: 2012
+        location: Buenos Aires, Argentina
+
+      - institution: República Francesa
+        area: Electronics and Communications
+        degree: Electronic Technician
+        start_date: 1999
+        end_date: 2005
+        location: Argentina
+
+    skills:
+      - label: Programming Languages
+        details: TypeScript, JavaScript, Python, PHP, Java, C#, C++
+      - label: Frontend Frameworks
+        details: React, React Native, Vue.js, Angular, Ionic
+      - label: Backend Frameworks
+        details: Node.js, Express, .NET Core, Spring, Laravel
+      - label: Cloud & Infrastructure
+        details: AWS, Kubernetes, Docker, Terraform, Linux
+      - label: Databases
+        details: PostgreSQL, MongoDB, DynamoDB, MySQL
+      - label: DevOps & Tools
+        details: CI/CD, GitHub Actions, Prometheus, Grafana, Git
+
+    Languages:
+      - Spanish (Native)
+      - English (Professional Working)
+
+design:
+  theme: classic
+
+locale:
+  language: english
+
+settings:
+  current_date: "2025-01-27"
+

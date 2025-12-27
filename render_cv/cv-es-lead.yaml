@@ -1,0 +1,100 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/rendercv/rendercv/refs/tags/v2.6/schema.json
+cv:
+  name: Mariano Martín Fresno
+  headline: Líder Técnico | Engineering Manager | Sistemas Distribuidos y Arquitectura Cloud
+  location: Argentina
+  email: mnofresno@gmail.com
+  phone: +54 9 11 6250-2232
+  website:
+  photo: images/photo.webp
+  social_networks:
+    - network: GitHub
+      username: mnofresno
+    - network: LinkedIn
+      username: mariano-martin-fresno
+
+  sections:
+    Resumen:
+      - Líder Técnico y Engineering Manager con historial comprobado liderando equipos de ingeniería, diseñando arquitecturas escalables y entregando sistemas distribuidos de gran escala. Sólida experiencia en liderazgo de equipos, mentoría técnica, diseño de sistemas e infraestructura cloud. Lideré exitosamente equipos multifuncionales y establecí mejores prácticas de ingeniería.
+
+    experience:
+      - company: Avature
+        position: Staff Engineer / Líder Técnico
+        start_date: 2019-12
+        end_date: 2024-12
+        location: Argentina
+        summary: Liderazgo técnico en múltiples equipos, propiedad de plataforma y excelencia en ingeniería.
+        highlights:
+          - Lideré un equipo de 4 desarrolladores, realizando revisiones de código, entrevistas de contratación y evaluaciones de desempeño
+          - Propiedad y arquitectura de plataforma API con generación automática de especificación OpenAPI
+          - Diseñé e implementé infraestructura usando Kong API Gateway y Kubernetes
+          - Establecí prácticas de observabilidad con Grafana, Prometheus y stack ELK
+          - Automatización de infraestructura con Puppet y Terraform
+          - Liderazgo técnico en equipos de datos y plataforma
+          - Mentoría de desarrolladores y establecimiento de mejores prácticas
+
+      - company: Healthee
+        position: Especialista Técnico de Éxito del Cliente / Desarrollador Full Stack Senior
+        start_date: 2025-08
+        end_date: present
+        location: Buenos Aires, Argentina
+        summary: Habilitación técnica y liderazgo para equipos de éxito del cliente.
+        highlights:
+          - Liderazgo técnico en ingeniería orientada al cliente
+          - Decisiones de arquitectura para microservicios e infraestructura cloud
+          - Mentoría y transferencia de conocimiento a equipos de éxito del cliente
+          - Diseño de sistemas para aplicaciones de salud escalables
+
+      - company: Proofpoint
+        position: Desarrollador de Software Senior
+        start_date: 2024-12
+        end_date: 2025-08
+        location: Cupertino, CA, Estados Unidos
+        summary: Liderazgo técnico en diseño de sistemas de ciberseguridad de gran escala.
+        highlights:
+          - Diseño de arquitectura para sistemas distribuidos usando Kafka y Flink
+          - Estrategia de infraestructura cloud y automatización
+          - Arquitectura de sistemas enfocada en seguridad
+
+    education:
+      - institution: Universidad de Buenos Aires
+        area: Ciencias Físicas
+        degree: Licenciatura (40% completado)
+        start_date: 2008
+        end_date: 2012
+        location: Buenos Aires, Argentina
+
+      - institution: República Francesa
+        area: Electrónica y Comunicaciones
+        degree: Técnico Electrónico
+        start_date: 1999
+        end_date: 2005
+        location: Argentina
+
+    skills:
+      - label: Liderazgo y Gestión
+        details: Liderazgo de equipos, mentoría técnica, revisiones de código, contratación, evaluaciones de desempeño
+      - label: Arquitectura y Diseño
+        details: Diseño de sistemas, sistemas distribuidos, microservicios, diseño de APIs
+      - label: Cloud e Infraestructura
+        details: AWS, Kubernetes, Docker, Terraform, Infraestructura como Código
+      - label: Observabilidad y DevOps
+        details: Prometheus, Grafana, ELK, CI/CD, GitHub Actions
+      - label: Lenguajes de Programación
+        details: Python, TypeScript, JavaScript, PHP, Java
+      - label: Datos y Streaming
+        details: Kafka, Flink, EMR, DynamoDB, PostgreSQL
+
+    Idiomas:
+      - Español (Nativo)
+      - Inglés (Profesional)
+
+design:
+  theme: classic
+
+locale:
+  language: spanish
+
+settings:
+  current_date: "2025-01-27"
+

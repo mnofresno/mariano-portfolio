@@ -1,0 +1,100 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/rendercv/rendercv/refs/tags/v2.6/schema.json
+cv:
+  name: Mariano Martín Fresno
+  headline: Technical Leader | Engineering Manager | Distributed Systems & Cloud Architecture
+  location: Argentina
+  email: mnofresno@gmail.com
+  phone: +54 9 11 6250-2232
+  website:
+  photo: images/photo.webp
+  social_networks:
+    - network: GitHub
+      username: mnofresno
+    - network: LinkedIn
+      username: mariano-martin-fresno
+
+  sections:
+    Summary:
+      - Technical Leader and Engineering Manager with proven track record leading engineering teams, designing scalable architectures, and delivering large-scale distributed systems. Strong experience in team leadership, technical mentoring, system design, and cloud infrastructure. Successfully led cross-functional teams and established engineering best practices.
+
+    experience:
+      - company: Avature
+        position: Staff Engineer / Technical Leader
+        start_date: 2019-12
+        end_date: 2024-12
+        location: Argentina
+        summary: Technical leadership across multiple teams, platform ownership, and engineering excellence.
+        highlights:
+          - Led a team of 4 engineers, conducting code reviews, hiring interviews, and performance reviews
+          - Owned and architected API platform with automatic OpenAPI specification generation
+          - Designed and implemented infrastructure using Kong API Gateway and Kubernetes
+          - Established observability practices with Grafana, Prometheus, and ELK stack
+          - Automated infrastructure with Puppet and Terraform
+          - Technical leadership across data and platform teams
+          - Mentored engineers and established best practices
+
+      - company: Healthee
+        position: Customer Success Engineer / Senior Full Stack Developer
+        start_date: 2025-08
+        end_date: present
+        location: Buenos Aires, Argentina
+        summary: Technical enablement and leadership for customer success teams.
+        highlights:
+          - Technical leadership in customer-facing engineering
+          - Architecture decisions for microservices and cloud infrastructure
+          - Mentoring and knowledge transfer to customer success teams
+          - System design for scalable healthcare applications
+
+      - company: Proofpoint
+        position: Senior Software Engineer
+        start_date: 2024-12
+        end_date: 2025-08
+        location: Cupertino, CA, United States
+        summary: Technical leadership in large-scale cybersecurity systems design.
+        highlights:
+          - Architecture design for distributed systems using Kafka and Flink
+          - Cloud infrastructure strategy and automation
+          - Security-focused system architecture
+
+    education:
+      - institution: Universidad de Buenos Aires
+        area: Physical Sciences
+        degree: Licenciatura (40% completed)
+        start_date: 2008
+        end_date: 2012
+        location: Buenos Aires, Argentina
+
+      - institution: República Francesa
+        area: Electronics and Communications
+        degree: Electronic Technician
+        start_date: 1999
+        end_date: 2005
+        location: Argentina
+
+    skills:
+      - label: Leadership & Management
+        details: Team leadership, technical mentoring, code reviews, hiring, performance reviews
+      - label: Architecture & Design
+        details: System design, distributed systems, microservices, API design
+      - label: Cloud & Infrastructure
+        details: AWS, Kubernetes, Docker, Terraform, Infrastructure as Code
+      - label: Observability & DevOps
+        details: Prometheus, Grafana, ELK, CI/CD, GitHub Actions
+      - label: Programming Languages
+        details: Python, TypeScript, JavaScript, PHP, Java
+      - label: Data & Streaming
+        details: Kafka, Flink, EMR, DynamoDB, PostgreSQL
+
+    Languages:
+      - Spanish (Native)
+      - English (Professional Working)
+
+design:
+  theme: classic
+
+locale:
+  language: english
+
+settings:
+  current_date: "2025-01-27"
+

@@ -1,0 +1,99 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/rendercv/rendercv/refs/tags/v2.6/schema.json
+cv:
+  name: Mariano Martín Fresno
+  headline: Embedded Systems Engineer | IoT Developer | Electronics & Low-Level Programming
+  location: Argentina
+  email: mnofresno@gmail.com
+  phone: +54 9 11 6250-2232
+  website:
+  photo: images/photo.webp
+  social_networks:
+    - network: GitHub
+      username: mnofresno
+    - network: LinkedIn
+      username: mariano-martin-fresno
+
+  sections:
+    Summary:
+      - Embedded Systems Engineer and IoT Developer with strong foundation in electronics, low-level programming, and hardware-software integration. Technical background in electronics and communications, combined with extensive software development experience. Proven expertise in C/C++ systems programming, multimedia processing, and embedded applications.
+
+    experience:
+      - company: d3
+        position: Full Stack Engineer / Embedded Systems Developer
+        start_date: 2015-01
+        end_date: 2018-11
+        location: Argentina
+        summary: Development of embedded and multimedia systems with focus on hardware integration.
+        highlights:
+          - C++ multimedia systems development (audio streaming, DirectShow, ffmpeg)
+          - Low-level system programming and hardware integration
+          - Real-time audio/video processing systems
+          - Embedded system architecture and optimization
+          - Cross-platform development for embedded devices
+
+      - company: Avature
+        position: Senior Software Engineer
+        start_date: 2018-12
+        end_date: 2023-07
+        location: Argentina
+        summary: Backend systems development with focus on performance and system-level programming.
+        highlights:
+          - Apache NiFi custom processors in Java (data pipeline processing)
+          - Integration framework development (system-level integrations)
+          - Performance optimization and low-latency systems
+          - Linux system programming and automation
+
+      - company: Healthee
+        position: Senior Full Stack Developer
+        start_date: 2025-08
+        end_date: present
+        location: Buenos Aires, Argentina
+        summary: Full-stack development with focus on system integration and performance.
+        highlights:
+          - System integration and API development
+          - Performance optimization and debugging
+          - Microservices architecture for scalable systems
+
+    education:
+      - institution: República Francesa
+        area: Electronics and Communications
+        degree: Electronic Technician
+        start_date: 1999
+        end_date: 2005
+        location: Argentina
+        summary: Technical education in electronics, digital systems, communications, and embedded systems fundamentals.
+
+      - institution: Universidad de Buenos Aires
+        area: Physical Sciences
+        degree: Licenciatura (40% completed)
+        start_date: 2008
+        end_date: 2012
+        location: Buenos Aires, Argentina
+
+    skills:
+      - label: Embedded & Low-Level Programming
+        details: C, C++, System Programming, Real-time Systems, Hardware Integration
+      - label: Electronics & Hardware
+        details: Digital Electronics, Embedded Systems, Microcontrollers, Signal Processing
+      - label: Multimedia & Streaming
+        details: FFmpeg, DirectShow, Audio/Video Processing, Codec Development
+      - label: IoT & Connectivity
+        details: Embedded Linux, Device Integration, Protocol Implementation
+      - label: Programming Languages
+        details: C, C++, Python, Java, TypeScript, JavaScript
+      - label: System Tools
+        details: Linux, Git, Docker, CI/CD, Performance Optimization
+
+    Languages:
+      - Spanish (Native)
+      - English (Professional Working)
+
+design:
+  theme: classic
+
+locale:
+  language: english
+
+settings:
+  current_date: "2025-01-27"
+

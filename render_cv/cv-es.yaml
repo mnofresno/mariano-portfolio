@@ -1,99 +1,144 @@
 # yaml-language-server: $schema=https://raw.githubusercontent.com/rendercv/rendercv/refs/tags/v2.6/schema.json
 cv:
-  name: Mariano Fresno
-  headline: Desarrollador Full Stack / Ingeniero de Software
-  location: Buenos Aires, Argentina
-  email: tu-email@ejemplo.com
-  phone: +54 9 11 1234-5678
-  website: https://marianonofresno.com
-  photo:
+  name: Mariano Martín Fresno
+  headline: Especialista en Software Senior | Tech Lead | IA, Cloud y Sistemas Distribuidos
+  location: Argentina
+  email: mnofresno@gmail.com
+  phone: +54 9 11 6250-2232
+  website:
+  photo: images/photo.webp
   social_networks:
     - network: GitHub
       username: mnofresno
     - network: LinkedIn
-      username: mariano-fresno
-  custom_connections:
+      username: mariano-martin-fresno
+
   sections:
     Resumen:
-      - Desarrollador Full Stack con experiencia en desarrollo web, aplicaciones móviles y sistemas backend. Especializado en tecnologías modernas como Node.js, Python, Angular y React. Apasionado por crear soluciones escalables y de alta calidad.
-    education:
-      - institution: Universidad de Buenos Aires
-        area: Ingeniería en Informática
-        degree: Licenciatura
-        start_date: 2015-09
-        end_date: 2020-06
-        location: Buenos Aires, Argentina
-        summary:
-        highlights:
-          - Ciencias de la Computación e Ingeniería de Software
-      - institution: Curso Avanzado
-        area: Desarrollo Full Stack
-        degree: Certificación
-        start_date: 2021-01
-        end_date: 2021-12
-        location:
-        summary:
-        highlights:
-          - Tecnologías modernas de desarrollo web
+      - Especialista en Software Senior y Líder Técnico con sólida experiencia en sistemas distribuidos, infraestructura en la nube, automatización basada en IA y plataformas de gran escala. Experiencia comprobada en mentoría técnica, liderazgo de equipos y entrega de sistemas de nivel productivo utilizando Python, TypeScript, Kubernetes, Kafka y AWS.
+
     experience:
-      - company: Empresa Actual
-        position: Desarrollador Full Stack Senior
-        start_date: 2021-01
+      - company: Healthee
+        position: Especialista Técnico de Éxito del Cliente / Desarrollador Full Stack Senior
+        start_date: 2025-08
         end_date: present
-        location:
-        summary: Desarrollo y mantenimiento de aplicaciones web y móviles. Liderazgo técnico en proyectos de gran escala.
+        location: Buenos Aires, Argentina
+        summary: Desarrollo full-stack y habilitación técnica para equipos de éxito del cliente.
         highlights:
-          - Desarrollo de APIs RESTful con Node.js y Express
-          - Implementación de frontend con Angular y React
-          - Gestión de bases de datos MySQL y PostgreSQL
-          - Implementación de CI/CD con Docker y GitHub Actions
-      - company: Empresa Anterior
-        position: Desarrollador Backend
-        start_date: 2019-06
-        end_date: 2020-12
-        location:
-        summary: Desarrollo de servicios backend y APIs.
+          - Desarrollo frontend con React, React Native y Vue.js
+          - Servicios backend con Node.js y TypeScript
+          - Microservicios desplegados con Docker y Kubernetes
+          - Pipelines CI/CD utilizando GitHub Actions
+          - Servicios AWS incluyendo Amplify, Secrets Manager, DynamoDB
+          - Observabilidad y resolución de problemas con BetterStack
+
+      - company: Proofpoint
+        position: Desarrollador de Software Senior
+        start_date: 2024-12
+        end_date: 2025-08
+        location: Cupertino, CA, Estados Unidos
+        summary: Diseño y desarrollo de sistemas de ciberseguridad de gran escala.
         highlights:
-          - Desarrollo de microservicios con Python y Flask
-          - Optimización de consultas SQL
-          - Implementación de tests automatizados
-    projects:
-      - name: Portfolio Personal
-        start_date: 2024-01
-        end_date: present
-        location:
-        summary: Sitio web personal desarrollado con tecnologías modernas.
-        highlights:
-          - Diseño responsive y accesible
-          - Integración con chatbot con IA
-          - Optimización de performance
-      - name: Sistema de Gestión
+          - Sistemas distribuidos utilizando Kafka y Flink
+          - Automatización en la nube e infraestructura escalable
+          - Pipelines de datos enfocados en seguridad
+
+      - company: Avature
+        position: Staff Engineer
         start_date: 2023-06
         end_date: 2024-12
-        location:
-        summary: Sistema completo de gestión desarrollado con Laravel y Angular.
+        location: Argentina
+        summary: Liderazgo técnico en equipos de datos y plataforma.
         highlights:
-          - Arquitectura modular y escalable
-          - API RESTful completa
-          - Dashboard interactivo
+          - AWS EMR y pipelines de procesamiento de datos
+          - Desarrollo en Python y PHP
+          - Automatización CI/CD y gestión de servidores Linux
+          - Orquestación con Docker y Docker Compose
+          - Métricas y monitoreo con Prometheus
+          - Normalización y validación de configuración con Pydantic
+
+      - company: Avature
+        position: Líder Técnico
+        start_date: 2019-12
+        end_date: 2023-07
+        location: Argentina
+        summary: Liderazgo de equipo y propiedad de plataforma API.
+        highlights:
+          - Lideré un equipo de 4 desarrolladores
+          - Plataforma API con generación automática de especificación OpenAPI
+          - Kong API Gateway y Kubernetes
+          - Revisiones de código, entrevistas de contratación y evaluaciones de desempeño
+          - Observabilidad con Grafana, Prometheus, ELK
+          - Automatización de infraestructura con Puppet y Terraform
+
+      - company: Avature
+        position: Desarrollador de Software Senior
+        start_date: 2018-12
+        end_date: 2019-12
+        location: Argentina
+        summary: Desarrollo de backend y framework de integración.
+        highlights:
+          - Framework de integración utilizando PHP y JavaScript
+          - Procesadores personalizados de Apache NiFi en Java
+          - Desarrollo de funcionalidades principales del producto
+
+      - company: d3
+        position: Desarrollador Full Stack
+        start_date: 2015-01
+        end_date: 2018-11
+        location: Argentina
+        summary: Desarrollo de sistemas empresariales y de salud.
+        highlights:
+          - Sistemas médicos compatibles con HL7 (Java, Spring, HAPI-FHIR, Angular)
+          - Sistemas .NET Core y ASP.NET
+          - Aplicaciones móviles Ionic y AngularJS
+          - Sistemas multimedia en C++ (streaming de audio, DirectShow, ffmpeg)
+
+    education:
+      - institution: Universidad de Buenos Aires
+        area: Ciencias Físicas
+        degree: Licenciatura (40% completado)
+        start_date: 2008
+        end_date: 2012
+        location: Buenos Aires, Argentina
+
+      - institution: Universidad de Buenos Aires
+        area: Filosofía
+        degree: Licenciatura (Estudios introductorios)
+        start_date: 2012
+        end_date: 2013
+        location: Buenos Aires, Argentina
+
+      - institution: República Francesa
+        area: Electrónica y Comunicaciones
+        degree: Técnico Electrónico
+        start_date: 1999
+        end_date: 2005
+        location: Argentina
+
     skills:
       - label: Lenguajes de Programación
-        details: JavaScript, TypeScript, Python, PHP, Java
-      - label: Frameworks Frontend
-        details: Angular, React, Vue.js, Bootstrap
-      - label: Frameworks Backend
-        details: Node.js, Express, Laravel, Flask, Django
-      - label: Bases de Datos
-        details: MySQL, PostgreSQL, MongoDB, Redis
-      - label: DevOps
-        details: Docker, Git, CI/CD, Linux, Nginx
+        details: Python, TypeScript, JavaScript, Go (en aprendizaje), PHP, Java, C#
+      - label: Cloud e Infraestructura
+        details: AWS, Kubernetes, Docker, Terraform, Linux
+      - label: Datos y Streaming
+        details: Kafka, Flink, EMR, DynamoDB, PostgreSQL, MongoDB
+      - label: IA y Automatización
+        details: LLMs, NLP, automatización basada en IA, diseño de prompts
+      - label: Observabilidad y DevOps
+        details: Prometheus, Grafana, ELK, CI/CD, GitHub Actions
+      - label: Liderazgo
+        details: Mentoría técnica, revisiones de código, contratación, evaluaciones de desempeño
+
     Idiomas:
       - Español (Nativo)
-      - Inglés (Avanzado)
-      - Portugués (Intermedio)
+      - Inglés (Profesional)
+
 design:
   theme: classic
+
 locale:
   language: spanish
+
 settings:
-  current_date: '2025-01-27'
+  current_date: "2025-01-27"

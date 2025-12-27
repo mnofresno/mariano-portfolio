@@ -1,0 +1,127 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/rendercv/rendercv/refs/tags/v2.6/schema.json
+cv:
+  name: Mariano Martín Fresno
+  headline: Desarrollador Full Stack Senior | Especialista en Software | Tecnologías Web y Cloud Modernas
+  location: Argentina
+  email: mnofresno@gmail.com
+  phone: +54 9 11 6250-2232
+  website:
+  photo: images/photo.webp
+  social_networks:
+    - network: GitHub
+      username: mnofresno
+    - network: LinkedIn
+      username: mariano-martin-fresno
+
+  sections:
+    Resumen:
+      - Desarrollador Full Stack Senior con amplia experiencia construyendo aplicaciones web escalables, aplicaciones móviles y sistemas backend. Sólida experiencia en ecosistemas modernos de JavaScript/TypeScript, plataformas cloud y desarrollo full-stack. Historial comprobado entregando aplicaciones de nivel productivo usando React, Node.js, Python y AWS.
+
+    experience:
+      - company: Healthee
+        position: Desarrollador Full Stack Senior
+        start_date: 2025-08
+        end_date: present
+        location: Buenos Aires, Argentina
+        summary: Desarrollo full-stack de aplicaciones de salud con enfoque en experiencia de usuario y rendimiento.
+        highlights:
+          - Desarrollo frontend con React, React Native y Vue.js
+          - Servicios backend con Node.js y TypeScript
+          - Arquitectura de microservicios desplegada con Docker y Kubernetes
+          - Pipelines CI/CD utilizando GitHub Actions
+          - Servicios AWS incluyendo Amplify, Secrets Manager, DynamoDB
+          - Optimización de rendimiento y debugging con BetterStack
+
+      - company: Proofpoint
+        position: Desarrollador de Software Senior
+        start_date: 2024-12
+        end_date: 2025-08
+        location: Cupertino, CA, Estados Unidos
+        summary: Desarrollo de sistemas distribuidos de gran escala y pipelines de procesamiento de datos.
+        highlights:
+          - Desarrollo de sistemas distribuidos utilizando Kafka y Flink
+          - Automatización de infraestructura cloud y escalado
+          - Desarrollo de pipelines de datos enfocados en seguridad
+          - Optimización de sistemas de alto rendimiento
+
+      - company: Avature
+        position: Staff Engineer
+        start_date: 2023-06
+        end_date: 2024-12
+        location: Argentina
+        summary: Desarrollo full-stack e ingeniería de plataforma.
+        highlights:
+          - Desarrollo backend en Python y PHP
+          - Implementación de AWS EMR y pipelines de procesamiento de datos
+          - Automatización CI/CD e infraestructura como código
+          - Orquestación con Docker y Docker Compose
+          - Monitoreo de sistemas y métricas con Prometheus
+          - Gestión de configuración con Pydantic
+
+      - company: Avature
+        position: Desarrollador de Software Senior
+        start_date: 2018-12
+        end_date: 2023-07
+        location: Argentina
+        summary: Desarrollo de backend y framework de integración.
+        highlights:
+          - Desarrollo de framework de integración utilizando PHP y JavaScript
+          - Procesadores personalizados de Apache NiFi en Java
+          - Desarrollo de APIs RESTful y especificaciones OpenAPI
+          - Desarrollo de funcionalidades principales del producto
+          - Diseño y optimización de bases de datos
+
+      - company: d3
+        position: Desarrollador Full Stack
+        start_date: 2015-01
+        end_date: 2018-11
+        location: Argentina
+        summary: Desarrollo de aplicaciones empresariales en múltiples stacks tecnológicos.
+        highlights:
+          - Sistemas médicos compatibles con HL7 (Java, Spring, HAPI-FHIR, Angular)
+          - Aplicaciones web .NET Core y ASP.NET
+          - Aplicaciones móviles Ionic y AngularJS
+          - Sistemas multimedia en C++ (streaming de audio, DirectShow, ffmpeg)
+
+    education:
+      - institution: Universidad de Buenos Aires
+        area: Ciencias Físicas
+        degree: Licenciatura (40% completado)
+        start_date: 2008
+        end_date: 2012
+        location: Buenos Aires, Argentina
+
+      - institution: República Francesa
+        area: Electrónica y Comunicaciones
+        degree: Técnico Electrónico
+        start_date: 1999
+        end_date: 2005
+        location: Argentina
+
+    skills:
+      - label: Lenguajes de Programación
+        details: TypeScript, JavaScript, Python, PHP, Java, C#, C++
+      - label: Frameworks Frontend
+        details: React, React Native, Vue.js, Angular, Ionic
+      - label: Frameworks Backend
+        details: Node.js, Express, .NET Core, Spring, Laravel
+      - label: Cloud e Infraestructura
+        details: AWS, Kubernetes, Docker, Terraform, Linux
+      - label: Bases de Datos
+        details: PostgreSQL, MongoDB, DynamoDB, MySQL
+      - label: DevOps y Herramientas
+        details: CI/CD, GitHub Actions, Prometheus, Grafana, Git
+
+    Idiomas:
+      - Español (Nativo)
+      - Inglés (Profesional)
+
+design:
+  theme: classic
+
+locale:
+  language: spanish
+
+settings:
+  current_date: "2025-01-27"
+

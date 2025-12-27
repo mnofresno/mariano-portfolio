@@ -1,0 +1,99 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/rendercv/rendercv/refs/tags/v2.6/schema.json
+cv:
+  name: Mariano Martín Fresno
+  headline: Especialista en Sistemas Embebidos | Desarrollador IoT | Electrónica y Programación de Bajo Nivel
+  location: Argentina
+  email: mnofresno@gmail.com
+  phone: +54 9 11 6250-2232
+  website:
+  photo: images/photo.webp
+  social_networks:
+    - network: GitHub
+      username: mnofresno
+    - network: LinkedIn
+      username: mariano-martin-fresno
+
+  sections:
+    Resumen:
+      - Especialista en Sistemas Embebidos y Desarrollador IoT con sólida base en electrónica, programación de bajo nivel e integración hardware-software. Formación técnica en electrónica y comunicaciones, combinada con amplia experiencia en desarrollo de software. Experiencia comprobada en programación de sistemas C/C++, procesamiento multimedia y aplicaciones embebidas.
+
+    experience:
+      - company: d3
+        position: Desarrollador Full Stack / Desarrollador de Sistemas Embebidos
+        start_date: 2015-01
+        end_date: 2018-11
+        location: Argentina
+        summary: Desarrollo de sistemas embebidos y multimedia con enfoque en integración de hardware.
+        highlights:
+          - Desarrollo de sistemas multimedia en C++ (streaming de audio, DirectShow, ffmpeg)
+          - Programación de sistemas de bajo nivel e integración de hardware
+          - Sistemas de procesamiento de audio/video en tiempo real
+          - Arquitectura y optimización de sistemas embebidos
+          - Desarrollo multiplataforma para dispositivos embebidos
+
+      - company: Avature
+        position: Desarrollador de Software Senior
+        start_date: 2018-12
+        end_date: 2023-07
+        location: Argentina
+        summary: Desarrollo de sistemas backend con enfoque en rendimiento y programación a nivel de sistema.
+        highlights:
+          - Procesadores personalizados de Apache NiFi en Java (procesamiento de pipelines de datos)
+          - Desarrollo de framework de integración (integraciones a nivel de sistema)
+          - Optimización de rendimiento y sistemas de baja latencia
+          - Programación de sistemas Linux y automatización
+
+      - company: Healthee
+        position: Desarrollador Full Stack Senior
+        start_date: 2025-08
+        end_date: present
+        location: Buenos Aires, Argentina
+        summary: Desarrollo full-stack con enfoque en integración de sistemas y rendimiento.
+        highlights:
+          - Integración de sistemas y desarrollo de APIs
+          - Optimización de rendimiento y debugging
+          - Arquitectura de microservicios para sistemas escalables
+
+    education:
+      - institution: República Francesa
+        area: Electrónica y Comunicaciones
+        degree: Técnico Electrónico
+        start_date: 1999
+        end_date: 2005
+        location: Argentina
+        summary: Formación técnica en electrónica, sistemas digitales, comunicaciones y fundamentos de sistemas embebidos.
+
+      - institution: Universidad de Buenos Aires
+        area: Ciencias Físicas
+        degree: Licenciatura (40% completado)
+        start_date: 2008
+        end_date: 2012
+        location: Buenos Aires, Argentina
+
+    skills:
+      - label: Programación Embebida y Bajo Nivel
+        details: C, C++, Programación de Sistemas, Sistemas en Tiempo Real, Integración de Hardware
+      - label: Electrónica y Hardware
+        details: Electrónica Digital, Sistemas Embebidos, Microcontroladores, Procesamiento de Señales
+      - label: Multimedia y Streaming
+        details: FFmpeg, DirectShow, Procesamiento de Audio/Video, Desarrollo de Codecs
+      - label: IoT y Conectividad
+        details: Linux Embebido, Integración de Dispositivos, Implementación de Protocolos
+      - label: Lenguajes de Programación
+        details: C, C++, Python, Java, TypeScript, JavaScript
+      - label: Herramientas de Sistema
+        details: Linux, Git, Docker, CI/CD, Optimización de Rendimiento
+
+    Idiomas:
+      - Español (Nativo)
+      - Inglés (Profesional)
+
+design:
+  theme: classic
+
+locale:
+  language: spanish
+
+settings:
+  current_date: "2025-01-27"
+

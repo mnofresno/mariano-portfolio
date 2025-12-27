@@ -1,0 +1,87 @@
+name: Generate CVs and Upload to Releases
+
+on:
+  push:
+    branches:
+      - master
+      - main
+    paths:
+      - 'render_cv/**'
+      - '.github/workflows/generate-cv.yml'
+
+jobs:
+  generate-cvs:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install RenderCV
+        run: |
+          pip install --upgrade pip
+          pip install "rendercv[full]"
+
+      - name: Create output directory
+        run: |
+          mkdir -p render_cv/rendercv_output
+
+      - name: Generate all CV variants
+        working-directory: render_cv
+        run: |
+          # Generate English CVs
+          rendercv render cv-en.yaml --pdf-path "rendercv_output/CV-en.pdf" --dont-generate-markdown --dont-generate-html --dont-generate-typst --dont-generate-png
+          rendercv render cv-en-dev.yaml --pdf-path "rendercv_output/CV-en-dev.pdf" --dont-generate-markdown --dont-generate-html --dont-generate-typst --dont-generate-png
+          rendercv render cv-en-lead.yaml --pdf-path "rendercv_output/CV-en-lead.pdf" --dont-generate-markdown --dont-generate-html --dont-generate-typst --dont-generate-png
+          rendercv render cv-en-iot.yaml --pdf-path "rendercv_output/CV-en-iot.pdf" --dont-generate-markdown --dont-generate-html --dont-generate-typst --dont-generate-png
+          
+          # Generate Spanish CVs
+          rendercv render cv-es.yaml --pdf-path "rendercv_output/CV-es.pdf" --dont-generate-markdown --dont-generate-html --dont-generate-typst --dont-generate-png
+          rendercv render cv-es-dev.yaml --pdf-path "rendercv_output/CV-es-dev.pdf" --dont-generate-markdown --dont-generate-html --dont-generate-typst --dont-generate-png
+          rendercv render cv-es-lead.yaml --pdf-path "rendercv_output/CV-es-lead.pdf" --dont-generate-markdown --dont-generate-html --dont-generate-typst --dont-generate-png
+          rendercv render cv-es-iot.yaml --pdf-path "rendercv_output/CV-es-iot.pdf" --dont-generate-markdown --dont-generate-html --dont-generate-typst --dont-generate-png
+
+      - name: List generated PDFs
+        working-directory: render_cv
+        run: |
+          ls -lh rendercv_output/*.pdf
+
+      - name: Create Release
+        id: create_release
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: cv-v${{ github.run_number }}
+          name: CVs - ${{ github.run_number }}
+          body: |
+            Automatically generated CVs from commit ${{ github.sha }}
+            
+            **English Versions:**
+            - CV-en.pdf (General)
+            - CV-en-dev.pdf (Development focused)
+            - CV-en-lead.pdf (Tech Lead focused)
+            - CV-en-iot.pdf (IoT & Electronics focused)
+            
+            **Spanish Versions:**
+            - CV-es.pdf (General)
+            - CV-es-dev.pdf (Desarrollo)
+            - CV-es-lead.pdf (Líder Técnico)
+            - CV-es-iot.pdf (IoT y Electrónica)
+          draft: false
+          prerelease: false
+          files: |
+            render_cv/rendercv_output/CV-en.pdf
+            render_cv/rendercv_output/CV-en-dev.pdf
+            render_cv/rendercv_output/CV-en-lead.pdf
+            render_cv/rendercv_output/CV-en-iot.pdf
+            render_cv/rendercv_output/CV-es.pdf
+            render_cv/rendercv_output/CV-es-dev.pdf
+            render_cv/rendercv_output/CV-es-lead.pdf
+            render_cv/rendercv_output/CV-es-iot.pdf
+
