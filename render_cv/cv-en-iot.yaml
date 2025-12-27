@@ -1,7 +1,7 @@
 # yaml-language-server: $schema=https://raw.githubusercontent.com/rendercv/rendercv/refs/tags/v2.6/schema.json
 cv:
   name: Mariano Martín Fresno
-  headline: Embedded Systems Engineer | IoT Developer | Electronics & Low-Level Programming
+  headline: Embedded Systems Engineer | IoT Developer | Machines & Systems | Electronics & Low-Level Programming
   location: Argentina
   email: mnofresno@gmail.com
   phone: +54 9 11 6250-2232
@@ -15,33 +15,75 @@ cv:
 
   sections:
     Summary:
-      - Embedded Systems Engineer and IoT Developer with strong foundation in electronics, low-level programming, and hardware-software integration. Technical background in electronics and communications, combined with extensive software development experience. Proven expertise in C/C++ systems programming, multimedia processing, and embedded applications.
+      - Embedded Systems Engineer and IoT Developer with strong foundation in electronics, low-level programming, and hardware-software integration. Technical background in electronics and communications, combined with extensive software development experience. Proven expertise in C/C++ systems programming, machine control systems, multimedia processing, and embedded applications. Experience developing systems for industrial machines, device control, and real-time embedded applications.
 
     experience:
+      - company: Machines & Systems Automation S.R.L.
+        position: Maintenance and Development Technician
+        start_date: 2003-01
+        end_date: 2005-01
+        location: Vicente López, Buenos Aires, Argentina
+        summary: Industrial automation, PLC programming, SCADA systems, and machine control for automotive and manufacturing industries.
+        highlights:
+          - PLC programming and complete software development for automated filling stations and cutting systems
+          - Design and execution of electronic devices for microcontroller programming and interfacing
+          - SCADA systems: Siemens SINEC_H1 ring networks for remote monitoring of industrial processes
+          - Human-machine interface (HMI) programming for automated equipment
+          - Modernization and reconditioning of power and control panels for machine tools (CARRARO/TRACTORES DEUTZ)
+          - Construction of automatic devices for manufacturing (ultrasonic welding, filling, cutting dies)
+          - Installation and maintenance of industrial communication systems and telemetry
+          - Electrical and pneumatic panel construction and cabling from engineering drawings
+
+      - company: Catálisis Desarrollos e Instalaciones
+        position: CEO & Co-Founder
+        start_date: 2011-01
+        end_date: 2016-01
+        location: Colegiales, Capital Federal, Argentina
+        summary: Software and hardware development, IT infrastructure, and embedded systems for industrial applications.
+        highlights:
+          - Embedded systems development with Arduino, C++, and Python
+          - Hardware and software development for industrial applications
+          - IT network installation and maintenance (servers, databases, VPN, PBX systems)
+          - Development with Laravel, .NET, PHP, Qt, and Linux systems
+          - Equipment provisioning and software implementations
+
+      - company: Facultad de Ciencias Exactas y Naturales, UBA
+        position: Technician in Teaching Laboratories
+        start_date: 2009-01
+        end_date: 2010-02
+        location: Departamento de Física, FCEN, Buenos Aires, Argentina
+        summary: Laboratory equipment maintenance, data acquisition systems, and instrumentation.
+        highlights:
+          - Repair and modification of laboratory equipment (lasers, discharge lamps, transducers)
+          - Data acquisition systems repair and LabView interface programming
+          - Optical, acoustic, and electronic instruments maintenance
+
       - company: d3
         position: Full Stack Engineer / Embedded Systems Developer
         start_date: 2015-01
         end_date: 2018-11
         location: Argentina
-        summary: Development of embedded and multimedia systems with focus on hardware integration.
+        summary: Development of embedded systems, machine control, and multimedia systems with focus on hardware integration.
         highlights:
           - C++ multimedia systems development (audio streaming, DirectShow, ffmpeg)
+          - Machine control systems and device integration
           - Low-level system programming and hardware integration
           - Real-time audio/video processing systems
           - Embedded system architecture and optimization
-          - Cross-platform development for embedded devices
+          - Cross-platform development for embedded devices and industrial systems
 
       - company: Avature
         position: Senior Software Engineer
         start_date: 2018-12
         end_date: 2023-07
         location: Argentina
-        summary: Backend systems development with focus on performance and system-level programming.
+        summary: Backend systems development with focus on performance, system-level programming, and machine-to-machine integrations.
         highlights:
-          - Apache NiFi custom processors in Java (data pipeline processing)
-          - Integration framework development (system-level integrations)
+          - Apache NiFi custom processors in Java (data pipeline processing for machine data)
+          - Integration framework development (system-level integrations and device connectivity)
           - Performance optimization and low-latency systems
           - Linux system programming and automation
+          - System integration for distributed machine networks
 
       - company: Healthee
         position: Senior Full Stack Developer
@@ -73,12 +115,14 @@ cv:
     skills:
       - label: Embedded & Low-Level Programming
         details: C, C++, System Programming, Real-time Systems, Hardware Integration
+      - label: Machines & Systems
+        details: PLC Programming, SCADA Systems, Industrial Automation, Machine Control, HMI Programming, Telemetry
       - label: Electronics & Hardware
-        details: Digital Electronics, Embedded Systems, Microcontrollers, Signal Processing
+        details: Digital Electronics, Embedded Systems, Microcontrollers, Arduino, Signal Processing, Circuit Design, Hardware Repair
       - label: Multimedia & Streaming
         details: FFmpeg, DirectShow, Audio/Video Processing, Codec Development
       - label: IoT & Connectivity
-        details: Embedded Linux, Device Integration, Protocol Implementation
+        details: Embedded Linux, Device Integration, Protocol Implementation, M2M Communication
       - label: Programming Languages
         details: C, C++, Python, Java, TypeScript, JavaScript
       - label: System Tools

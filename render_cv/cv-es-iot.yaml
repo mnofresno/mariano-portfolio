@@ -1,7 +1,7 @@
 # yaml-language-server: $schema=https://raw.githubusercontent.com/rendercv/rendercv/refs/tags/v2.6/schema.json
 cv:
   name: Mariano Martín Fresno
-  headline: Especialista en Sistemas Embebidos | Desarrollador IoT | Electrónica y Programación de Bajo Nivel
+  headline: Especialista en Sistemas Embebidos | Desarrollador IoT | Máquinas y Sistemas | Electrónica y Programación de Bajo Nivel
   location: Argentina
   email: mnofresno@gmail.com
   phone: +54 9 11 6250-2232
@@ -15,33 +15,75 @@ cv:
 
   sections:
     Resumen:
-      - Especialista en Sistemas Embebidos y Desarrollador IoT con sólida base en electrónica, programación de bajo nivel e integración hardware-software. Formación técnica en electrónica y comunicaciones, combinada con amplia experiencia en desarrollo de software. Experiencia comprobada en programación de sistemas C/C++, procesamiento multimedia y aplicaciones embebidas.
+      - Especialista en Sistemas Embebidos y Desarrollador IoT con sólida base en electrónica, programación de bajo nivel e integración hardware-software. Formación técnica en electrónica y comunicaciones, combinada con amplia experiencia en desarrollo de software. Experiencia comprobada en programación de sistemas C/C++, sistemas de control de máquinas, procesamiento multimedia y aplicaciones embebidas. Experiencia desarrollando sistemas para máquinas industriales, control de dispositivos y aplicaciones embebidas en tiempo real.
 
     experience:
+      - company: Machines & Systems Automation S.R.L.
+        position: Técnico de Mantenimiento y Desarrollo
+        start_date: 2003-01
+        end_date: 2005-01
+        location: Vicente López, Buenos Aires, Argentina
+        summary: Automatización industrial, programación de PLC, sistemas SCADA y control de máquinas para industrias automotriz y manufacturera.
+        highlights:
+          - Programación de PLC y desarrollo completo de software para estaciones de llenado automatizadas y sistemas de corte
+          - Diseño y ejecución de dispositivos electrónicos para programación e interfaz con microcontroladores
+          - Sistemas SCADA: redes anillo Siemens SINEC_H1 para monitoreo remoto de procesos industriales
+          - Programación de interfaces humano-máquina (HMI) para equipos automatizados
+          - Modernización y reacondicionamiento de paneles de potencia y control para máquinas herramienta (CARRARO/TRACTORES DEUTZ)
+          - Construcción de dispositivos automáticos para manufactura (soldadura ultrasónica, llenado, matrices de corte)
+          - Instalación y mantenimiento de sistemas de comunicación industrial y telemetría
+          - Construcción y cableado de paneles eléctricos y neumáticos desde planos de ingeniería
+
+      - company: Catálisis Desarrollos e Instalaciones
+        position: CEO & Co-Founder
+        start_date: 2011-01
+        end_date: 2016-01
+        location: Colegiales, Capital Federal, Argentina
+        summary: Desarrollo de software y hardware, infraestructura IT y sistemas embebidos para aplicaciones industriales.
+        highlights:
+          - Desarrollo de sistemas embebidos con Arduino, C++ y Python
+          - Desarrollo de hardware y software para aplicaciones industriales
+          - Instalación y mantenimiento de redes IT (servidores, bases de datos, VPN, sistemas PBX)
+          - Desarrollo con Laravel, .NET, PHP, Qt y sistemas Linux
+          - Provisión de equipamiento e implementaciones de software
+
+      - company: Facultad de Ciencias Exactas y Naturales, UBA
+        position: Técnico en Laboratorios de Enseñanza
+        start_date: 2009-01
+        end_date: 2010-02
+        location: Departamento de Física, FCEN, Buenos Aires, Argentina
+        summary: Mantenimiento de equipos de laboratorio, sistemas de adquisición de datos e instrumentación.
+        highlights:
+          - Reparación y modificación de equipos de laboratorio (láseres, lámparas de descarga, transductores)
+          - Reparación de sistemas de adquisición de datos y programación de interfaces LabView
+          - Mantenimiento de instrumentos ópticos, acústicos y electrónicos
+
       - company: d3
         position: Desarrollador Full Stack / Desarrollador de Sistemas Embebidos
         start_date: 2015-01
         end_date: 2018-11
         location: Argentina
-        summary: Desarrollo de sistemas embebidos y multimedia con enfoque en integración de hardware.
+        summary: Desarrollo de sistemas embebidos, control de máquinas y sistemas multimedia con enfoque en integración de hardware.
         highlights:
           - Desarrollo de sistemas multimedia en C++ (streaming de audio, DirectShow, ffmpeg)
+          - Sistemas de control de máquinas e integración de dispositivos
           - Programación de sistemas de bajo nivel e integración de hardware
           - Sistemas de procesamiento de audio/video en tiempo real
           - Arquitectura y optimización de sistemas embebidos
-          - Desarrollo multiplataforma para dispositivos embebidos
+          - Desarrollo multiplataforma para dispositivos embebidos y sistemas industriales
 
       - company: Avature
         position: Desarrollador de Software Senior
         start_date: 2018-12
         end_date: 2023-07
         location: Argentina
-        summary: Desarrollo de sistemas backend con enfoque en rendimiento y programación a nivel de sistema.
+        summary: Desarrollo de sistemas backend con enfoque en rendimiento, programación a nivel de sistema e integraciones máquina-a-máquina.
         highlights:
-          - Procesadores personalizados de Apache NiFi en Java (procesamiento de pipelines de datos)
-          - Desarrollo de framework de integración (integraciones a nivel de sistema)
+          - Procesadores personalizados de Apache NiFi en Java (procesamiento de pipelines de datos de máquinas)
+          - Desarrollo de framework de integración (integraciones a nivel de sistema y conectividad de dispositivos)
           - Optimización de rendimiento y sistemas de baja latencia
           - Programación de sistemas Linux y automatización
+          - Integración de sistemas para redes distribuidas de máquinas
 
       - company: Healthee
         position: Desarrollador Full Stack Senior
@@ -73,12 +115,14 @@ cv:
     skills:
       - label: Programación Embebida y Bajo Nivel
         details: C, C++, Programación de Sistemas, Sistemas en Tiempo Real, Integración de Hardware
+      - label: Máquinas y Sistemas
+        details: Programación de PLC, Sistemas SCADA, Automatización Industrial, Control de Máquinas, Programación HMI, Telemetría
       - label: Electrónica y Hardware
-        details: Electrónica Digital, Sistemas Embebidos, Microcontroladores, Procesamiento de Señales
+        details: Electrónica Digital, Sistemas Embebidos, Microcontroladores, Arduino, Procesamiento de Señales, Diseño de Circuitos, Reparación de Hardware
       - label: Multimedia y Streaming
         details: FFmpeg, DirectShow, Procesamiento de Audio/Video, Desarrollo de Codecs
       - label: IoT y Conectividad
-        details: Linux Embebido, Integración de Dispositivos, Implementación de Protocolos
+        details: Linux Embebido, Integración de Dispositivos, Implementación de Protocolos, Comunicación M2M
       - label: Lenguajes de Programación
         details: C, C++, Python, Java, TypeScript, JavaScript
       - label: Herramientas de Sistema

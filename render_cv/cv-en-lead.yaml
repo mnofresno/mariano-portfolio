@@ -33,6 +33,19 @@ cv:
           - Technical leadership across data and platform teams
           - Mentored engineers and established best practices
 
+      - company: Catálisis Desarrollos e Instalaciones
+        position: CEO & Co-Founder
+        start_date: 2011-01
+        end_date: 2016-01
+        location: Colegiales, Capital Federal, Argentina
+        summary: Founded and led engineering company, managing teams, business operations, and technical projects.
+        highlights:
+          - Founded and led engineering company with full business management (sales, HR, finance)
+          - Team coach and complete formation of engineering teams
+          - Technical leadership in software and hardware development projects
+          - Managed IT infrastructure projects and client relationships
+          - Established development practices and free software migration strategies
+
       - company: Healthee
         position: Customer Success Engineer / Senior Full Stack Developer
         start_date: 2025-08

@@ -71,6 +71,20 @@ cv:
           - Core product feature development
           - Database design and optimization
 
+      - company: Catálisis Desarrollos e Instalaciones
+        position: CEO & Co-Founder
+        start_date: 2011-01
+        end_date: 2016-01
+        location: Colegiales, Capital Federal, Argentina
+        summary: Full-stack software development, IT infrastructure, and embedded systems.
+        highlights:
+          - Software development with Laravel, .NET, PHP, Python, C++, and Qt
+          - Embedded systems development with Arduino and C++
+          - IT infrastructure: servers, databases, web, FTP, SMTP, VPN systems
+          - Database design and implementation
+          - Linux system administration and Apache configuration
+          - Free software migration and training
+
       - company: d3
         position: Full Stack Engineer
         start_date: 2015-01
@@ -100,9 +114,9 @@ cv:
 
     skills:
       - label: Programming Languages
-        details: TypeScript, JavaScript, Python, PHP, Java, C#, C++
+        details: TypeScript, JavaScript, Python, PHP, Java, C#, C++, Arduino
       - label: Frontend Frameworks
-        details: React, React Native, Vue.js, Angular, Ionic
+        details: React, React Native, Vue.js, Angular, Ionic, Qt
       - label: Backend Frameworks
         details: Node.js, Express, .NET Core, Spring, Laravel
       - label: Cloud & Infrastructure
