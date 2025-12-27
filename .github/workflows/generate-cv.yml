@@ -29,6 +29,13 @@ jobs:
           pip install --upgrade pip
           pip install "rendercv[full]"
 
+      - name: Verify YAML files exist
+        working-directory: render_cv
+        run: |
+          ls -la cv-*.yaml
+          echo "Checking if photo exists..."
+          ls -la images/ || echo "Images directory not found"
+
       - name: Create output directory
         run: |
           mkdir -p render_cv/rendercv_output
@@ -36,22 +43,53 @@ jobs:
       - name: Generate all CV variants
         working-directory: render_cv
         run: |
+          set -e
           # Generate English CVs
-          rendercv render cv-en.yaml --pdf-path "rendercv_output/CV-en.pdf" --dont-generate-markdown --dont-generate-html --dont-generate-typst --dont-generate-png
-          rendercv render cv-en-dev.yaml --pdf-path "rendercv_output/CV-en-dev.pdf" --dont-generate-markdown --dont-generate-html --dont-generate-typst --dont-generate-png
-          rendercv render cv-en-lead.yaml --pdf-path "rendercv_output/CV-en-lead.pdf" --dont-generate-markdown --dont-generate-html --dont-generate-typst --dont-generate-png
-          rendercv render cv-en-iot.yaml --pdf-path "rendercv_output/CV-en-iot.pdf" --dont-generate-markdown --dont-generate-html --dont-generate-typst --dont-generate-png
+          echo "Generating CV-en.pdf..."
+          rendercv render cv-en.yaml --pdf-path "rendercv_output/CV-en.pdf" --dont-generate-markdown --dont-generate-html --dont-generate-png 2>&1 || (echo "ERROR: Failed to generate CV-en.pdf" && exit 1)
+          test -f "rendercv_output/CV-en.pdf" && echo "✓ CV-en.pdf created" || (echo "✗ CV-en.pdf NOT found" && exit 1)
+          
+          echo "Generating CV-en-dev.pdf..."
+          rendercv render cv-en-dev.yaml --pdf-path "rendercv_output/CV-en-dev.pdf" --dont-generate-markdown --dont-generate-html --dont-generate-png 2>&1 || (echo "ERROR: Failed to generate CV-en-dev.pdf" && exit 1)
+          test -f "rendercv_output/CV-en-dev.pdf" && echo "✓ CV-en-dev.pdf created" || (echo "✗ CV-en-dev.pdf NOT found" && exit 1)
+          
+          echo "Generating CV-en-lead.pdf..."
+          rendercv render cv-en-lead.yaml --pdf-path "rendercv_output/CV-en-lead.pdf" --dont-generate-markdown --dont-generate-html --dont-generate-png 2>&1 || (echo "ERROR: Failed to generate CV-en-lead.pdf" && exit 1)
+          test -f "rendercv_output/CV-en-lead.pdf" && echo "✓ CV-en-lead.pdf created" || (echo "✗ CV-en-lead.pdf NOT found" && exit 1)
+          
+          echo "Generating CV-en-iot.pdf..."
+          rendercv render cv-en-iot.yaml --pdf-path "rendercv_output/CV-en-iot.pdf" --dont-generate-markdown --dont-generate-html --dont-generate-png 2>&1 || (echo "ERROR: Failed to generate CV-en-iot.pdf" && exit 1)
+          test -f "rendercv_output/CV-en-iot.pdf" && echo "✓ CV-en-iot.pdf created" || (echo "✗ CV-en-iot.pdf NOT found" && exit 1)
           
           # Generate Spanish CVs
-          rendercv render cv-es.yaml --pdf-path "rendercv_output/CV-es.pdf" --dont-generate-markdown --dont-generate-html --dont-generate-typst --dont-generate-png
-          rendercv render cv-es-dev.yaml --pdf-path "rendercv_output/CV-es-dev.pdf" --dont-generate-markdown --dont-generate-html --dont-generate-typst --dont-generate-png
-          rendercv render cv-es-lead.yaml --pdf-path "rendercv_output/CV-es-lead.pdf" --dont-generate-markdown --dont-generate-html --dont-generate-typst --dont-generate-png
-          rendercv render cv-es-iot.yaml --pdf-path "rendercv_output/CV-es-iot.pdf" --dont-generate-markdown --dont-generate-html --dont-generate-typst --dont-generate-png
+          echo "Generating CV-es.pdf..."
+          rendercv render cv-es.yaml --pdf-path "rendercv_output/CV-es.pdf" --dont-generate-markdown --dont-generate-html --dont-generate-png 2>&1 || (echo "ERROR: Failed to generate CV-es.pdf" && exit 1)
+          test -f "rendercv_output/CV-es.pdf" && echo "✓ CV-es.pdf created" || (echo "✗ CV-es.pdf NOT found" && exit 1)
+          
+          echo "Generating CV-es-dev.pdf..."
+          rendercv render cv-es-dev.yaml --pdf-path "rendercv_output/CV-es-dev.pdf" --dont-generate-markdown --dont-generate-html --dont-generate-png 2>&1 || (echo "ERROR: Failed to generate CV-es-dev.pdf" && exit 1)
+          test -f "rendercv_output/CV-es-dev.pdf" && echo "✓ CV-es-dev.pdf created" || (echo "✗ CV-es-dev.pdf NOT found" && exit 1)
+          
+          echo "Generating CV-es-lead.pdf..."
+          rendercv render cv-es-lead.yaml --pdf-path "rendercv_output/CV-es-lead.pdf" --dont-generate-markdown --dont-generate-html --dont-generate-png 2>&1 || (echo "ERROR: Failed to generate CV-es-lead.pdf" && exit 1)
+          test -f "rendercv_output/CV-es-lead.pdf" && echo "✓ CV-es-lead.pdf created" || (echo "✗ CV-es-lead.pdf NOT found" && exit 1)
+          
+          echo "Generating CV-es-iot.pdf..."
+          rendercv render cv-es-iot.yaml --pdf-path "rendercv_output/CV-es-iot.pdf" --dont-generate-markdown --dont-generate-html --dont-generate-png 2>&1 || (echo "ERROR: Failed to generate CV-es-iot.pdf" && exit 1)
+          test -f "rendercv_output/CV-es-iot.pdf" && echo "✓ CV-es-iot.pdf created" || (echo "✗ CV-es-iot.pdf NOT found" && exit 1)
 
       - name: List generated PDFs
         working-directory: render_cv
         run: |
-          ls -lh rendercv_output/*.pdf
+          echo "Checking rendercv_output directory..."
+          ls -la rendercv_output/ || echo "rendercv_output directory not found"
+          echo ""
+          echo "Looking for PDFs..."
+          find . -name "*.pdf" -type f || echo "No PDFs found"
+          echo ""
+          if [ -d "rendercv_output" ]; then
+            ls -lh rendercv_output/*.pdf 2>/dev/null || echo "No PDFs in rendercv_output/"
+          fi
 
       - name: Create Release
         id: create_release
