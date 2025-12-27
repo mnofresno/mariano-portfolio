@@ -2,11 +2,46 @@
 
 This repository contains the personal portfolio website of Mariano Fresno, full-stack developer and technical leader. The site is built as a static, dependency-free webapp with a modular architecture and a focus on performance, accessibility, and easy extensibility.
 
+**✨ Modernized for 2026** - The portfolio has been updated with modern design trends, dark mode, improved accessibility, and performance optimizations. See [MEJORAS_IMPLEMENTADAS.md](./MEJORAS_IMPLEMENTADAS.md) for details.
+
+## Quick Start
+
+### Development Server
+
+Start a local development server to test the portfolio:
+
+```bash
+npm run web
+```
+
+Or use the alternative commands:
+```bash
+npm start    # Same as npm run web
+npm run dev  # Same as npm run web
+```
+
+The server will start on `http://localhost:3500` (or the port specified in `PORT` environment variable).
+
+**Features:**
+- ✅ Built-in Node.js server (no external dependencies)
+- ✅ SPA routing support (falls back to index.html)
+- ✅ Proper MIME types for all file types
+- ✅ Security headers
+- ✅ CORS enabled for development
+- ✅ Colored request logging
+- ✅ Graceful shutdown
+
 ## Project Structure
 
 - `public/` — All static assets, HTML, CSS, JS, images, and the chatbot widget.
+  - `assets/css/modern-enhancements.css` — Modern CSS enhancements (variables, dark mode, microinteractions)
+  - `assets/js/theme-toggle.js` — Dark mode toggle functionality
+  - `assets/js/accessibility-enhancements.js` — Accessibility improvements
+  - `assets/js/performance-optimizations.js` — Performance optimizations
 - `server.js` — Node.js static file server (no dependencies required).
-- `README.md` — (this file) General documentation for the project and a dedicated section for the chatbot component.
+- `README.md` — (this file) General documentation for the project.
+- `MODERNIZACION_2026.md` — Detailed modernization plan based on 2026 web design trends.
+- `MEJORAS_IMPLEMENTADAS.md` — Documentation of implemented improvements.
 
 ---
 
@@ -82,12 +117,56 @@ const config = {
 
 ### To Do / Improvements
 
+- [x] Add accessibility improvements (ARIA roles, keyboard navigation) - ✅ Implemented
 - [ ] Add more advanced backend integration (e.g. streaming, typing indicators from server).
-- [ ] Add accessibility improvements (ARIA roles, keyboard navigation).
 - [ ] Add more demo flows or FAQ.
 - [ ] Add tests for the widget logic.
 
 ---
+
+## 🎨 Modern Enhancements (2026 Trends)
+
+The portfolio has been modernized with the following improvements:
+
+### Design System
+- **CSS Variables**: Modern design system with customizable colors, typography, and spacing
+- **Dark Mode**: Automatic system preference detection + manual toggle
+- **Responsive Typography**: Fluid typography using `clamp()` for optimal readability
+- **Microinteractions**: Smooth hover effects and 3D transforms
+- **Modern Visual Effects**: Glassmorphism, gradients, and elevation shadows
+
+### Accessibility
+- **WCAG 2.1 AA Compliance**: Improved contrast ratios and keyboard navigation
+- **ARIA Labels**: Automatic ARIA labels for better screen reader support
+- **Skip Links**: Quick navigation to main content
+- **Focus Indicators**: Visible focus states for keyboard users
+
+### Performance
+- **Lazy Loading**: Images load as they enter viewport
+- **Core Web Vitals**: Optimized for LCP, FID, and CLS
+- **Resource Hints**: DNS prefetch and preconnect for faster loading
+- **Layout Shift Prevention**: Aspect ratios and optimized loading
+
+### How to Use
+
+All enhancements are automatically loaded when you include the files in `index.html`. The dark mode toggle button appears in the bottom-right corner.
+
+For detailed information, see:
+- [MODERNIZACION_2026.md](./MODERNIZACION_2026.md) - Complete modernization plan
+- [MEJORAS_IMPLEMENTADAS.md](./MEJORAS_IMPLEMENTADAS.md) - Implementation details
+
+---
+
+## Available Scripts
+
+- `npm run web` or `npm start` or `npm run dev` - Start development server
+- `npm test` - Run Jest tests
+- `npm run test:watch` - Run tests in watch mode
+- `npm run test:coverage` - Run tests with coverage report
+- `npm run test:all` - Run all test suites
+- `npm run test:widget` - Run chatbot widget tests only
+- `npm run test:rag` - Run chatbot RAG tests only
+- `npm run test:integration` - Run integration tests
 
 ## License
 

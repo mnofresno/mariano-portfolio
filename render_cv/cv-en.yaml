@@ -1,0 +1,99 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/rendercv/rendercv/refs/tags/v2.6/schema.json
+cv:
+  name: Mariano Fresno
+  headline: Full Stack Developer / Software Engineer
+  location: Buenos Aires, Argentina
+  email: your-email@example.com
+  phone: +54 9 11 1234-5678
+  website: https://marianonofresno.com
+  photo:
+  social_networks:
+    - network: GitHub
+      username: mnofresno
+    - network: LinkedIn
+      username: mariano-fresno
+  custom_connections:
+  sections:
+    Summary:
+      - Full Stack Developer with experience in web development, mobile applications and backend systems. Specialized in modern technologies such as Node.js, Python, Angular and React. Passionate about creating scalable and high-quality solutions.
+    education:
+      - institution: University of Buenos Aires
+        area: Computer Engineering
+        degree: Bachelor's Degree
+        start_date: 2015-09
+        end_date: 2020-06
+        location: Buenos Aires, Argentina
+        summary:
+        highlights:
+          - Computer Science and Software Engineering
+      - institution: Advanced Course
+        area: Full Stack Development
+        degree: Certification
+        start_date: 2021-01
+        end_date: 2021-12
+        location:
+        summary:
+        highlights:
+          - Modern web development technologies
+    experience:
+      - company: Current Company
+        position: Senior Full Stack Developer
+        start_date: 2021-01
+        end_date: present
+        location:
+        summary: Development and maintenance of web and mobile applications. Technical leadership in large-scale projects.
+        highlights:
+          - Development of RESTful APIs with Node.js and Express
+          - Frontend implementation with Angular and React
+          - MySQL and PostgreSQL database management
+          - CI/CD implementation with Docker and GitHub Actions
+      - company: Previous Company
+        position: Backend Developer
+        start_date: 2019-06
+        end_date: 2020-12
+        location:
+        summary: Development of backend services and APIs.
+        highlights:
+          - Microservices development with Python and Flask
+          - SQL query optimization
+          - Automated testing implementation
+    projects:
+      - name: Personal Portfolio
+        start_date: 2024-01
+        end_date: present
+        location:
+        summary: Personal website developed with modern technologies.
+        highlights:
+          - Responsive and accessible design
+          - AI chatbot integration
+          - Performance optimization
+      - name: Management System
+        start_date: 2023-06
+        end_date: 2024-12
+        location:
+        summary: Complete management system developed with Laravel and Angular.
+        highlights:
+          - Modular and scalable architecture
+          - Complete RESTful API
+          - Interactive dashboard
+    skills:
+      - label: Programming Languages
+        details: JavaScript, TypeScript, Python, PHP, Java
+      - label: Frontend Frameworks
+        details: Angular, React, Vue.js, Bootstrap
+      - label: Backend Frameworks
+        details: Node.js, Express, Laravel, Flask, Django
+      - label: Databases
+        details: MySQL, PostgreSQL, MongoDB, Redis
+      - label: DevOps
+        details: Docker, Git, CI/CD, Linux, Nginx
+    Languages:
+      - Spanish (Native)
+      - English (Advanced)
+      - Portuguese (Intermediate)
+design:
+  theme: classic
+locale:
+  language: english
+settings:
+  current_date: '2025-01-27'

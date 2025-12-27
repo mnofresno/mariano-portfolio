@@ -1,3 +1,9 @@
 ._*
 node_modules
 coverage
+
+# RenderCV
+render_cv/venv/
+render_cv/rendercv_output/
+render_cv/__pycache__/
+.aider*

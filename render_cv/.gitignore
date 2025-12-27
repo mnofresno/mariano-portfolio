@@ -1,0 +1,27 @@
+# Python virtual environment
+venv/
+env/
+ENV/
+
+# Python files
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# RenderCV output
+rendercv_output/
+
+# Logs
+*.log
+
+# System files
+.DS_Store
+Thumbs.db
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
