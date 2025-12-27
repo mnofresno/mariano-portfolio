@@ -80,7 +80,7 @@ cv:
         highlights:
           - Software development with Laravel, .NET, PHP, Python, C++, and Qt
           - Embedded systems development with Arduino and C++
-          - IT infrastructure: servers, databases, web, FTP, SMTP, VPN systems
+          - "IT infrastructure: servers, databases, web, FTP, SMTP, VPN systems"
           - Database design and implementation
           - Linux system administration and Apache configuration
           - Free software migration and training
