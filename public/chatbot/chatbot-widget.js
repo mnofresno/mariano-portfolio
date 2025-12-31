@@ -48,12 +48,12 @@ function initChatbotWidget(customConfig) {
     es: {
       placeholder: 'Escribe tu mensaje...',
       send: 'Enviar',
-      greeting: '¡Hola! ¿En qué puedo ayudarte?'
+      greeting: '¡Hola! ¿En qué puedo ayudarte? Puedes preguntarme sobre mi experiencia, habilidades, o pedirme mi CV. También puedo recomendarte la versión de CV más adecuada según el tipo de posición que buscas.'
     },
     en: {
       placeholder: 'Type your message...',
       send: 'Send',
-      greeting: 'Hi! How can I help you?'
+      greeting: 'Hi! How can I help you? You can ask me about my experience, skills, or request my CV. I can also recommend the most suitable CV version based on the type of position you\'re looking for.'
     }
   };
 
