@@ -226,51 +226,51 @@ describe('RAG Chatbot System', () => {
   });
 
   describe('Response Generation', () => {
-    test('generates greeting response', () => {
+    test('generates greeting response', async () => {
       loadRAGScript();
       const chatbot = new window.RAGChatbot();
-      const response = chatbot.generateIntelligentResponse('hola', []);
+      const response = await chatbot.generateIntelligentResponse('hola', []);
       
       expect(response).toContain('Hola! Soy el asistente virtual');
     });
 
-    test('generates technology-specific responses', () => {
+    test('generates technology-specific responses', async () => {
       loadRAGScript();
       const chatbot = new window.RAGChatbot();
       
-      const kubernetesResponse = chatbot.generateIntelligentResponse('kubernetes', []);
+      const kubernetesResponse = await chatbot.generateIntelligentResponse('kubernetes', []);
       expect(kubernetesResponse).toContain('Kubernetes');
       
-      const dockerResponse = chatbot.generateIntelligentResponse('docker', []);
+      const dockerResponse = await chatbot.generateIntelligentResponse('docker', []);
       expect(dockerResponse).toContain('Docker');
     });
 
-    test('generates phone response with WhatsApp', () => {
+    test('generates phone response with WhatsApp', async () => {
       loadRAGScript();
       const chatbot = new window.RAGChatbot();
-      const response = chatbot.generateIntelligentResponse('teléfono', []);
+      const response = await chatbot.generateIntelligentResponse('teléfono', []);
       
       expect(response).toContain('+54 9 11-6250-2232');
       expect(response).toContain('WhatsApp');
       expect(response).toContain('bx bxl-whatsapp');
     });
 
-    test('generates contact response with WhatsApp', () => {
+    test('generates contact response with WhatsApp', async () => {
       loadRAGScript();
       const chatbot = new window.RAGChatbot();
-      const response = chatbot.generateIntelligentResponse('contacto', []);
+      const response = await chatbot.generateIntelligentResponse('contacto', []);
       
       expect(response).toContain('Email: mnofresno@gmail.com');
       expect(response).toContain('WhatsApp');
       expect(response).toContain('bx bxl-whatsapp');
     });
 
-    test('generates fallback response with WhatsApp', () => {
+    test('generates fallback response with WhatsApp', async () => {
       loadRAGScript();
       const chatbot = new window.RAGChatbot();
       // Set language to Spanish for consistent testing
       document.documentElement.lang = 'es';
-      const response = chatbot.generateIntelligentResponse('color favorito', []);
+      const response = await chatbot.generateIntelligentResponse('color favorito', []);
       
       expect(response).toContain('No tengo información específica');
       expect(response).toContain('WhatsApp');
@@ -288,16 +288,16 @@ describe('RAG Chatbot System', () => {
       expect(chatbot.getLanguage()).toBe('en');
     });
 
-    test('generates multilingual fallback', () => {
+    test('generates multilingual fallback', async () => {
       loadRAGScript();
       const chatbot = new window.RAGChatbot();
       
       document.documentElement.lang = 'es';
-      const responseES = chatbot.generateIntelligentResponse('unknown question', []);
+      const responseES = await chatbot.generateIntelligentResponse('unknown question', []);
       expect(responseES).toContain('No tengo información específica');
       
       document.documentElement.lang = 'en';
-      const responseEN = chatbot.generateIntelligentResponse('unknown question', []);
+      const responseEN = await chatbot.generateIntelligentResponse('unknown question', []);
       expect(responseEN).toContain("I don't have specific information");
     });
   });
