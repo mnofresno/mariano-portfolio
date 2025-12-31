@@ -135,7 +135,7 @@ cv:
       - Inglés (Profesional)
 
 design:
-  theme: classic
+  theme: moderncv
 
 locale:
   language: spanish

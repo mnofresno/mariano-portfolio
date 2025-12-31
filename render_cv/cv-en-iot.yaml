@@ -133,7 +133,7 @@ cv:
       - English (Professional Working)
 
 design:
-  theme: classic
+  theme: moderncv
 
 locale:
   language: english
