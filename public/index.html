@@ -153,6 +153,14 @@
             <p id="aboutFooter" style="text-align: justify;">
               Technical leader, hardware and software developer. Tech coach and team lead.
             </p>
+            
+            <!-- CV Download Badges -->
+            <div id="cv-badges" style="margin-top: 30px; padding-top: 20px; border-top: 1px solid #e0e0e0;">
+              <h4 style="margin-bottom: 15px;">📄 Download CV</h4>
+              <div id="cv-badges-container" style="display: flex; flex-wrap: wrap; gap: 10px;">
+                <!-- Badges will be dynamically loaded here -->
+              </div>
+            </div>
           </div>
         </div>
 
@@ -491,7 +499,11 @@
   <script src="assets/js/multi-lang.js"></script>
   <script src="assets/js/age-compute.js"></script>
   
-  <!-- Chatbot RAG System -->
+  <!-- CV Badges Loader -->
+  <script src="assets/js/cv-badges.js"></script>
+  
+  <!-- Chatbot RAG System (must load after cv-badges.js to access window.cvInfo) -->
+  <script src="/chatbot/chatbot-rag.js"></script>
   <script type="module" src="/chatbot/chatbot-widget.js"></script>
 </body>
 

@@ -25,12 +25,39 @@ if (typeof window !== 'undefined' && window.RAGChatbot) {
       services: this.extractServices(),
       about: this.extractAbout(),
       contact: this.extractContact(),
-      experience: this.extractExperience()
+      experience: this.extractExperience(),
+      cvs: this.extractCVInfo()
     };
 
     // Convertir a base de conocimiento estructurada
     this.knowledgeBase = this.structureKnowledgeBase(content);
     return this.knowledgeBase;
+  }
+
+  // Extraer información de CVs disponibles
+  extractCVInfo() {
+    const BASE_DOWNLOAD_URL = 'https://github.com/mnofresno/mariano-portfolio/releases/latest/download';
+    
+    // Intentar obtener información de CVs desde window.cvInfo (seteado por cv-badges.js)
+    if (window.cvInfo && window.cvInfo.variants) {
+      return {
+        variants: window.cvInfo.variants
+      };
+    }
+    
+    // Fallback: información estática con URLs directas (sin necesidad de API)
+    return {
+      variants: [
+        { name: 'General (EN)', file: 'CV-en.pdf', lang: 'en', variant: 'general', downloadUrl: `${BASE_DOWNLOAD_URL}/CV-en.pdf` },
+        { name: 'Development (EN)', file: 'CV-en-dev.pdf', lang: 'en', variant: 'dev', downloadUrl: `${BASE_DOWNLOAD_URL}/CV-en-dev.pdf` },
+        { name: 'Tech Lead (EN)', file: 'CV-en-lead.pdf', lang: 'en', variant: 'lead', downloadUrl: `${BASE_DOWNLOAD_URL}/CV-en-lead.pdf` },
+        { name: 'IoT & Electronics (EN)', file: 'CV-en-iot.pdf', lang: 'en', variant: 'iot', downloadUrl: `${BASE_DOWNLOAD_URL}/CV-en-iot.pdf` },
+        { name: 'General (ES)', file: 'CV-es.pdf', lang: 'es', variant: 'general', downloadUrl: `${BASE_DOWNLOAD_URL}/CV-es.pdf` },
+        { name: 'Desarrollo (ES)', file: 'CV-es-dev.pdf', lang: 'es', variant: 'dev', downloadUrl: `${BASE_DOWNLOAD_URL}/CV-es-dev.pdf` },
+        { name: 'Líder Técnico (ES)', file: 'CV-es-lead.pdf', lang: 'es', variant: 'lead', downloadUrl: `${BASE_DOWNLOAD_URL}/CV-es-lead.pdf` },
+        { name: 'IoT y Electrónica (ES)', file: 'CV-es-iot.pdf', lang: 'es', variant: 'iot', downloadUrl: `${BASE_DOWNLOAD_URL}/CV-es-iot.pdf` }
+      ]
+    };
   }
 
   // Extraer información personal del HTML
@@ -293,6 +320,21 @@ if (typeof window !== 'undefined' && window.RAGChatbot) {
       });
     }
 
+    // CVs disponibles
+    if (content.cvs && content.cvs.variants) {
+      const cvInfo = content.cvs;
+      const cvText = cvInfo.variants.map(v => {
+        const url = v.downloadUrl || `https://github.com/mnofresno/mariano-portfolio/releases/latest/download/${v.file}`;
+        return `${v.name}: ${url}`;
+      }).join('\n');
+      
+      knowledgeBase.push({
+        id: 'cvs',
+        content: `CVs disponibles:\n${cvText}`,
+        keywords: ['cv', 'curriculum', 'resume', 'descargar', 'download', 'pdf', 'hoja de vida']
+      });
+    }
+
     // Información "About"
     if (content.about && (content.about.mainText || content.about.subtext || content.about.footer)) {
       const aboutText = [content.about.mainText, content.about.subtext, content.about.footer]
@@ -544,6 +586,70 @@ if (typeof window !== 'undefined' && window.RAGChatbot) {
       }
     }
 
+    // Preguntas sobre CVs
+    if (queryLower.includes('cv') || queryLower.includes('curriculum') || queryLower.includes('resume') || 
+        queryLower.includes('hoja de vida') || queryLower.includes('descargar cv') || queryLower.includes('download cv')) {
+      const cvInfo = context.find(doc => doc.id === 'cvs');
+      
+      // Intentar obtener información dinámica de window.cvInfo
+      let cvData = null;
+      const BASE_DOWNLOAD_URL = 'https://github.com/mnofresno/mariano-portfolio/releases/latest/download';
+      
+      if (window.cvInfo && window.cvInfo.variants) {
+        cvData = window.cvInfo;
+      } else if (cvInfo) {
+        // Parsear desde el contexto si está disponible
+        cvData = { variants: [] };
+      }
+
+      if (cvData && cvData.variants && cvData.variants.length > 0) {
+        const lang = this.getLanguage();
+        const isEnglish = lang === 'en';
+        
+        // Filtrar por idioma si se especifica
+        const filteredVariants = cvData.variants.filter(v => {
+          if (queryLower.includes('inglés') || queryLower.includes('english') || queryLower.includes('en')) {
+            return v.lang === 'en';
+          }
+          if (queryLower.includes('español') || queryLower.includes('spanish') || queryLower.includes('es')) {
+            return v.lang === 'es';
+          }
+          // Si pregunta por variante específica
+          if (queryLower.includes('dev') || queryLower.includes('desarrollo') || queryLower.includes('development')) {
+            return v.variant === 'dev';
+          }
+          if (queryLower.includes('lead') || queryLower.includes('líder') || queryLower.includes('tech lead')) {
+            return v.variant === 'lead';
+          }
+          if (queryLower.includes('iot') || queryLower.includes('electrónica') || queryLower.includes('electronics')) {
+            return v.variant === 'iot';
+          }
+          // Por defecto, mostrar todos
+          return true;
+        });
+
+        const variantsToShow = filteredVariants.length > 0 ? filteredVariants : cvData.variants;
+
+        const cvLinks = variantsToShow.map(v => {
+          const url = v.downloadUrl || `${BASE_DOWNLOAD_URL}/${v.file}`;
+          return `<a href="${url}" target="_blank" style="color: #667eea; font-weight: 600; text-decoration: none;">📄 ${v.name}</a>`;
+        }).join('<br>');
+
+        const responseText = isEnglish 
+          ? `Here are the available CVs:<br><br>${cvLinks}<br><br>Click on any link to download the PDF.`
+          : `Aquí están los CVs disponibles:<br><br>${cvLinks}<br><br>Haz clic en cualquier enlace para descargar el PDF.`;
+
+        return responseText;
+      } else {
+        // Fallback si no hay información dinámica
+        const fallbackUrl = 'https://github.com/mnofresno/mariano-portfolio/releases/latest';
+        const responseText = lang === 'en'
+          ? `You can download my CVs from GitHub Releases: <a href="${fallbackUrl}" target="_blank" style="color: #667eea; font-weight: 600;">${fallbackUrl}</a><br><br>Available variants: General, Development, Tech Lead, and IoT & Electronics (in English and Spanish).`
+          : `Puedes descargar mis CVs desde GitHub Releases: <a href="${fallbackUrl}" target="_blank" style="color: #667eea; font-weight: 600;">${fallbackUrl}</a><br><br>Variantes disponibles: General, Desarrollo, Líder Técnico e IoT y Electrónica (en inglés y español).`;
+        return responseText;
+      }
+    }
+
     // Usar el contexto más relevante si está disponible
     if (context && context.length > 0) {
       const mostRelevant = context[0];
@@ -575,6 +681,29 @@ if (typeof window !== 'undefined' && window.RAGChatbot) {
     }
 
     try {
+      // Si la consulta es sobre CVs y window.cvInfo no está disponible, intentar esperar un poco
+      const queryLower = query.toLowerCase();
+      if ((queryLower.includes('cv') || queryLower.includes('curriculum') || queryLower.includes('resume')) 
+          && !window.cvInfo) {
+        // Esperar un poco para que cv-badges.js termine de cargar
+        await new Promise(resolve => setTimeout(resolve, 500));
+        // Si aún no está disponible, usar URLs directas sin necesidad de API
+        if (!window.cvInfo) {
+          const BASE_DOWNLOAD_URL = 'https://github.com/mnofresno/mariano-portfolio/releases/latest/download';
+          const variants = [
+            { name: 'General (EN)', file: 'CV-en.pdf', lang: 'en', variant: 'general', downloadUrl: `${BASE_DOWNLOAD_URL}/CV-en.pdf` },
+            { name: 'Development (EN)', file: 'CV-en-dev.pdf', lang: 'en', variant: 'dev', downloadUrl: `${BASE_DOWNLOAD_URL}/CV-en-dev.pdf` },
+            { name: 'Tech Lead (EN)', file: 'CV-en-lead.pdf', lang: 'en', variant: 'lead', downloadUrl: `${BASE_DOWNLOAD_URL}/CV-en-lead.pdf` },
+            { name: 'IoT & Electronics (EN)', file: 'CV-en-iot.pdf', lang: 'en', variant: 'iot', downloadUrl: `${BASE_DOWNLOAD_URL}/CV-en-iot.pdf` },
+            { name: 'General (ES)', file: 'CV-es.pdf', lang: 'es', variant: 'general', downloadUrl: `${BASE_DOWNLOAD_URL}/CV-es.pdf` },
+            { name: 'Desarrollo (ES)', file: 'CV-es-dev.pdf', lang: 'es', variant: 'dev', downloadUrl: `${BASE_DOWNLOAD_URL}/CV-es-dev.pdf` },
+            { name: 'Líder Técnico (ES)', file: 'CV-es-lead.pdf', lang: 'es', variant: 'lead', downloadUrl: `${BASE_DOWNLOAD_URL}/CV-es-lead.pdf` },
+            { name: 'IoT y Electrónica (ES)', file: 'CV-es-iot.pdf', lang: 'es', variant: 'iot', downloadUrl: `${BASE_DOWNLOAD_URL}/CV-es-iot.pdf` }
+          ];
+          window.cvInfo = { variants: variants };
+        }
+      }
+
       // Buscar documentos relevantes
       const relevantDocs = this.findRelevantDocuments(query);
       
