@@ -1,10 +1,10 @@
 // CV Badges Loader - Genera badges para descargar CVs directamente desde GitHub Releases
 // Los releases públicos de GitHub son accesibles sin autenticación
-(function() {
+(function () {
   const GITHUB_REPO = 'mnofresno/mariano-portfolio';
   // URL especial de GitHub que siempre apunta al último release sin necesidad de API
-  const BASE_DOWNLOAD_URL = `https://github.com/${GITHUB_REPO}/releases/latest/download`;
-  
+  const BASE_DOWNLOAD_URL = '/assets/cv';
+
   const CV_VARIANTS = [
     { name: 'General (EN)', file: 'CV-en.pdf', lang: 'en', variant: 'general' },
     { name: 'Development (EN)', file: 'CV-en-dev.pdf', lang: 'en', variant: 'dev' },
@@ -43,21 +43,21 @@
       transition: all 0.3s ease;
       box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     `;
-    badge.onmouseover = function() {
+    badge.onmouseover = function () {
       this.style.transform = 'translateY(-2px)';
       this.style.boxShadow = '0 4px 8px rgba(0,0,0,0.2)';
     };
-    badge.onmouseout = function() {
+    badge.onmouseout = function () {
       this.style.transform = 'translateY(0)';
       this.style.boxShadow = '0 2px 4px rgba(0,0,0,0.1)';
     };
-    
+
     badge.innerHTML = `
       <i class="bi bi-file-earmark-pdf" style="font-size: 18px;"></i>
       <span>${variant.name}</span>
       <i class="bi bi-download" style="font-size: 14px; opacity: 0.8;"></i>
     `;
-    
+
     return badge;
   }
 

@@ -1,4 +1,4 @@
-name: Generate CVs and Upload to Releases
+name: Generate CVs and Deploy to Pages
 
 on:
   push:
@@ -7,13 +7,21 @@ on:
       - main
     paths:
       - 'render_cv/**'
+      - 'public/**'
       - '.github/workflows/generate-cv.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
 
 jobs:
-  generate-cvs:
+  build-and-deploy:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     
     steps:
       - name: Checkout code
@@ -29,13 +37,6 @@ jobs:
           pip install --upgrade pip
           pip install "rendercv[full]"
 
-      - name: Verify YAML files exist
-        working-directory: render_cv
-        run: |
-          ls -la cv-*.yaml
-          echo "Checking if photo exists..."
-          ls -la images/ || echo "Images directory not found"
-
       - name: Create output directory
         run: |
           mkdir -p render_cv/rendercv_output
@@ -45,81 +46,43 @@ jobs:
         run: |
           set -e
           # Generate English CVs
-          echo "Generating CV-en.pdf..."
-          rendercv render cv-en.yaml --pdf-path "rendercv_output/CV-en.pdf" --dont-generate-markdown --dont-generate-html --dont-generate-png 2>&1 || (echo "ERROR: Failed to generate CV-en.pdf" && exit 1)
-          test -f "rendercv_output/CV-en.pdf" && echo "✓ CV-en.pdf created" || (echo "✗ CV-en.pdf NOT found" && exit 1)
-          
-          echo "Generating CV-en-dev.pdf..."
-          rendercv render cv-en-dev.yaml --pdf-path "rendercv_output/CV-en-dev.pdf" --dont-generate-markdown --dont-generate-html --dont-generate-png 2>&1 || (echo "ERROR: Failed to generate CV-en-dev.pdf" && exit 1)
-          test -f "rendercv_output/CV-en-dev.pdf" && echo "✓ CV-en-dev.pdf created" || (echo "✗ CV-en-dev.pdf NOT found" && exit 1)
-          
-          echo "Generating CV-en-lead.pdf..."
-          rendercv render cv-en-lead.yaml --pdf-path "rendercv_output/CV-en-lead.pdf" --dont-generate-markdown --dont-generate-html --dont-generate-png 2>&1 || (echo "ERROR: Failed to generate CV-en-lead.pdf" && exit 1)
-          test -f "rendercv_output/CV-en-lead.pdf" && echo "✓ CV-en-lead.pdf created" || (echo "✗ CV-en-lead.pdf NOT found" && exit 1)
-          
-          echo "Generating CV-en-iot.pdf..."
-          rendercv render cv-en-iot.yaml --pdf-path "rendercv_output/CV-en-iot.pdf" --dont-generate-markdown --dont-generate-html --dont-generate-png 2>&1 || (echo "ERROR: Failed to generate CV-en-iot.pdf" && exit 1)
-          test -f "rendercv_output/CV-en-iot.pdf" && echo "✓ CV-en-iot.pdf created" || (echo "✗ CV-en-iot.pdf NOT found" && exit 1)
+          rendercv render cv-en.yaml --pdf-path "rendercv_output/CV-en.pdf" --dont-generate-markdown --dont-generate-html --dont-generate-png
+          rendercv render cv-en-dev.yaml --pdf-path "rendercv_output/CV-en-dev.pdf" --dont-generate-markdown --dont-generate-html --dont-generate-png
+          rendercv render cv-en-lead.yaml --pdf-path "rendercv_output/CV-en-lead.pdf" --dont-generate-markdown --dont-generate-html --dont-generate-png
+          rendercv render cv-en-iot.yaml --pdf-path "rendercv_output/CV-en-iot.pdf" --dont-generate-markdown --dont-generate-html --dont-generate-png
           
           # Generate Spanish CVs
-          echo "Generating CV-es.pdf..."
-          rendercv render cv-es.yaml --pdf-path "rendercv_output/CV-es.pdf" --dont-generate-markdown --dont-generate-html --dont-generate-png 2>&1 || (echo "ERROR: Failed to generate CV-es.pdf" && exit 1)
-          test -f "rendercv_output/CV-es.pdf" && echo "✓ CV-es.pdf created" || (echo "✗ CV-es.pdf NOT found" && exit 1)
-          
-          echo "Generating CV-es-dev.pdf..."
-          rendercv render cv-es-dev.yaml --pdf-path "rendercv_output/CV-es-dev.pdf" --dont-generate-markdown --dont-generate-html --dont-generate-png 2>&1 || (echo "ERROR: Failed to generate CV-es-dev.pdf" && exit 1)
-          test -f "rendercv_output/CV-es-dev.pdf" && echo "✓ CV-es-dev.pdf created" || (echo "✗ CV-es-dev.pdf NOT found" && exit 1)
-          
-          echo "Generating CV-es-lead.pdf..."
-          rendercv render cv-es-lead.yaml --pdf-path "rendercv_output/CV-es-lead.pdf" --dont-generate-markdown --dont-generate-html --dont-generate-png 2>&1 || (echo "ERROR: Failed to generate CV-es-lead.pdf" && exit 1)
-          test -f "rendercv_output/CV-es-lead.pdf" && echo "✓ CV-es-lead.pdf created" || (echo "✗ CV-es-lead.pdf NOT found" && exit 1)
-          
-          echo "Generating CV-es-iot.pdf..."
-          rendercv render cv-es-iot.yaml --pdf-path "rendercv_output/CV-es-iot.pdf" --dont-generate-markdown --dont-generate-html --dont-generate-png 2>&1 || (echo "ERROR: Failed to generate CV-es-iot.pdf" && exit 1)
-          test -f "rendercv_output/CV-es-iot.pdf" && echo "✓ CV-es-iot.pdf created" || (echo "✗ CV-es-iot.pdf NOT found" && exit 1)
+          rendercv render cv-es.yaml --pdf-path "rendercv_output/CV-es.pdf" --dont-generate-markdown --dont-generate-html --dont-generate-png
+          rendercv render cv-es-dev.yaml --pdf-path "rendercv_output/CV-es-dev.pdf" --dont-generate-markdown --dont-generate-html --dont-generate-png
+          rendercv render cv-es-lead.yaml --pdf-path "rendercv_output/CV-es-lead.pdf" --dont-generate-markdown --dont-generate-html --dont-generate-png
+          rendercv render cv-es-iot.yaml --pdf-path "rendercv_output/CV-es-iot.pdf" --dont-generate-markdown --dont-generate-html --dont-generate-png
 
-      - name: List generated PDFs
-        working-directory: render_cv
+      - name: Inject CVs into website assets
         run: |
-          echo "Checking rendercv_output directory..."
-          ls -la rendercv_output/ || echo "rendercv_output directory not found"
-          echo ""
-          echo "Looking for PDFs..."
-          find . -name "*.pdf" -type f || echo "No PDFs found"
-          echo ""
-          if [ -d "rendercv_output" ]; then
-            ls -lh rendercv_output/*.pdf 2>/dev/null || echo "No PDFs in rendercv_output/"
-          fi
+          mkdir -p public/assets/cv/
+          cp -f render_cv/rendercv_output/*.pdf public/assets/cv/
 
       - name: Create Release
-        id: create_release
         uses: softprops/action-gh-release@v1
         with:
           tag_name: cv-v${{ github.run_number }}
           name: CVs - ${{ github.run_number }}
           body: |
             Automatically generated CVs from commit ${{ github.sha }}
-            
-            **English Versions:**
-            - CV-en.pdf (General)
-            - CV-en-dev.pdf (Development focused)
-            - CV-en-lead.pdf (Tech Lead focused)
-            - CV-en-iot.pdf (IoT & Electronics focused)
-            
-            **Spanish Versions:**
-            - CV-es.pdf (General)
-            - CV-es-dev.pdf (Desarrollo)
-            - CV-es-lead.pdf (Líder Técnico)
-            - CV-es-iot.pdf (IoT y Electrónica)
           draft: false
           prerelease: false
           files: |
-            render_cv/rendercv_output/CV-en.pdf
-            render_cv/rendercv_output/CV-en-dev.pdf
-            render_cv/rendercv_output/CV-en-lead.pdf
-            render_cv/rendercv_output/CV-en-iot.pdf
-            render_cv/rendercv_output/CV-es.pdf
-            render_cv/rendercv_output/CV-es-dev.pdf
-            render_cv/rendercv_output/CV-es-lead.pdf
-            render_cv/rendercv_output/CV-es-iot.pdf
+            render_cv/rendercv_output/*.pdf
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: 'public'
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
 
