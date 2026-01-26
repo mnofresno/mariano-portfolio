@@ -3,7 +3,7 @@
 (function () {
   const GITHUB_REPO = 'mnofresno/mariano-portfolio';
   // URL especial de GitHub que siempre apunta al último release sin necesidad de API
-  const BASE_DOWNLOAD_URL = '/assets/cv';
+  const BASE_DOWNLOAD_URL = 'https://mnofresno.github.io/mariano-portfolio/assets/cv';
 
   const CV_VARIANTS = [
     { name: 'General (EN)', file: 'CV-en.pdf', lang: 'en', variant: 'general' },
