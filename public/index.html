@@ -424,7 +424,6 @@
         if (!iframe) return;
 
         var isLocal = location.hostname === 'localhost' || location.hostname === '127.0.0.1';
-        var localSrc = iframe.getAttribute('data-local-src');
         var remoteSrc = iframe.getAttribute('data-remote-src');
 
         function setStatus(message, isError) {
@@ -442,23 +441,20 @@
           iframe.src = withCacheBuster(src);
           iframe.onload = function () { setStatus(''); };
           iframe.onerror = function () {
-            setStatus('Failed to load the portfolio embed. Make sure the microservice is running.', true);
+            setStatus('Failed to load the 3D portfolio embed.', true);
           };
         }
 
+        // In production (same origin), load the iframe normally
         if (!isLocal) {
           setIframe(remoteSrc);
           return;
         }
 
-        fetch('https://mariano.fresno.ar/cults/health', { cache: 'no-store' })
-          .then(function (res) {
-            if (!res.ok) throw new Error('health failed');
-            setIframe(localSrc);
-          })
-          .catch(function () {
-            setStatus('Local microservice is not running. Start it on port 8055 to see the models.', true);
-          });
+        // In local development, we can't load the remote iframe due to X-Frame-Options
+        // Show a message instead
+        iframe.style.display = 'none';
+        setStatus('3D Portfolio preview is only available in production (same origin restriction).', false);
       })();
     </script>
 

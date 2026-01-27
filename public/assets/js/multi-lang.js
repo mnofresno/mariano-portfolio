@@ -84,21 +84,37 @@
         var langs = ["EN", "ES", "PT"];
         var switchLangBtn = $("#switch-lang");
         var switchLangSpan = $("#switch-lang span");
-        var lang = langs[0]
-        var langIndex = 0;
 
-        switchLangBtn.on("click", () => {
-            switchLangSpan.text(lang);
-            lang = langs[++langIndex % langs.length];
-            changeTo(lang)
-        })
+        // Get saved language or default to EN
+        var savedLang = localStorage.getItem('portfolio-lang');
+        var currentIndex = savedLang ? langs.indexOf(savedLang.toUpperCase()) : 0;
+        if (currentIndex === -1) currentIndex = 0;
 
+        // Update button to show NEXT language (the one you'll switch to)
+        function updateButton() {
+            var nextIndex = (currentIndex + 1) % langs.length;
+            switchLangSpan.text(langs[nextIndex]);
+        }
+
+        // Apply translations for current language
         function changeTo(lang) {
             var lowerCaseLang = lang.toLowerCase();
-            Object.keys(textsToShow[lowerCaseLang]).forEach(elementId => {
+            Object.keys(textsToShow[lowerCaseLang]).forEach(function (elementId) {
                 $("#" + elementId).text(textsToShow[lowerCaseLang][elementId]);
             });
+            localStorage.setItem('portfolio-lang', lang);
         }
-        changeTo(lang);
+
+        // On click: switch to next language
+        switchLangBtn.on("click", function () {
+            currentIndex = (currentIndex + 1) % langs.length;
+            var newLang = langs[currentIndex];
+            changeTo(newLang);
+            updateButton();
+        });
+
+        // Initialize: apply current language and show next in button
+        changeTo(langs[currentIndex]);
+        updateButton();
     });
 })();
