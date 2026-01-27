@@ -1,4 +1,4 @@
-(function() {
+(function () {
     var textsToShow = {
         en: {
             iam: "I'm",
@@ -43,13 +43,35 @@
             serviceTrainingDesc: "Mentoreo de equipos, capacitaciones a medida, revisión de código, generación de contenidos para aprendizajes técnicos.",
             serviceHosting: "Web Hosting",
             serviceHostingDesc: "Despliegue automatizado CI/CD, cloud services para proyectos propios y sistemas pre-existentes, gestión de dominios y certificados SSL."
+        },
+        pt: {
+            iam: "Eu sou",
+            aboutText: "Comunico ideias de forma clara e tenho paixão por ensinar conceitos técnicos. Crio soluções tecnológicas criativas e personalizadas para meus clientes.",
+            aboutFooter: "Tenho grande interesse em explorar detalhes técnicos, desenvolver soluções completas de ponta a ponta, definir padrões rigorosos de qualidade e trazer inovação para o roadmap técnico e de produtos. Além das minhas atividades profissionais, sou um entusiasta designer e impressor 3D, participando ativamente da vibrante comunidade maker. Destaco-me na produção de documentação eficiente, otimização e automatização de fluxos de trabalho, implementação e disseminação de políticas de revisão de código, além de promover interações colaborativas com a alta gestão. Estou comprometido em entregar resultados de alta qualidade, sempre priorizando a excelência em cada projeto. Também conduzo entrevistas e seleciono talentos técnicos através de um processo de avaliação acessível e atencioso, oferecendo feedback oportuno e construtivo tanto para quanto sobre os candidatos.",
+            aboutSubtitle: "Líder Técnico & Desenvolvedor Web.",
+            aboutSubtext: "Com experiência na formação de equipes e no treinamento contínuo de pessoal, trabalho de forma empática para alcançar os objetivos estabelecidos pelo negócio sem esquecer que o desenvolvimento de software é uma atividade humana onde a atenção aos detalhes também contribui para a qualidade.",
+            skillsSubtitle: "Aqui está uma breve lista de algumas das minhas competências e o nível em que atualmente me desempenho em cada uma delas.",
+            socialFooter: "Você pode entrar em contato comigo através de todas essas redes sociais ou usando as informações de contato na seção 'About'.",
+            servicesSubtitle: "Se você precisa de algum destes serviços, por favor entre em contato comigo para que possamos alcançar juntos uma solução que atenda às suas necessidades:",
+            serviceTechTeams: "Equipes Técnicas",
+            serviceTechTeamsDesc: "Realização de avaliações técnicas de perfis de TI e orquestração de gestão de tarefas específicas de projetos com equipes ad-hoc.",
+            serviceDev: "Desenvolvimento de Sistemas",
+            serviceDevDesc: "Construo aplicações Web e também ferramentas de linha de comando, sistemas desktop. Designs multi-arquitetura, multi-padrão. Sistemas embarcados.",
+            servicePerformance: "Otimização",
+            servicePerformanceDesc: "Otimização de performance de banco de dados, depuração de perfis de tempo, mitigação de queries N + 1, implementação de Caches, soluções de infraestrutura.",
+            serviceAnalysis: "Análise e QA",
+            serviceAnalysisDesc: "Análise funcional de casos de uso de sistemas existentes e projetados, geração de documentação e estimativas. Análise de cobertura e melhoria contínua da qualidade.",
+            serviceTraining: "Treinamentos",
+            serviceTrainingDesc: "Mentoria de equipes, treinamentos personalizados, revisão de código, geração de conteúdo para aprendizado técnico.",
+            serviceHosting: "Hospedagem Web",
+            serviceHostingDesc: "Implantação automatizada de CI/CD, serviços em nuvem para projetos entregues e sistemas pré-existentes, gestão de domínios e certificados SSL."
         }
     };
 
-    $(function() {
-        var langs = ["EN", "ES"];
+    $(function () {
+        var langs = ["EN", "ES", "PT"];
         var switchLangBtn = $("#switch-lang");
-        var switchLangSpan= $("#switch-lang span");
+        var switchLangSpan = $("#switch-lang span");
         var lang = langs[0]
         var langIndex = 0;
 
