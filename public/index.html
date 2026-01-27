@@ -87,7 +87,16 @@
 
     <nav id="navbar" class="navbar nav-menu">
       <ul>
-        <li><a onclick="return false;" href="#" id="switch-lang" class="nav-link switch-language"><span>ES</span></a>
+        <!-- Language Selector -->
+        <li class="lang-item">
+          <a href="#" class="nav-link lang-trigger" onclick="return false;">
+            <i class="bx bx-globe"></i>
+            <span class="lang-options">
+              <span class="lang-opt" data-lang="EN">EN</span>
+              <span class="lang-opt" data-lang="ES">ES</span>
+              <span class="lang-opt" data-lang="PT">PT</span>
+            </span>
+          </a>
         </li>
         <li><a href="#hero" class="nav-link scrollto active"><i class="bx bx-home"></i> <span>Home</span></a></li>
         <li><a href="#about" class="nav-link scrollto"><i class="bx bx-user"></i> <span>About</span></a></li>

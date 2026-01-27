@@ -24,7 +24,8 @@
             cults3dTitle: "3D Designs",
             cults3dSubtitle: "Some of my 3D model designs.",
             cultsLoadingStatus: "Loading 3D models…",
-            cultsViewAll: "View all on Cults3D"
+            cultsViewAll: "View all on Cults3D",
+            langTooltip: "Change language"
         },
         es: {
             iam: "Soy",
@@ -50,7 +51,8 @@
             cults3dTitle: "Diseños 3D",
             cults3dSubtitle: "Algunos de mis diseños de modelos 3D.",
             cultsLoadingStatus: "Cargando modelos 3D…",
-            cultsViewAll: "Ver todos en Cults3D"
+            cultsViewAll: "Ver todos en Cults3D",
+            langTooltip: "Cambiar idioma"
         },
         pt: {
             iam: "Eu sou",
@@ -76,24 +78,29 @@
             cults3dTitle: "Designs 3D",
             cults3dSubtitle: "Alguns dos meus designs de modelos 3D.",
             cultsLoadingStatus: "Carregando modelos 3D…",
-            cultsViewAll: "Ver todos no Cults3D"
+            cultsViewAll: "Ver todos no Cults3D",
+            langTooltip: "Mudar idioma"
         }
     };
 
     $(function () {
         var langs = ["EN", "ES", "PT"];
-        var switchLangBtn = $("#switch-lang");
-        var switchLangSpan = $("#switch-lang span");
+        var langOptions = $(".lang-opt");
+        var langTrigger = $(".lang-trigger");
 
         // Get saved language or default to EN
         var savedLang = localStorage.getItem('portfolio-lang');
-        var currentIndex = savedLang ? langs.indexOf(savedLang.toUpperCase()) : 0;
-        if (currentIndex === -1) currentIndex = 0;
+        var currentLang = savedLang ? savedLang.toUpperCase() : "EN";
+        if (langs.indexOf(currentLang) === -1) currentLang = "EN";
 
-        // Update button to show NEXT language (the one you'll switch to)
-        function updateButton() {
-            var nextIndex = (currentIndex + 1) % langs.length;
-            switchLangSpan.text(langs[nextIndex]);
+        // Update active state on language options
+        function updateActiveState() {
+            langOptions.removeClass('active');
+            langOptions.filter('[data-lang="' + currentLang + '"]').addClass('active');
+
+            // Update tooltip text on the main link (title attribute)
+            var tooltipText = textsToShow[currentLang.toLowerCase()].langTooltip;
+            langTrigger.attr('title', tooltipText);
         }
 
         // Apply translations for current language
@@ -105,16 +112,20 @@
             localStorage.setItem('portfolio-lang', lang);
         }
 
-        // On click: switch to next language
-        switchLangBtn.on("click", function () {
-            currentIndex = (currentIndex + 1) % langs.length;
-            var newLang = langs[currentIndex];
-            changeTo(newLang);
-            updateButton();
+        // Handle click on language options
+        langOptions.on("click", function (e) {
+            e.preventDefault();
+            e.stopPropagation(); // Avoid triggering parent links
+            var newLang = $(this).data('lang');
+            if (newLang !== currentLang) {
+                currentLang = newLang;
+                changeTo(currentLang);
+                updateActiveState();
+            }
         });
 
-        // Initialize: apply current language and show next in button
-        changeTo(langs[currentIndex]);
-        updateButton();
+        // Initialize: apply current language and update active state
+        changeTo(currentLang);
+        updateActiveState();
     });
 })();

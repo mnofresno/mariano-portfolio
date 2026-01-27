@@ -23,7 +23,12 @@ a:hover {
   text-decoration: none;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: "Raleway", sans-serif;
 }
 
@@ -93,6 +98,7 @@ h1, h2, h3, h4, h5, h6 {
   0% {
     transform: rotate(0deg);
   }
+
   100% {
     transform: rotate(360deg);
   }
@@ -102,6 +108,7 @@ h1, h2, h3, h4, h5, h6 {
   0% {
     transform: rotate(0deg);
   }
+
   100% {
     transform: rotate(360deg);
   }
@@ -130,6 +137,11 @@ h1, h2, h3, h4, h5, h6 {
   overflow-y: auto;
 }
 
+/* Allow dropdown to overflow header */
+#header:has(.lang-selector:hover) {
+  overflow: visible;
+}
+
 @media (max-width: 992px) {
   #header {
     width: 300px;
@@ -148,12 +160,64 @@ h1, h2, h3, h4, h5, h6 {
 /*--------------------------------------------------------------
 # Navigation Menu
 --------------------------------------------------------------*/
-.nav-menu a.switch-language span, .nav-menu a:hover.switch-language span, .nav-menu a:focus.switch-language span {
-  display: block;
-  color: grey;
-  font-weight: bold;
-  text-align: center;
-  padding: 2px;
+
+/* Language Selector Integrated */
+.lang-item .lang-options {
+  display: flex !important;
+  flex-direction: row !important;
+  gap: 15px;
+  padding-left: 15px;
+  align-items: center;
+  height: 100%;
+}
+
+.lang-opt {
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 500;
+  transition: 0.3s ease;
+  color: rgba(255, 255, 255, 0.6);
+  letter-spacing: 0.5px;
+  display: inline-block;
+  line-height: 1;
+  position: relative;
+  padding: 4px 0;
+}
+
+.lang-opt:hover {
+  color: #fff;
+  transform: scale(1.1);
+}
+
+.lang-opt.active {
+  color: #fff;
+  font-weight: 800;
+}
+
+.lang-opt.active::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  /* Separado del texto */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  height: 2px;
+  background: #fff;
+  border-radius: 2px;
+}
+
+/* Allow the specific trigger to expand like other nav-links */
+@media (min-width: 992px) {
+  .nav-menu li:hover>.lang-trigger {
+    width: 180px;
+    /* Expands enough to show EN ES PT */
+  }
+}
+
+/* Header overflow fix for dropdowns/expansions */
+#header:hover {
+  overflow: visible;
 }
 
 /**
@@ -170,12 +234,13 @@ h1, h2, h3, h4, h5, h6 {
   list-style: none;
 }
 
-.nav-menu > ul > li {
+.nav-menu>ul>li {
   position: relative;
   white-space: nowrap;
 }
 
-.nav-menu a, .nav-menu a:focus {
+.nav-menu a,
+.nav-menu a:focus {
   display: flex;
   align-items: center;
   color: #45505b;
@@ -191,40 +256,54 @@ h1, h2, h3, h4, h5, h6 {
   transition: 0.3s;
 }
 
-.nav-menu a i, .nav-menu a:focus i {
+.nav-menu a i,
+.nav-menu a:focus i {
   font-size: 20px;
 }
 
-.nav-menu a span, .nav-menu a:focus span {
+.nav-menu a span,
+.nav-menu a:focus span {
   padding: 0 5px 0 7px;
   color: #45505b;
 }
 
 @media (min-width: 992px) {
-  .nav-menu a, .nav-menu a:focus {
+
+  .nav-menu a,
+  .nav-menu a:focus {
     width: 56px;
   }
-  .nav-menu a span, .nav-menu a:focus span {
+
+  .nav-menu a span,
+  .nav-menu a:focus span {
     display: none;
     color: #fff;
   }
 }
 
-.nav-menu a:hover, .nav-menu .active, .nav-menu .active:focus, .nav-menu li:hover > a {
+.nav-menu a:hover,
+.nav-menu .active,
+.nav-menu .active:focus,
+.nav-menu li:hover>a {
   color: #fff;
   background: #0563bb;
 }
 
-.nav-menu a:hover span, .nav-menu .active span, .nav-menu .active:focus span, .nav-menu li:hover > a span {
+.nav-menu a:hover span,
+.nav-menu .active span,
+.nav-menu .active:focus span,
+.nav-menu li:hover>a span {
   color: #fff;
 }
 
-.nav-menu a:hover, .nav-menu li:hover > a {
+.nav-menu a:hover,
+.nav-menu li:hover>a {
   width: 100%;
   color: #fff;
 }
 
-.nav-menu a:hover span, .nav-menu li:hover > a span {
+.nav-menu a:hover span,
+.nav-menu li:hover>a span {
   display: block;
 }
 
@@ -281,7 +360,7 @@ h1, h2, h3, h4, h5, h6 {
     height: 100vh;
     background-position: left;
     background-size: cover;
-    position: relative;  
+    position: relative;
   }
 }
 
@@ -342,10 +421,12 @@ h1, h2, h3, h4, h5, h6 {
   #hero {
     text-align: center;
   }
+
   #hero h1 {
     font-size: 32px;
     line-height: 36px;
   }
+
   #hero p {
     margin-top: 10px;
     font-size: 20px;
@@ -713,6 +794,7 @@ section {
   0% {
     transform: rotate(0deg);
   }
+
   100% {
     transform: rotate(360deg);
   }
@@ -722,6 +804,7 @@ section {
   0% {
     transform: rotate(0deg);
   }
+
   100% {
     transform: rotate(360deg);
   }
@@ -787,28 +870,34 @@ section {
   font-size: 13px;
 }
 
-section.hide-work-in-progress, li.hide-work-in-progress {
+section.hide-work-in-progress,
+li.hide-work-in-progress {
   display: none;
 }
 
 .bxl-cults3d {
   content: "";
   /* Set the dimensions of the icon */
-  width: 18px; /* Adjust the width as needed */
-  height: 18px; /* Adjust the height as needed */
-  
+  width: 18px;
+  /* Adjust the width as needed */
+  height: 18px;
+  /* Adjust the height as needed */
+
   /* Use a background image with the SVG file */
   background-image: url('../img/cults-3d-logo.svg');
-  background-repeat:no-repeat;
+  background-repeat: no-repeat;
   background-position: center;
-  background-size: cover; /* or contain, or a specific size like 100px 100px */
+  background-size: cover;
+  /* or contain, or a specific size like 100px 100px */
 
   /* Ensure the icon is displayed as a block element */
   display: inline-block;
-  
+
   /* If you want to hide any default content inside the <i> tag */
-  text-indent: -9999px; /* Hides text content */
-  overflow: hidden; /* Hides overflowing content */
+  text-indent: -9999px;
+  /* Hides text content */
+  overflow: hidden;
+  /* Hides overflowing content */
 }
 
 .bxl-cults3d-white {
