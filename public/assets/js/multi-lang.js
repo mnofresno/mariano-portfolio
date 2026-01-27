@@ -20,7 +20,11 @@
             serviceTraining: "Trainings",
             serviceTrainingDesc: "Team mentoring, tailor-made training, code review, content generation for technical learning.",
             serviceHosting: "Web Hosting",
-            serviceHostingDesc: "Automated deployment of CI/CD, cloud services for delivered projects and pre-existing systems, domain and SSL certificates management."
+            serviceHostingDesc: "Automated deployment of CI/CD, cloud services for delivered projects and pre-existing systems, domain and SSL certificates management.",
+            cults3dTitle: "3D Designs",
+            cults3dSubtitle: "Some of my 3D model designs.",
+            cultsLoadingStatus: "Loading 3D models…",
+            cultsViewAll: "View all on Cults3D"
         },
         es: {
             iam: "Soy",
@@ -42,7 +46,11 @@
             serviceTraining: "Capacitaciones",
             serviceTrainingDesc: "Mentoreo de equipos, capacitaciones a medida, revisión de código, generación de contenidos para aprendizajes técnicos.",
             serviceHosting: "Web Hosting",
-            serviceHostingDesc: "Despliegue automatizado CI/CD, cloud services para proyectos propios y sistemas pre-existentes, gestión de dominios y certificados SSL."
+            serviceHostingDesc: "Despliegue automatizado CI/CD, cloud services para proyectos propios y sistemas pre-existentes, gestión de dominios y certificados SSL.",
+            cults3dTitle: "Diseños 3D",
+            cults3dSubtitle: "Algunos de mis diseños de modelos 3D.",
+            cultsLoadingStatus: "Cargando modelos 3D…",
+            cultsViewAll: "Ver todos en Cults3D"
         },
         pt: {
             iam: "Eu sou",
@@ -64,7 +72,11 @@
             serviceTraining: "Treinamentos",
             serviceTrainingDesc: "Mentoria de equipes, treinamentos personalizados, revisão de código, geração de conteúdo para aprendizado técnico.",
             serviceHosting: "Hospedagem Web",
-            serviceHostingDesc: "Implantação automatizada de CI/CD, serviços em nuvem para projetos entregues e sistemas pré-existentes, gestão de domínios e certificados SSL."
+            serviceHostingDesc: "Implantação automatizada de CI/CD, serviços em nuvem para projetos entregues e sistemas pré-existentes, gestão de domínios e certificados SSL.",
+            cults3dTitle: "Designs 3D",
+            cults3dSubtitle: "Alguns dos meus designs de modelos 3D.",
+            cultsLoadingStatus: "Carregando modelos 3D…",
+            cultsViewAll: "Ver todos no Cults3D"
         }
     };
 
