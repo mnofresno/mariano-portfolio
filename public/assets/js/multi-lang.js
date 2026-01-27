@@ -98,9 +98,12 @@
             langOptions.removeClass('active');
             langOptions.filter('[data-lang="' + currentLang + '"]').addClass('active');
 
-            // Update tooltip text on the main link (title attribute)
+            // Update tooltip text on the custom tooltip element
             var tooltipText = textsToShow[currentLang.toLowerCase()].langTooltip;
-            langTrigger.attr('title', tooltipText);
+            $("#lang-tooltip-text").text(tooltipText);
+
+            // Also remove the native title to avoid double tooltips
+            langTrigger.removeAttr('title');
         }
 
         // Apply translations for current language
