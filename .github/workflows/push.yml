@@ -21,3 +21,16 @@ jobs:
       - name: Run Jest tests
         run: |
           npx jest --ci --coverage
+
+  deploy-prod:
+    if: github.ref == 'refs/heads/master' && always() && (needs.test.result == 'success' || needs.test.result == 'skipped')
+    needs: [test]
+    uses: mnofresno/github-autodeploy/.github/workflows/reusable-deploy.yml@master
+    with:
+      autodeploy_url: ${{ vars.AUTODEPLOY_URL }}
+      deploy_key: placeholder
+      repository: mariano-portfolio
+      commit_sha: ${{ github.sha }}
+      commit_author: ${{ github.actor }}
+    secrets:
+      KEY_FILE_FOR_DEPLOY: ${{ secrets.KEY_FILE_FOR_DEPLOY }}
