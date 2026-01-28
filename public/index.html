@@ -175,11 +175,32 @@
               Technical leader, hardware and software developer. Tech coach and team lead.
             </p>
 
-            <!-- CV Download Badges -->
-            <div id="cv-badges" style="margin-top: 30px; padding-top: 20px; border-top: 1px solid #e0e0e0;">
-              <h4 style="margin-bottom: 15px;">📄 Download CV</h4>
-              <div id="cv-badges-container" style="display: flex; flex-wrap: wrap; gap: 10px;">
-                <!-- Badges will be dynamically loaded here -->
+            <!-- CV Download Section -->
+            <div id="cv-badges" class="cv-download-section">
+              <h4 id="cvDownloadTitle" class="cv-section-title">📄 Download My Resume</h4>
+              <p id="cvDownloadSubtitle" class="cv-section-subtitle">Choose your preferred language and specialization
+              </p>
+
+              <div class="cv-language-tabs">
+                <button class="cv-lang-tab active" data-lang="en" id="cvTabEn">
+                  <i class="bi bi-globe"></i> English
+                </button>
+                <button class="cv-lang-tab" data-lang="es" id="cvTabEs">
+                  <i class="bi bi-globe"></i> Español
+                </button>
+              </div>
+
+              <div class="cv-content">
+                <div class="cv-lang-content active" data-lang-content="en">
+                  <div id="cv-badges-en" class="cv-badges-grid">
+                    <!-- English CV badges will be loaded here -->
+                  </div>
+                </div>
+                <div class="cv-lang-content" data-lang-content="es">
+                  <div id="cv-badges-es" class="cv-badges-grid">
+                    <!-- Spanish CV badges will be loaded here -->
+                  </div>
+                </div>
               </div>
             </div>
           </div>

@@ -25,7 +25,11 @@
             cults3dSubtitle: "Some of my 3D model designs.",
             cultsLoadingStatus: "Loading 3D models…",
             cultsViewAll: "View all on Cults3D",
-            langTooltip: "Change language"
+            langTooltip: "Change language",
+            cvDownloadTitle: "📄 Download My Resume",
+            cvDownloadSubtitle: "Choose your preferred language and specialization",
+            cvTabEn: "English",
+            cvTabEs: "Español"
         },
         es: {
             heroTypedItems: "Soy Líder Técnico, Soy Maker, Soy Desarrollador Full-Stack, Soy Freelancer, Soy Diseñador 3D, Soy Programador IoT, Soy Entusiasta de la Física",
@@ -52,7 +56,11 @@
             cults3dSubtitle: "Algunos de mis diseños de modelos 3D.",
             cultsLoadingStatus: "Cargando modelos 3D…",
             cultsViewAll: "Ver todos en Cults3D",
-            langTooltip: "Cambiar idioma"
+            langTooltip: "Cambiar idioma",
+            cvDownloadTitle: "📄 Descargar mi CV",
+            cvDownloadSubtitle: "Elige tu idioma y especialización preferida",
+            cvTabEn: "Inglés",
+            cvTabEs: "Español"
         },
         pt: {
             heroTypedItems: "Eu sou Líder Técnico, Eu sou Maker, Eu sou Desenvolvedor, Eu sou Freelancer, Eu sou Designer 3D, Eu sou Programador IoT, Eu sou Entusiasta da Física",
@@ -79,7 +87,11 @@
             cults3dSubtitle: "Alguns dos meus designs de modelos 3D.",
             cultsLoadingStatus: "Carregando modelos 3D…",
             cultsViewAll: "Ver todos no Cults3D",
-            langTooltip: "Mudar idioma"
+            langTooltip: "Mudar idioma",
+            cvDownloadTitle: "📄 Baixar Meu Currículo",
+            cvDownloadSubtitle: "Escolha seu idioma e especialização preferidos",
+            cvTabEn: "Inglês",
+            cvTabEs: "Espanhol"
         }
     };
 

@@ -976,3 +976,237 @@ li.hide-work-in-progress {
 .cults-status.is-error {
   color: #c0392b;
 }
+
+/*--------------------------------------------------------------
+# CV Download Section
+--------------------------------------------------------------*/
+.cv-download-section {
+  margin-top: 40px;
+  padding: 30px;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.cv-section-title {
+  font-size: 24px;
+  font-weight: 700;
+  color: #2c3e50;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.cv-section-subtitle {
+  font-size: 14px;
+  color: #5a6c7d;
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+/* Language Tabs */
+.cv-language-tabs {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 25px;
+}
+
+.cv-lang-tab {
+  padding: 12px 24px;
+  background: rgba(255, 255, 255, 0.7);
+  border: 2px solid transparent;
+  border-radius: 30px;
+  font-size: 15px;
+  font-weight: 600;
+  color: #5a6c7d;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.cv-lang-tab:hover {
+  background: rgba(255, 255, 255, 0.95);
+  border-color: #0563bb;
+  color: #0563bb;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(5, 99, 187, 0.2);
+}
+
+.cv-lang-tab.active {
+  background: #0563bb;
+  color: white;
+  border-color: #0563bb;
+  box-shadow: 0 4px 12px rgba(5, 99, 187, 0.3);
+}
+
+.cv-lang-tab i {
+  font-size: 18px;
+}
+
+/* Content Area */
+.cv-content {
+  position: relative;
+}
+
+.cv-lang-content {
+  display: none;
+  animation: fadeIn 0.4s ease-in-out;
+}
+
+.cv-lang-content.active {
+  display: block;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* CV Badges Grid */
+.cv-badges-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px;
+}
+
+@media (max-width: 768px) {
+  .cv-badges-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Individual CV Badge */
+.cv-badge {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 18px 20px;
+  background: white;
+  border-radius: 12px;
+  text-decoration: none;
+  color: inherit;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.cv-badge::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: linear-gradient(180deg, var(--badge-color, #0563bb) 0%, rgba(5, 99, 187, 0.5) 100%);
+  transition: width 0.3s ease;
+}
+
+.cv-badge:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+.cv-badge:hover::before {
+  width: 100%;
+  opacity: 0.05;
+}
+
+/* Badge Icon */
+.cv-badge-icon {
+  flex-shrink: 0;
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 24px;
+  transition: transform 0.3s ease;
+}
+
+.cv-badge:hover .cv-badge-icon {
+  transform: scale(1.1) rotate(5deg);
+}
+
+/* Badge Content */
+.cv-badge-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.cv-badge-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #2c3e50;
+  margin: 0;
+}
+
+.cv-badge-action {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  color: #7f8c8d;
+  font-weight: 500;
+}
+
+.cv-badge-action i {
+  font-size: 14px;
+}
+
+.cv-badge:hover .cv-badge-action {
+  color: #0563bb;
+}
+
+/* Responsive adjustments */
+@media (max-width: 991px) {
+  .cv-download-section {
+    padding: 20px;
+  }
+
+  .cv-section-title {
+    font-size: 20px;
+  }
+
+  .cv-language-tabs {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .cv-lang-tab {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 576px) {
+  .cv-badge {
+    padding: 14px 16px;
+  }
+
+  .cv-badge-icon {
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+  }
+
+  .cv-badge-title {
+    font-size: 14px;
+  }
+
+  .cv-badge-action {
+    font-size: 12px;
+  }
+}
