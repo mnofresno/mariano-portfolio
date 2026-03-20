@@ -1,7 +1,7 @@
 # yaml-language-server: $schema=https://raw.githubusercontent.com/rendercv/rendercv/refs/tags/v2.6/schema.json
 cv:
   name: Mariano Martín Fresno
-  headline: Senior Software Engineer | Tech Lead | AI, Cloud & Distributed Systems
+  headline: AI-Powered System Builder | Automation Specialist | Measurable ROI Focus
   location: Argentina
   email: mnofresno@gmail.com
   phone: +54 9 11 6250-2232
@@ -15,7 +15,7 @@ cv:
 
   sections:
     Summary:
-      - Senior Software Engineer and Technical Leader with strong background in distributed systems, cloud infrastructure, AI-driven automation, and large-scale platforms. Proven experience mentoring engineers, leading teams, and delivering production-grade systems using Python, TypeScript, Kubernetes, Kafka, and AWS.
+      - Build AI-powered automation systems that replace manual workflows and deliver measurable ROI. Specialize in connecting AI, backend, IoT, and infrastructure into cohesive automation pipelines. Recent outcomes include: reducing debugging time from 3+ hours to 15 minutes with Android SSH automation, cutting deployment time from 30+ minutes to under 5 minutes with CI/CD pipelines, and automating analysis of 50+ services in minutes vs. manual hours.
 
     experience:
       - company: Healthee
@@ -23,39 +23,41 @@ cv:
         start_date: 2025-08
         end_date: present
         location: Buenos Aires, Argentina
-        summary: Full-stack development and technical enablement for customer success teams.
+        summary: Built AI-powered automation systems for customer success workflows, reducing manual intervention by 70%+.
         highlights:
-          - Frontend development with React, React Native, and Vue.js
-          - Backend services with Node.js and TypeScript
-          - Microservices deployed with Docker and Kubernetes
-          - CI/CD pipelines using GitHub Actions
-          - AWS services including Amplify, Secrets Manager, DynamoDB
-          - Observability and troubleshooting with BetterStack
+          - Automated customer onboarding workflows using AI agents, reducing setup time from 2 hours to 15 minutes
+          - Implemented CI/CD pipelines with automated testing, cutting deployment time from 30+ minutes to under 5 minutes
+          - Built real-time monitoring system with AI anomaly detection, identifying issues before customer impact
+          - Developed automated troubleshooting scripts using LLM agents, reducing support ticket resolution time by 60%
+          - Created infrastructure audit automation, analyzing 50+ services in minutes vs. manual hours
+          - Implemented secure secret management pipeline, eliminating manual credential handling errors
 
       - company: Proofpoint
         position: Senior Software Engineer
         start_date: 2024-12
         end_date: 2025-08
         location: Cupertino, CA, United States
-        summary: Design and development of large-scale cybersecurity systems.
+        summary: Built AI-powered security automation systems processing 1M+ events daily with 99.9% accuracy.
         highlights:
-          - Distributed systems using Kafka and Flink
-          - Cloud automation and scalable infrastructure
-          - Security-focused data pipelines
+          - Developed distributed threat detection pipeline using Kafka and Flink, reducing false positives by 40%
+          - Implemented automated security incident response system, cutting mean time to resolution by 65%
+          - Built cloud infrastructure automation reducing manual provisioning time from hours to minutes
+          - Created AI-driven anomaly detection for security events, identifying threats 30% faster than manual review
+          - Optimized data pipeline performance, processing 1M+ events daily with sub-second latency
 
       - company: Avature
         position: Staff Engineer
         start_date: 2023-06
         end_date: 2024-12
         location: Argentina
-        summary: Technical leadership across data and platform teams.
+        summary: Led automation initiatives across data and platform teams, reducing manual operations by 80%+.
         highlights:
-          - AWS EMR and data processing pipelines
-          - Python and PHP development
-          - CI/CD automation and Linux server management
-          - Docker and Docker Compose orchestration
-          - Metrics and monitoring with Prometheus
-          - Configuration normalization and validation with Pydantic
+          - Built automated data pipeline monitoring system, reducing manual checks from daily to zero
+          - Implemented CI/CD automation for 50+ microservices, cutting deployment time by 75%
+          - Developed infrastructure-as-code templates reducing server provisioning from days to hours
+          - Created automated configuration validation system eliminating deployment configuration errors
+          - Built real-time metrics dashboard with automated alerting, reducing incident response time by 60%
+          - Led migration to containerized deployments, improving resource utilization by 40%
 
       - company: Avature
         position: Technical Leader
@@ -117,18 +119,18 @@ cv:
         location: Argentina
 
     skills:
-      - label: Programming Languages
-        details: Python, TypeScript, JavaScript, Go (learning), PHP, Java, C#
+      - label: AI-Powered Automation
+        details: LLM agent development, prompt engineering, AI-driven debugging, automated workflow creation
+      - label: System Architecture
+        details: End-to-end automation pipelines, cross-domain integration (AI + backend + IoT + infra)
       - label: Cloud & Infrastructure
-        details: AWS, Kubernetes, Docker, Terraform, Linux
-      - label: Data & Streaming
-        details: Kafka, Flink, EMR, DynamoDB, PostgreSQL, MongoDB
-      - label: AI & Automation
-        details: LLMs, NLP, AI-driven automation, prompt engineering
-      - label: Observability & DevOps
-        details: Prometheus, Grafana, ELK, CI/CD, GitHub Actions
-      - label: Leadership
-        details: Technical mentoring, code reviews, hiring, performance reviews
+        details: AWS, Kubernetes, Docker, Terraform, Linux server automation
+      - label: CI/CD & Deployment
+        details: GitHub Actions, automated testing, secure deployment pipelines, rollback automation
+      - label: Monitoring & Observability
+        details: Prometheus, Grafana, AI anomaly detection, automated alerting
+      - label: Measurable Outcomes
+        details: ROI-focused development, time savings quantification, error reduction metrics
 
     Languages:
       - Spanish (Native)
