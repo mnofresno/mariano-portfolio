@@ -1,7 +1,7 @@
 # yaml-language-server: $schema=https://raw.githubusercontent.com/rendercv/rendercv/refs/tags/v2.6/schema.json
 cv:
   name: Mariano Martín Fresno
-  headline: Senior Full Stack Developer | Software Engineer | Modern Web & Cloud Technologies
+  headline: AI-Powered System Builder | Senior Full Stack Developer | Automation with Measurable ROI
   location: Argentina
   email: mnofresno@gmail.com
   phone: +54 9 11 6250-2232
@@ -15,7 +15,7 @@ cv:
 
   sections:
     Summary:
-      - Senior Full Stack Developer with extensive experience building scalable web applications, mobile apps, and backend systems. Strong expertise in modern JavaScript/TypeScript ecosystems, cloud platforms, and full-stack development. Proven track record delivering production-grade applications using React, Node.js, Python, and AWS.
+      - AI-Powered System Builder delivering measurable ROI through automation. Senior Full Stack Developer specializing in systems that replace manual processes, debug complex technical issues, and deploy production-ready solutions. Proven track record in modern JavaScript/TypeScript ecosystems, cloud platforms, and full-stack development with quantifiable outcomes.
 
     experience:
       - company: Healthee
@@ -125,6 +125,8 @@ cv:
         details: PostgreSQL, MongoDB, DynamoDB, MySQL
       - label: DevOps & Tools
         details: CI/CD, GitHub Actions, Prometheus, Grafana, Git
+      - label: AI Development Tools
+        details: Cursor, Antigravity, OpenCode, Codex, Ollama, GitHub Copilot
 
     Languages:
       - Spanish (Native)

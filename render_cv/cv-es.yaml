@@ -1,7 +1,7 @@
 # yaml-language-server: $schema=https://raw.githubusercontent.com/rendercv/rendercv/refs/tags/v2.6/schema.json
 cv:
   name: Mariano Martín Fresno
-  headline: Especialista en Software Senior | Tech Lead | IA, Cloud y Sistemas Distribuidos
+  headline: Constructor de Sistemas con IA | Automatización con ROI Medible | Especialista en Software Senior
   location: Argentina
   email: mnofresno@gmail.com
   phone: +54 9 11 6250-2232
@@ -15,7 +15,7 @@ cv:
 
   sections:
     Resumen:
-      - Especialista en Software Senior y Líder Técnico con sólida experiencia en sistemas distribuidos, infraestructura en la nube, automatización basada en IA y plataformas de gran escala. Experiencia comprobada en mentoría técnica, liderazgo de equipos y entrega de sistemas de nivel productivo utilizando Python, TypeScript, Kubernetes, Kafka y AWS.
+      - Constructor de Sistemas con IA que entregan ROI medible. Especializado en automatización que reemplaza procesos manuales, depuración de problemas técnicos complejos y despliegue de soluciones listas para producción. Experiencia comprobada en sistemas distribuidos, infraestructura en la nube, y plataformas de gran escala con resultados cuantificables.
 
     experience:
       - company: Healthee
@@ -124,7 +124,7 @@ cv:
       - label: Datos y Streaming
         details: Kafka, Flink, EMR, DynamoDB, PostgreSQL, MongoDB
       - label: IA y Automatización
-        details: LLMs, NLP, automatización basada en IA, diseño de prompts
+        details: LLMs, NLP, automatización basada en IA, diseño de prompts, Cursor, Antigravity, OpenCode, Codex, Ollama, GitHub Copilot
       - label: Observabilidad y DevOps
         details: Prometheus, Grafana, ELK, CI/CD, GitHub Actions
       - label: Liderazgo

@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="android-ssh-manager">
+  <defs>
+    <linearGradient id="g3" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0c1c14"/>
+      <stop offset="100%" stop-color="#1f7d48"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#g3)"/>
+  <rect x="820" y="120" width="230" height="390" rx="28" fill="#d6ffe5" opacity="0.18" stroke="#a8f3c4"/>
+  <rect x="860" y="160" width="150" height="290" rx="14" fill="#a8f3c4" opacity="0.18"/>
+  <text x="120" y="300" fill="#ebfff2" font-family="Arial, sans-serif" font-size="62" font-weight="700">android-ssh-manager</text>
+  <text x="120" y="356" fill="#c8f5d7" font-family="Arial, sans-serif" font-size="30">Secure reverse tunnels and resilient remote Android access</text>
+</svg>
