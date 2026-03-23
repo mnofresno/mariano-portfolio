@@ -1,0 +1,167 @@
+{
+  "generatedAt": "2026-03-22T22:45:00.000Z",
+  "projects": [
+    {
+      "id": "mcp-ssh-secure",
+      "name": "Secure Ops Manager (MCP)",
+      "tagline": "Go-based MCP server for auditable remote execution",
+      "visibility": "public",
+      "problem": "Ops teams need to execute remote commands via LLMs securely, but exposing SSH credentials to AI models is a major security risk.",
+      "solution": "An MCP (Model Context Protocol) server built in Go that delegates SSH commands securely via local profiles and ssh-agent, keeping keys off the network.",
+      "stack": [
+        "Go",
+        "SSH",
+        "MCP",
+        "Linux",
+        "Audit Logging"
+      ],
+      "result": "Reduces manual remote-operation errors and improves traceability for production maintenance tasks executed by AI.",
+      "context": "Built as a secure automation layer for day-to-day infrastructure operations with LLM-assisted workflows.",
+      "role": "I designed and implemented the entire tool from scratch in Go, focusing on the security model, profile resolution, and local append-only audit logs to trace LLM actions.",
+      "architecture": "MCP server in Go delegates to system ssh/ssh-add, resolves secure profiles, and writes local append-only audit logs.",
+      "decisions": [
+        "Keep credentials out of repo and in local secure config",
+        "Require explicit confirm=YES before sudo execution",
+        "Fail fast for non-interactive auth instead of hanging"
+      ],
+      "impact": "Safer remote automation, clearer operational accountability, and lower incident risk during production actions.",
+      "next": "Add signed audit exports and policy-driven command allowlists per profile.",
+      "repoUrl": "https://github.com/mnofresno/mcp-ssh-secure",
+      "demoUrl": null,
+      "asset": "assets/img/projects/mcp-ssh-secure.svg",
+      "updatedAt": "2026-03-08T02:28:27Z",
+      "stars": 0,
+      "forks": 0
+    },
+    {
+      "id": "github-autodeploy",
+      "name": "AutoDeploy Webhooks",
+      "tagline": "Lightweight PHP CI/CD webhook deployment service",
+      "visibility": "public",
+      "problem": "Small teams lose development velocity due to manual, error-prone deployment steps across multiple servers.",
+      "solution": "A robust PHP-based webhook receiver that listens to GitHub pushes, validates payload signatures, and executes repo-scoped deployment shell chains securely.",
+      "stack": [
+        "PHP",
+        "GitHub Actions",
+        "Nginx",
+        "CI/CD",
+        "Webhooks"
+      ],
+      "result": "Cuts deployment friction and standardizes release operations with reproducible server updates.",
+      "context": "Productized internal deployment practice into a reusable service to reduce repetitive operational work.",
+      "role": "I was the sole architect and developer. I wrote the backend validation logic, configured Nginx, and built the self-updating mechanism to manage rollouts across distributed nodes.",
+      "architecture": "Webhook endpoint validates source and repo/key params, resolves deployment commands, executes hooks and logs outcomes.",
+      "decisions": [
+        "Provide per-repository command customization",
+        "Preserve safe defaults for pull/fetch/reset path",
+        "Ship self-update mechanism for distributed instances"
+      ],
+      "impact": "Faster release cycles, fewer manual mistakes, and better consistency across independent deployments.",
+      "next": "Add immutable release channels and signed hook payload validation dashboard.",
+      "repoUrl": "https://github.com/mnofresno/github-autodeploy",
+      "demoUrl": null,
+      "asset": "assets/img/projects/github-autodeploy.svg",
+      "updatedAt": "2025-12-31T02:36:17Z",
+      "stars": 5,
+      "forks": 1
+    },
+    {
+      "id": "android-ssh-manager",
+      "name": "Android Tunnel Hub",
+      "tagline": "Persistent reverse SSH tunneling Android app",
+      "visibility": "public",
+      "problem": "Accessing unattended Android devices remotely (e.g. for IoT displays) is unreliable behind NATs and fragile with external tools.",
+      "solution": "A native Android application written in Kotlin that embeds a MINA SSHD server and maintains a highly resilient reverse SSH tunnel to a public server.",
+      "stack": [
+        "Kotlin",
+        "Android",
+        "Apache MINA SSHD",
+        "Jetpack Compose",
+        "Coroutines"
+      ],
+      "result": "Improves remote device operability and uptime with secure, app-native connectivity flows.",
+      "context": "Built to provide robust remote access for unattended devices without relying on ADB or Termux workflows.",
+      "role": "I built the entire Android app from the ground up, implementing foreground services for persistence, internal SSH key generation, and the Jetpack Compose UI.",
+      "architecture": "Foreground service supervises local SSH daemon and reverse tunnel lifecycle, with in-app key generation and connection state handling.",
+      "decisions": [
+        "Bundle binaries and avoid external runtime dependencies",
+        "Use foreground service for resilience against process kills",
+        "Implement key-first auth and IPv4 fallback control"
+      ],
+      "impact": "Higher reliability for remote maintenance scenarios and reduced setup complexity for non-expert operators.",
+      "next": "Add fleet device telemetry and policy-based tunnel profiles.",
+      "repoUrl": "https://github.com/mnofresno/android-ssh-manager",
+      "demoUrl": null,
+      "asset": "assets/img/projects/android-ssh-manager.svg",
+      "updatedAt": "2026-01-28T00:39:58Z",
+      "stars": 0,
+      "forks": 0
+    },
+    {
+      "id": "bpf-application",
+      "name": "Easy Casual",
+      "tagline": "Containerized Next.js & Node.js Marketplace",
+      "visibility": "private",
+      "problem": "The business needed a modern product platform with faster delivery cycles and a clear path to production hardening.",
+      "solution": "A full-stack containerized platform using Next.js (frontend), Node.js (backend), and MongoDB, featuring a custom OTP (One-Time Password) authentication system.",
+      "stack": [
+        "Next.js",
+        "Node.js",
+        "MongoDB",
+        "Docker",
+        "Nginx",
+        "Mailgun"
+      ],
+      "result": "Accelerated MVP evolution while keeping a clean path for auth, scalability and production operations.",
+      "context": "Private client product with ongoing delivery and controlled access to source code.",
+      "role": "I led the technical architecture, implemented the full-stack codebase, configured the Docker + Nginx deployment strategy, and built the custom passwordless authentication flow.",
+      "architecture": "Frontend and backend containers behind Nginx reverse proxy, with OTP email auth and separate runtime configuration layers.",
+      "decisions": [
+        "Keep app Docker-first for reproducible onboarding",
+        "Use OTP flow to simplify credential handling",
+        "Consolidate route and env conventions for maintainability"
+      ],
+      "impact": "Reduced onboarding time and improved release predictability across contributors.",
+      "next": "Introduce observability SLOs and staged environment promotion strategy.",
+      "repoUrl": "https://github.com/bpf-project/bpf-application",
+      "demoUrl": null,
+      "asset": "assets/img/projects/bpf-application.svg",
+      "updatedAt": "2026-03-09T02:40:26Z",
+      "stars": 0,
+      "forks": 0
+    },
+    {
+      "id": "control-gastos",
+      "name": "Home Finance Tracker",
+      "tagline": "Shared household expense management ecosystem",
+      "visibility": "private",
+      "problem": "Managing shared household expenses across multiple people requires a centralized, mobile-friendly tool with reliable monthly reconciliation.",
+      "solution": "A comprehensive ecosystem consisting of a Laravel (PHP) backend API, a modern Vite-based web backoffice, and an Ionic framework mobile app.",
+      "stack": [
+        "PHP",
+        "Laravel",
+        "Ionic",
+        "Docker",
+        "MySQL",
+        "Vite"
+      ],
+      "result": "Enabled consistent expense tracking and monthly reporting with lower manual reconciliation effort.",
+      "context": "Long-lived private product with iterative improvements and production maintenance.",
+      "role": "I engineered the full stack, set up the Dockerized local and production environments, and developed the synchronized mobile and web clients.",
+      "architecture": "Backend API with admin backoffice and mobile client, backed by containerized local/prod environments.",
+      "decisions": [
+        "Separate mobile and backoffice concerns with shared API",
+        "Containerize build/run flows for stable environments",
+        "Prioritize practical reporting outputs over dashboard complexity"
+      ],
+      "impact": "Improved financial visibility for end users and reduced recurring support friction.",
+      "next": "Add automated anomaly detection and forecast features for monthly cashflow planning.",
+      "repoUrl": "https://github.com/mnofresno/control-gastos",
+      "demoUrl": null,
+      "asset": "assets/img/projects/control-gastos.svg",
+      "updatedAt": "2026-01-25T15:04:36Z",
+      "stars": 0,
+      "forks": 0
+    }
+  ]
+}

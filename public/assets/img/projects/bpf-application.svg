@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="bpf-application">
+  <defs>
+    <linearGradient id="g4" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#130d1f"/>
+      <stop offset="100%" stop-color="#5c2b8a"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#g4)"/>
+  <g fill="none" stroke="#e6c8ff" stroke-width="3" opacity="0.4">
+    <path d="M140 460h260V180H140zM470 460h260V120H470zM800 460h260V240H800z"/>
+    <path d="M400 320h70M730 290h70"/>
+  </g>
+  <text x="120" y="300" fill="#f7eeff" font-family="Arial, sans-serif" font-size="62" font-weight="700">bpf-application</text>
+  <text x="120" y="356" fill="#e2cfff" font-family="Arial, sans-serif" font-size="30">Private full-stack platform with OTP auth and containerized delivery</text>
+</svg>

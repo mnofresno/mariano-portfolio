@@ -120,7 +120,7 @@ cv:
 
     skills:
       - label: AI-Powered Automation
-        details: LLM agent development, prompt engineering, AI-driven debugging, automated workflow creation
+        details: LLM agent development, prompt engineering, AI-driven debugging, automated workflow creation, Cursor, Antigravity, OpenCode, Codex, Ollama, GitHub Copilot
       - label: System Architecture
         details: End-to-end automation pipelines, cross-domain integration (AI + backend + IoT + infra)
       - label: Cloud & Infrastructure

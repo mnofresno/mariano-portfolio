@@ -7,3 +7,5 @@ render_cv/venv/
 render_cv/rendercv_output/
 render_cv/__pycache__/
 .aider*
+
+public/assets/cv/*.pdf
