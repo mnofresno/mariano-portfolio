@@ -14,7 +14,7 @@ cv:
       username: mariano-martin-fresno
 
   sections:
-    Summary:
+    Professional Summary:
       - Build AI-powered automation systems that replace manual workflows and deliver measurable ROI. Specialize in connecting AI, backend, IoT, and infrastructure into cohesive automation pipelines. Recent outcomes include: reducing debugging time from 3+ hours to 15 minutes with Android SSH automation, cutting deployment time from 30+ minutes to under 5 minutes with CI/CD pipelines, and automating analysis of 50+ services in minutes vs. manual hours.
 
     experience:

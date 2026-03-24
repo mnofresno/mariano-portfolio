@@ -14,7 +14,7 @@ cv:
       username: mariano-martin-fresno
 
   sections:
-    Resumen:
+    Resumen Profesional:
       - Desarrollador Full Stack Senior con amplia experiencia construyendo aplicaciones web escalables, aplicaciones móviles y sistemas backend. Sólida experiencia en ecosistemas modernos de JavaScript/TypeScript, plataformas cloud y desarrollo full-stack. Historial comprobado entregando aplicaciones de nivel productivo usando React, Node.js, Python y AWS.
 
     experience:
@@ -125,6 +125,8 @@ cv:
         details: PostgreSQL, MongoDB, DynamoDB, MySQL
       - label: DevOps y Herramientas
         details: CI/CD, GitHub Actions, Prometheus, Grafana, Git
+      - label: Herramientas de Desarrollo con IA
+        details: Cursor, Antigravity, OpenCode, Codex, Ollama, GitHub Copilot
 
     Idiomas:
       - Español (Nativo)

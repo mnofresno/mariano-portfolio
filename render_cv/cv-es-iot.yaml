@@ -14,7 +14,7 @@ cv:
       username: mariano-martin-fresno
 
   sections:
-    Resumen:
+    Resumen Profesional:
       - Especialista en Sistemas Embebidos y Desarrollador IoT con sólida base en electrónica, programación de bajo nivel e integración hardware-software. Formación técnica en electrónica y comunicaciones, combinada con amplia experiencia en desarrollo de software. Experiencia comprobada en programación de sistemas C/C++, sistemas de control de máquinas, procesamiento multimedia y aplicaciones embebidas. Experiencia desarrollando sistemas para máquinas industriales, control de dispositivos y aplicaciones embebidas en tiempo real.
 
     experience:
@@ -127,6 +127,8 @@ cv:
         details: C, C++, Python, Java, TypeScript, JavaScript
       - label: Herramientas de Sistema
         details: Linux, Git, Docker, CI/CD, Optimización de Rendimiento
+      - label: Herramientas de IA
+        details: Cursor, Antigravity, OpenCode, Codex, Ollama, GitHub Copilot
 
     Idiomas:
       - Español (Nativo)

@@ -1,0 +1,24 @@
+#!/bin/bash
+# Wrapper para openlocal - usa v2 por defecto
+
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
+# Verificar que Ollama está instalado
+if ! command -v ollama &> /dev/null; then
+    echo "❌ Error: Ollama no está instalado o no está en el PATH"
+    echo "Instala Ollama desde: https://ollama.com/"
+    exit 1
+fi
+
+# Usar v2 si existe, sino v1
+if [ -f "$SCRIPT_DIR/openlocal-v2.py" ]; then
+    PYTHON_SCRIPT="$SCRIPT_DIR/openlocal-v2.py"
+elif [ -f "$SCRIPT_DIR/openlocal.py" ]; then
+    PYTHON_SCRIPT="$SCRIPT_DIR/openlocal.py"
+else
+    echo "❌ Error: No se encontró ningún script openlocal"
+    exit 1
+fi
+
+# Ejecutar el script Python
+python3 "$PYTHON_SCRIPT" "$@"

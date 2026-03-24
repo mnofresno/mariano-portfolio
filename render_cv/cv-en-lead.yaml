@@ -14,7 +14,7 @@ cv:
       username: mariano-martin-fresno
 
   sections:
-    Summary:
+    Professional Summary:
       - Technical Leader and Engineering Manager with proven track record leading engineering teams, designing scalable architectures, and delivering large-scale distributed systems. Strong experience in team leadership, technical mentoring, system design, and cloud infrastructure. Successfully led cross-functional teams and established engineering best practices.
 
     experience:
@@ -96,6 +96,8 @@ cv:
         details: Prometheus, Grafana, ELK, CI/CD, GitHub Actions
       - label: Programming Languages
         details: Python, TypeScript, JavaScript, PHP, Java
+      - label: AI & Automation
+        details: Cursor, Antigravity, OpenCode, Codex, Ollama, GitHub Copilot, Prompt Engineering
       - label: Data & Streaming
         details: Kafka, Flink, EMR, DynamoDB, PostgreSQL
 
