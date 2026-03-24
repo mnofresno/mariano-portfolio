@@ -14,8 +14,8 @@ cv:
       username: mariano-martin-fresno
 
   sections:
-    Summary:
-      - Build AI-powered automation systems that replace manual workflows and deliver measurable ROI. Specialize in connecting AI, backend, IoT, and infrastructure into cohesive automation pipelines. Recent outcomes include: reducing debugging time from 3+ hours to 15 minutes with Android SSH automation, cutting deployment time from 30+ minutes to under 5 minutes with CI/CD pipelines, and automating analysis of 50+ services in minutes vs. manual hours.
+    Professional Summary:
+      - AI-Powered System Builder delivering measurable ROI through automation. Senior Full Stack Developer specializing in systems that replace manual processes, debug complex technical issues, and deploy production-ready solutions. Proven track record in modern JavaScript/TypeScript ecosystems, cloud platforms, and full-stack development with quantifiable outcomes. Recent outcomes include: reducing debugging time from 3+ hours to 15 minutes with Android SSH automation, cutting deployment time from 30+ minutes to under 5 minutes with CI/CD pipelines, and automating analysis of 50+ services in minutes vs. manual hours.
 
     experience:
       - company: Healthee
