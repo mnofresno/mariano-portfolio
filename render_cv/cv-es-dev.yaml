@@ -14,8 +14,8 @@ cv:
       username: mariano-martin-fresno
 
   sections:
-    Resumen Profesional:
-      - Desarrollador Full Stack Senior con amplia experiencia construyendo aplicaciones web escalables, aplicaciones móviles y sistemas backend. Sólida experiencia en ecosistemas modernos de JavaScript/TypeScript, plataformas cloud y desarrollo full-stack. Historial comprobado entregando aplicaciones de nivel productivo usando React, Node.js, Python y AWS.
+    summary:
+      - Desarrollo Full Stack Senior con amplia experiencia construyendo aplicaciones web escalables, aplicaciones móviles y sistemas backend. Sólida experiencia en ecosistemas modernos de JavaScript/TypeScript, plataformas cloud y desarrollo full-stack. Historial comprobado entregando aplicaciones de nivel productivo usando React, Node.js, Python y AWS.
 
     experience:
       - company: Healthee

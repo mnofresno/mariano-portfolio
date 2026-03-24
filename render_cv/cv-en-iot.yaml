@@ -14,7 +14,7 @@ cv:
       username: mariano-martin-fresno
 
   sections:
-    Professional Summary:
+    summary:
       - Embedded Systems Engineer and IoT Developer with strong foundation in electronics, low-level programming, and hardware-software integration. Technical background in electronics and communications, combined with extensive software development experience. Proven expertise in C/C++ systems programming, machine control systems, multimedia processing, and embedded applications. Experience developing systems for industrial machines, device control, and real-time embedded applications.
 
     experience:

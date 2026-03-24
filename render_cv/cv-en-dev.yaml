@@ -14,7 +14,7 @@ cv:
       username: mariano-martin-fresno
 
   sections:
-    Professional Summary:
+    summary:
       - AI-Powered System Builder delivering measurable ROI through automation. Senior Full Stack Developer specializing in systems that replace manual processes, debug complex technical issues, and deploy production-ready solutions. Proven track record in modern JavaScript/TypeScript ecosystems, cloud platforms, and full-stack development with quantifiable outcomes.
 
     experience:
