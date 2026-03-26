@@ -15,7 +15,7 @@ cv:
 
   sections:
     summary:
-      - Constructor de Sistemas con IA... (rest of content)
+      - "Constructor de Sistemas con IA enfocado en automatización con ROI medible. Desarrollador Full Stack Senior especializado en sistemas que reemplazan procesos manuales, resuelven problemas técnicos complejos y entregan soluciones listas para producción. Trayectoria comprobada en ecosistemas modernos de JavaScript/TypeScript, plataformas cloud y desarrollo full-stack con resultados cuantificables. Resultados recientes incluyen reducir tiempos de debugging de más de 3 horas a 15 minutos con automatización Android por SSH, bajar tiempos de deployment de más de 30 minutos a menos de 5 minutos con pipelines CI/CD y automatizar el análisis de más de 50 servicios en minutos en lugar de horas manuales."
 
     experience:
       - company: Healthee
