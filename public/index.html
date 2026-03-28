@@ -45,7 +45,7 @@
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
   <!-- Vendor CSS Files -->
-  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/css/bootstrap-lite.css" rel="stylesheet">
   <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
 
   <!-- Template Main CSS File -->
@@ -782,6 +782,7 @@
     window.addEventListener('load', function () {
       var analyticsLoaded = false;
       var chatbotLoaded = false;
+      var analyticsTimeoutId = null;
 
       function loadAnalytics() {
         if (analyticsLoaded) return;
@@ -805,14 +806,22 @@
         });
       }
 
+      function scheduleAnalyticsFallback() {
+        if (analyticsTimeoutId) return;
+        analyticsTimeoutId = window.setTimeout(loadAnalytics, 15000);
+      }
+
       var idle = window.requestIdleCallback || function (cb) { return setTimeout(cb, 1200); };
       idle(function () {
-        loadAnalytics();
         loadChatbot();
+        scheduleAnalyticsFallback();
       });
 
-      ['pointerdown', 'keydown', 'touchstart'].forEach(function (eventName) {
-        window.addEventListener(eventName, loadChatbot, { once: true, passive: true });
+      ['pointerdown', 'keydown', 'touchstart', 'scroll'].forEach(function (eventName) {
+        window.addEventListener(eventName, function () {
+          loadChatbot();
+          loadAnalytics();
+        }, { once: true, passive: true });
       });
     });
   </script>
