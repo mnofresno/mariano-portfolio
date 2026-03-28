@@ -499,7 +499,7 @@ section {
   margin: 30px 0;
   padding: 25px;
   background: #f8f9fa;
-  border-radius: 12px;
+  border-radius: 8px;
   border-left: 4px solid #0563bb;
 }
 
@@ -507,88 +507,49 @@ section {
   color: #45505b;
   font-size: 1.4rem;
   font-weight: 700;
-  margin-bottom: 20px;
+  margin-bottom: 14px;
+}
+
+.about .about-identity p {
+  color: #5f6b76;
+  line-height: 1.7;
+  margin-bottom: 14px;
 }
 
 .about .differentiation-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 20px;
+  gap: 14px;
   margin-top: 20px;
 }
 
 .about .diff-item {
-  text-align: center;
+  text-align: left;
   padding: 20px;
   background: white;
+  border: 1px solid #dde3e8;
   border-radius: 8px;
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
-  transition: transform 0.3s ease;
-}
-
-.about .diff-item:hover {
-  transform: translateY(-5px);
 }
 
 .about .diff-item i {
-  font-size: 2rem;
+  font-size: 1.4rem;
   color: #0563bb;
-  margin-bottom: 15px;
+  margin-bottom: 12px;
   display: block;
 }
 
 .about .diff-item h5 {
   color: #45505b;
-  font-size: 1.1rem;
+  font-size: 1rem;
   font-weight: 600;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
 }
 
 .about .diff-item p {
-  color: #728394;
-  font-size: 0.9rem;
-  line-height: 1.4;
+  color: #5f6b76;
+  font-size: 0.95rem;
+  line-height: 1.6;
   margin: 0;
-}
-
-.about .about-outcomes {
-  margin: 30px 0;
-  padding: 25px;
-  background: #f8f9fa;
-  border-radius: 12px;
-  border-left: 4px solid #28a745;
-}
-
-.about .about-outcomes h4 {
-  color: #45505b;
-  font-size: 1.4rem;
-  font-weight: 700;
-  margin-bottom: 20px;
-}
-
-.about .about-outcomes ul {
-  list-style: none;
-  padding: 0;
-}
-
-.about .about-outcomes ul li {
-  margin-bottom: 15px;
-  padding-left: 25px;
-  position: relative;
-  color: #728394;
-  line-height: 1.5;
-}
-
-.about .about-outcomes ul li:before {
-  content: "✓";
-  position: absolute;
-  left: 0;
-  color: #28a745;
-  font-weight: bold;
-}
-
-.about .about-outcomes ul li strong {
-  color: #45505b;
 }
 
 /* Dark mode support */
@@ -605,9 +566,13 @@ section {
   color: #e0e0e0;
 }
 
+[data-theme="dark"] .about .about-identity p {
+  color: #c2cad3;
+}
+
 [data-theme="dark"] .about .diff-item {
   background: #2a2d3e;
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+  border-color: #4c5268;
 }
 
 [data-theme="dark"] .about .diff-item h5 {
@@ -615,24 +580,7 @@ section {
 }
 
 [data-theme="dark"] .about .diff-item p {
-  color: #a0a0b0;
-}
-
-[data-theme="dark"] .about .about-outcomes {
-  background: #3a3d4e;
-  border-left-color: #28a745;
-}
-
-[data-theme="dark"] .about .about-outcomes h4 {
-  color: #e0e0e0;
-}
-
-[data-theme="dark"] .about .about-outcomes ul li {
-  color: #a0a0b0;
-}
-
-[data-theme="dark"] .about .about-outcomes ul li strong {
-  color: #e0e0e0;
+  color: #c2cad3;
 }
 
 /* Responsive adjustments */
@@ -641,8 +589,7 @@ section {
     grid-template-columns: 1fr;
   }
   
-  .about .about-differentiation,
-  .about .about-outcomes {
+  .about .about-differentiation {
     padding: 20px;
   }
   
