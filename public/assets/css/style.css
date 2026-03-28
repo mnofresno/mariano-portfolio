@@ -822,7 +822,7 @@ section {
   font-size: 32px;
 }
 
-.services .service-card h4 {
+.services .service-card h3 {
   font-weight: 700;
   margin-bottom: 25px;
   font-size: 1.5rem;
@@ -830,7 +830,7 @@ section {
   text-align: center;
 }
 
-.services .service-content h5 {
+.services .service-content h4 {
   color: #0563bb;
   font-size: 1.1rem;
   font-weight: 600;
@@ -838,7 +838,7 @@ section {
 }
 
 .services .service-content p {
-  color: #728394;
+  color: #5a6876;
   font-size: 0.95rem;
   line-height: 1.5;
   margin-bottom: 15px;
@@ -899,7 +899,7 @@ section {
 }
 
 .services .cta-content p {
-  color: #728394;
+  color: #5a6876;
   font-size: 1.1rem;
   margin-bottom: 25px;
   max-width: 600px;
@@ -935,12 +935,12 @@ section {
   box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
 }
 
-[data-theme="dark"] .services .service-card h4 {
+[data-theme="dark"] .services .service-card h3 {
   color: #e0e0e0;
 }
 
 [data-theme="dark"] .services .service-content p {
-  color: #a0a0b0;
+  color: #c5ccd5;
 }
 
 [data-theme="dark"] .services .service-outcome {
@@ -963,7 +963,7 @@ section {
 }
 
 [data-theme="dark"] .services .cta-content p {
-  color: #a0a0b0;
+  color: #c5ccd5;
 }
 
 /* Responsive adjustments */
@@ -978,7 +978,7 @@ section {
     font-size: 28px;
   }
   
-  .services .service-card h4 {
+  .services .service-card h3 {
     font-size: 1.3rem;
   }
   
@@ -1578,7 +1578,7 @@ li.hide-work-in-progress {
   margin: 0;
 }
 
-.ai-systems .system-content h5 {
+.ai-systems .system-content h4 {
   color: #0563bb;
   font-size: 1.1rem;
   font-weight: 600;
@@ -1586,7 +1586,7 @@ li.hide-work-in-progress {
 }
 
 .ai-systems .system-content p {
-  color: #728394;
+  color: #5a6876;
   font-size: 0.95rem;
   line-height: 1.5;
   margin-bottom: 15px;
@@ -1658,7 +1658,7 @@ li.hide-work-in-progress {
 }
 
 [data-theme="dark"] .ai-systems .system-content p {
-  color: #a0a0b0;
+  color: #c5ccd5;
 }
 
 [data-theme="dark"] .ai-systems .badge {
