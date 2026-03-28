@@ -1,16 +1,7 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-  <!-- Global site tag (gtag.js) - Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-L4ZYENE4JG"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
-    gtag('js', new Date());
-
-    gtag('config', 'G-L4ZYENE4JG');
-  </script>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
@@ -34,8 +25,7 @@
   <meta name="twitter:description"
     content="Full-stack developer specializing in web solutions and technical leadership.">
   <meta name="twitter:image" content="https://mariano.fresno.ar/assets/img/profile-meta.jpg">
-  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="assets/img/hero-bg.webp" as="image" fetchpriority="high">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -55,11 +45,8 @@
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
   <!-- Vendor CSS Files -->
-  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
 
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
@@ -90,7 +77,7 @@
         <!-- Language Selector -->
         <li class="lang-item">
           <a href="#" class="nav-link lang-trigger" onclick="return false;">
-            <i class="bx bx-globe"></i>
+            <i class="bi bi-globe2"></i>
             <span class="lang-options">
               <span class="lang-opt" data-lang="EN">EN</span>
               <span class="lang-opt" data-lang="ES">ES</span>
@@ -98,10 +85,10 @@
             </span>
           </a>
         </li>
-        <li><a href="#hero" class="nav-link scrollto active"><i class="bx bx-home"></i> <span>Home</span></a></li>
-        <li><a href="#about" class="nav-link scrollto"><i class="bx bx-user"></i> <span>About</span></a></li>
-        <li><a href="#services" class="nav-link scrollto"><i class="bx bx-server"></i> <span>Services</span></a></li>
-        <li class="hide-work-in-progress"><a href="#contact" class="nav-link scrollto"><i class="bx bx-envelope"></i>
+        <li><a href="#hero" class="nav-link scrollto active"><i class="bi bi-house-door"></i> <span>Home</span></a></li>
+        <li><a href="#about" class="nav-link scrollto"><i class="bi bi-person"></i> <span>About</span></a></li>
+        <li><a href="#services" class="nav-link scrollto"><i class="bi bi-hdd-network"></i> <span>Services</span></a></li>
+        <li class="hide-work-in-progress"><a href="#contact" class="nav-link scrollto"><i class="bi bi-envelope"></i>
             <span>Contact</span></a></li>
       </ul>
     </nav><!-- .nav-menu -->
@@ -117,16 +104,16 @@
       </p>
       <p class="hero-subtitle" id="heroSubtitle">Technical Leader & Full-Stack Developer · AI-Powered System Builder · Electronics & Physics Enthusiast</p>
       <div class="social-links">
-        <a href="https://ln.fresno.ar" target="_blank" class="linkedin"><i class="bx bxl-linkedin"></i></a>
-        <a href="https://github.com/mnofresno" target="_blank" class="github"><i class="bx bxl-github"></i></a>
-        <a href="https://tw.fresno.ar" target="_blank" class="twitter"><i class="bx bxl-twitter"></i></a>
-        <a href="https://cults3d.com/en/users/mnofresno/3d-models" target="_blank" class="cults3d"><i
-            class="bx bxl-cults3d"></i></a>
+        <a href="https://ln.fresno.ar" target="_blank" rel="noopener noreferrer" class="linkedin"><i class="bi bi-linkedin"></i></a>
+        <a href="https://github.com/mnofresno" target="_blank" rel="noopener noreferrer" class="github"><i class="bi bi-github"></i></a>
+        <a href="https://tw.fresno.ar" target="_blank" rel="noopener noreferrer" class="twitter"><i class="bi bi-twitter-x"></i></a>
+        <a href="https://cults3d.com/en/users/mnofresno/3d-models" target="_blank" rel="noopener noreferrer" class="cults3d"><i
+            class="bxl-cults3d"></i></a>
         <!--<a href="https://www.facebook.com/fresno.mariano" target="_blank" class="facebook"><i class="bx bxl-facebook"></i></a>-->
         <!--<a href="https://www.instagram.com/mariano.fresno" target="_blank" class="instagram"><i class="bx bxl-instagram"></i></a>-->
         <!--<a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>-->
-        <a href="https://wa.me/5491162502232?text=%C2%A1Hola!%20%C2%BFc%C3%B3mo%20est%C3%A1s%3F" target="_blank"
-          class="whatsapp"><i class="bx bxl-whatsapp"></i></a>
+        <a href="https://wa.me/5491162502232?text=%C2%A1Hola!%20%C2%BFc%C3%B3mo%20est%C3%A1s%3F" target="_blank" rel="noopener noreferrer"
+          class="whatsapp"><i class="bi bi-whatsapp"></i></a>
       </div>
     </div>
   </section><!-- End Hero -->
@@ -144,7 +131,8 @@
 
         <div class="row">
           <div class="col-lg-4" style="text-align: center;">
-            <img src="assets/img/profile-big-gray.webp" class="img-fluid" alt="">
+            <img src="assets/img/profile-big-gray.webp" class="img-fluid" alt="Portrait of Mariano Fresno"
+              width="353" height="470" loading="lazy" decoding="async" fetchpriority="low">
           </div>
           <div class="col-lg-8 pt-4 pt-lg-0 content">
             <h3 id="aboutSubtitle">Technical Leader & Maker</h3>
@@ -252,8 +240,7 @@
           <div class="col-lg-3 col-md-6">
             <div class="count-box">
               <i class="bi bi-emoji-smile"></i>
-              <span data-purecounter-start="0" data-purecounter-end="232" data-purecounter-duration="1"
-                class="purecounter"></span>
+              <span>232</span>
               <p>Happy Clients</p>
             </div>
           </div>
@@ -261,8 +248,7 @@
           <div class="col-lg-3 col-md-6 mt-5 mt-md-0">
             <div class="count-box">
               <i class="bi bi-journal-richtext"></i>
-              <span data-purecounter-start="0" data-purecounter-end="521" data-purecounter-duration="1"
-                class="purecounter"></span>
+              <span>521</span>
               <p>Projects</p>
             </div>
           </div>
@@ -270,8 +256,7 @@
           <div class="col-lg-3 col-md-6 mt-5 mt-lg-0">
             <div class="count-box">
               <i class="bi bi-headset"></i>
-              <span data-purecounter-start="0" data-purecounter-end="1463" data-purecounter-duration="1"
-                class="purecounter"></span>
+              <span>1463</span>
               <p>Hours Of Support</p>
             </div>
           </div>
@@ -279,8 +264,7 @@
           <div class="col-lg-3 col-md-6 mt-5 mt-lg-0">
             <div class="count-box">
               <i class="bi bi-award"></i>
-              <span data-purecounter-start="0" data-purecounter-end="25" data-purecounter-duration="1"
-                class="purecounter"></span>
+              <span>25</span>
               <p>Awards</p>
             </div>
           </div>
@@ -588,7 +572,7 @@
           <p id="cultsLoadingStatus" class="cults-status">Loading 3D models…</p>
           <iframe id="cults-portfolio-iframe" data-remote-src="https://mariano.fresno.ar/cults/portfolio.html?limit=12"
             data-local-src="https://mariano.fresno.ar/cults/portfolio.html?limit=12" loading="lazy"
-            title="Cults3D Portfolio" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            title="Cults3D Portfolio" referrerpolicy="no-referrer-when-downgrade" width="800" height="800"></iframe>
         </div>
 
         <div class="cults-cta">
@@ -625,9 +609,19 @@
           };
         }
 
-        // In production (same origin), load the iframe normally
+        // In production (same origin), load the iframe only when it approaches the viewport.
         if (!isLocal) {
-          setIframe(remoteSrc);
+          if ('IntersectionObserver' in window) {
+            var observer = new IntersectionObserver(function (entries) {
+              if (!entries[0] || !entries[0].isIntersecting) return;
+              observer.disconnect();
+              setIframe(remoteSrc);
+            }, { rootMargin: '300px 0px' });
+
+            observer.observe(iframe);
+          } else {
+            setIframe(remoteSrc);
+          }
           return;
         }
 
@@ -655,7 +649,7 @@
           <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
             <div class="service-card">
                <div class="service-icon">
-                 <i class="bx bx-chip"></i>
+                 <i class="bi bi-cpu"></i>
                </div>
               <h4 id="serviceTechTeams">AI-Powered Automation</h4>
               <div class="service-content">
@@ -680,7 +674,7 @@
           <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in" data-aos-delay="200">
             <div class="service-card">
                <div class="service-icon">
-                <i class="bx bx-cog"></i>
+                <i class="bi bi-gear"></i>
               </div>
                <h4 id="serviceDev">Automated Deployment Pipeline</h4>
               <div class="service-content">
@@ -705,7 +699,7 @@
           <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0" data-aos="zoom-in" data-aos-delay="300">
             <div class="service-card">
                <div class="service-icon">
-                <i class="bx bx-trending-up"></i>
+                <i class="bi bi-graph-up-arrow"></i>
               </div>
                <h4 id="servicePerformance">Infrastructure Intelligence</h4>
               <div class="service-content">
@@ -734,7 +728,7 @@
               <p id="servicesCtaDesc">Whether it's automating workflows, building AI systems, or creating custom solutions—I approach each project with technical rigor and creative problem-solving.</p>
              <a href="https://wa.me/5491162502232?text=Hi%20Mariano,%20I'd%20like%20to%20discuss%20a%20project" 
                 target="_blank" class="btn btn-success">
-               <i class="bx bxl-whatsapp"></i> Chat with me on WhatsApp
+               <i class="bi bi-whatsapp"></i> Chat with me on WhatsApp
              </a>
           </div>
         </div>
@@ -750,16 +744,16 @@
       <p id="socialFooter">Et aut eum quis fuga eos sunt ipsa nihil. Labore corporis magni eligendi fuga maxime saepe
         commodi placeat.</p>
       <div class="social-links">
-        <a href="https://ln.fresno.ar" class="linkedin"><i class="bx bxl-linkedin"></i></a>
-        <a href="https://github.com/mnofresno" target="_blank" class="github"><i class="bx bxl-github"></i></a>
-        <a href="https://tw.fresno.ar" target="_blank" class="twitter"><i class="bx bxl-twitter"></i></a>
-        <a href="https://cults3d.com/en/users/mnofresno/3d-models" target="_blank" class="cults3d"><i
-            class="bx bxl-cults3d bxl-cults3d-white"></i></a>
+        <a href="https://ln.fresno.ar" class="linkedin" target="_blank" rel="noopener noreferrer"><i class="bi bi-linkedin"></i></a>
+        <a href="https://github.com/mnofresno" target="_blank" rel="noopener noreferrer" class="github"><i class="bi bi-github"></i></a>
+        <a href="https://tw.fresno.ar" target="_blank" rel="noopener noreferrer" class="twitter"><i class="bi bi-twitter-x"></i></a>
+        <a href="https://cults3d.com/en/users/mnofresno/3d-models" target="_blank" rel="noopener noreferrer" class="cults3d"><i
+            class="bxl-cults3d bxl-cults3d-white"></i></a>
         <!--<a href="https://www.facebook.com/fresno.mariano" target="_blank" class="facebook"><i class="bx bxl-facebook"></i></a>-->
         <!--<a href="https://www.instagram.com/mariano.fresno" target="_blank" class="instagram"><i class="bx bxl-instagram"></i></a>-->
         <!--<a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>-->
-        <a href="https://wa.me/5491162502232?text=%C2%A1Hola!%20%C2%BFc%C3%B3mo%20est%C3%A1s%3F" target="_blank"
-          class="whatsapp"><i class="bx bxl-whatsapp"></i></a>
+        <a href="https://wa.me/5491162502232?text=%C2%A1Hola!%20%C2%BFc%C3%B3mo%20est%C3%A1s%3F" target="_blank" rel="noopener noreferrer"
+          class="whatsapp"><i class="bi bi-whatsapp"></i></a>
       </div>
       <div class="copyright">
         &copy; Copyright <strong><span>MyResume</span></strong>. All Rights Reserved
@@ -774,31 +768,54 @@
     </div>
   </footer><!-- End Footer -->
 
-  <div id="preloader"></div>
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
       class="bi bi-arrow-up-short"></i></a>
-
-  <!-- Vendor JS Files -->
-  <script src="assets/vendor/aos/aos.js"></script>
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-  <script src="assets/vendor/purecounter/purecounter.js"></script>
-  <script src="assets/vendor/typed.js/typed.min.js"></script>
-  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
-  <script src="assets/vendor/jquery/jquery-3.6.0.min.js"></script>
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
   <script src="assets/js/multi-lang.js"></script>
-  <script src="assets/js/age-compute.js"></script>
 
   <!-- CV Badges Loader -->
   <script src="assets/js/cv-badges.js"></script>
 
-  <!-- Chatbot RAG System (must load after cv-badges.js to access window.cvInfo) -->
-  <script src="/chatbot/chatbot-rag.js"></script>
-  <script type="module" src="/chatbot/chatbot-widget.js"></script>
+  <script>
+    window.addEventListener('load', function () {
+      var analyticsLoaded = false;
+      var chatbotLoaded = false;
+
+      function loadAnalytics() {
+        if (analyticsLoaded) return;
+        analyticsLoaded = true;
+        var script = document.createElement('script');
+        script.async = true;
+        script.src = 'https://www.googletagmanager.com/gtag/js?id=G-L4ZYENE4JG';
+        document.head.appendChild(script);
+
+        window.dataLayer = window.dataLayer || [];
+        window.gtag = window.gtag || function () { dataLayer.push(arguments); };
+        gtag('js', new Date());
+        gtag('config', 'G-L4ZYENE4JG');
+      }
+
+      function loadChatbot() {
+        if (chatbotLoaded) return;
+        chatbotLoaded = true;
+        import('/chatbot/chatbot-widget.js').catch(function (error) {
+          console.error('Unable to load chatbot widget', error);
+        });
+      }
+
+      var idle = window.requestIdleCallback || function (cb) { return setTimeout(cb, 1200); };
+      idle(function () {
+        loadAnalytics();
+        loadChatbot();
+      });
+
+      ['pointerdown', 'keydown', 'touchstart'].forEach(function (eventName) {
+        window.addEventListener(eventName, loadChatbot, { once: true, passive: true });
+      });
+    });
+  </script>
 </body>
 
 </html>
