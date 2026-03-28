@@ -1,189 +1,219 @@
 /**
-* Template Name: MyResume - v4.3.0
-* Template URL: https://bootstrapmade.com/free-html-bootstrap-template-my-resume/
-* Author: BootstrapMade.com
-* License: https://bootstrapmade.com/license/
+* Lightweight UI behavior for the portfolio home page.
 */
 (function () {
   "use strict";
 
-  /**
-   * Easy selector helper function
-   */
-  const select = (el, all = false) => {
-    el = el.trim()
-    if (all) {
-      return [...document.querySelectorAll(el)]
-    } else {
-      return document.querySelector(el)
-    }
-  }
-
-  /**
-   * Easy event listener function
-   */
-  const on = (type, el, listener, all = false) => {
-    let selectEl = select(el, all)
-    if (selectEl) {
-      if (all) {
-        selectEl.forEach(e => e.addEventListener(type, listener))
-      } else {
-        selectEl.addEventListener(type, listener)
-      }
-    }
-  }
-
-  /**
-   * Easy on scroll event listener 
-   */
-  const onscroll = (el, listener) => {
-    el.addEventListener('scroll', listener)
-  }
-
-  /**
-   * Navbar links active state on scroll
-   */
-  let navbarlinks = select('#navbar .scrollto', true)
-  const navbarlinksActive = () => {
-    let position = window.scrollY + 200
-    navbarlinks.forEach(navbarlink => {
-      if (!navbarlink.hash) return
-      let section = select(navbarlink.hash)
-      if (!section) return
-      if (position >= section.offsetTop && position <= (section.offsetTop + section.offsetHeight)) {
-        navbarlink.classList.add('active')
-      } else {
-        navbarlink.classList.remove('active')
-      }
-    })
-  }
-  window.addEventListener('load', navbarlinksActive)
-  onscroll(document, navbarlinksActive)
-
-  /**
-   * Scrolls to an element with header offset
-   */
-  const scrollto = (el) => {
-    let elementPos = select(el).offsetTop
-    window.scrollTo({
-      top: elementPos,
-      behavior: 'smooth'
-    })
-  }
-
-  /**
-   * Back to top button
-   */
-  let backtotop = select('.back-to-top')
-  if (backtotop) {
-    const toggleBacktotop = () => {
-      if (window.scrollY > 100) {
-        backtotop.classList.add('active')
-      } else {
-        backtotop.classList.remove('active')
-      }
-    }
-    window.addEventListener('load', toggleBacktotop)
-    onscroll(document, toggleBacktotop)
-  }
-
-  /**
-   * Mobile nav toggle
-   */
-  on('click', '.mobile-nav-toggle', function (e) {
-    select('body').classList.toggle('mobile-nav-active')
-    this.classList.toggle('bi-list')
-    this.classList.toggle('bi-x')
-  })
-
-  /**
-   * Scroll with offset on links with a class name .scrollto
-   */
-  on('click', '.scrollto', function (e) {
-    if (select(this.hash)) {
-      e.preventDefault()
-
-      let body = select('body')
-      if (body.classList.contains('mobile-nav-active')) {
-        body.classList.remove('mobile-nav-active')
-        let navbarToggle = select('.mobile-nav-toggle')
-        navbarToggle.classList.toggle('bi-list')
-        navbarToggle.classList.toggle('bi-x')
-      }
-      scrollto(this.hash)
-    }
-  }, true)
-
-  /**
-   * Scroll with offset on page load with hash links in the URL
-   */
-  window.addEventListener('load', () => {
-    if (window.location.hash) {
-      if (select(window.location.hash)) {
-        scrollto(window.location.hash)
-      }
-    }
-  });
-
-  /**
-   * Preloader
-   */
-  let preloader = select('#preloader');
-  if (preloader) {
-    window.addEventListener('load', () => {
-      preloader.remove()
-    });
-  }
-
-  /**
-   * Hero type effect
-   */
-  window.initTyped = () => {
-    const typed = select('.typed')
-    if (typed) {
-      if (window.typedInstance) {
-        window.typedInstance.destroy();
-      }
-      let typed_strings = typed.getAttribute('data-typed-items')
-      typed_strings = typed_strings.split(',')
-      window.typedInstance = new Typed('.typed', {
-        strings: typed_strings,
-        loop: true,
-        typeSpeed: 100,
-        backSpeed: 50,
-        backDelay: 2000
-      });
-    }
+  const select = (selector, all = false) => {
+    const nodes = document.querySelectorAll(selector);
+    return all ? Array.from(nodes) : nodes[0] || null;
   };
-  window.initTyped();
 
-  /**
-   * Skills animation
-   */
-  let skillsContent = select('.skills-content');
-  if (skillsContent) {
-    new Waypoint({
-      element: skillsContent,
-      offset: '80%',
-      handler: function (direction) {
-        let progress = select('.progress .progress-bar', true);
-        progress.forEach((el) => {
-          el.style.width = el.getAttribute('aria-valuenow') + '%'
-        });
-      }
-    })
-  }
+  const on = (type, selector, listener, all = false) => {
+    const elements = select(selector, all);
+    if (!elements) return;
 
-  /**
-   * Animation on scroll
-   */
-  window.addEventListener('load', () => {
-    AOS.init({
-      duration: 1000,
-      easing: 'ease-in-out',
-      once: true,
-      mirror: false
-    })
+    if (all) {
+      elements.forEach((element) => element.addEventListener(type, listener));
+      return;
+    }
+
+    elements.addEventListener(type, listener);
+  };
+
+  const navbarLinks = select('#navbar .scrollto', true);
+
+  const updateActiveNav = () => {
+    const position = window.scrollY + 200;
+
+    navbarLinks.forEach((link) => {
+      if (!link.hash) return;
+      const section = select(link.hash);
+      if (!section) return;
+
+      const inSection = position >= section.offsetTop && position <= section.offsetTop + section.offsetHeight;
+      link.classList.toggle('active', inSection);
+    });
+  };
+
+  const scrollToSection = (hash) => {
+    const target = select(hash);
+    if (!target) return;
+
+    window.scrollTo({
+      top: target.offsetTop,
+      behavior: 'smooth'
+    });
+  };
+
+  const backToTop = select('.back-to-top');
+  const toggleBackToTop = () => {
+    if (!backToTop) return;
+    backToTop.classList.toggle('active', window.scrollY > 100);
+  };
+
+  on('click', '.mobile-nav-toggle', function () {
+    document.body.classList.toggle('mobile-nav-active');
+    this.classList.toggle('bi-list');
+    this.classList.toggle('bi-x');
   });
 
-})()
+  on('click', '.scrollto', function (event) {
+    if (!this.hash || !select(this.hash)) return;
+
+    event.preventDefault();
+
+    if (document.body.classList.contains('mobile-nav-active')) {
+      document.body.classList.remove('mobile-nav-active');
+      const navbarToggle = select('.mobile-nav-toggle');
+      if (navbarToggle) {
+        navbarToggle.classList.add('bi-list');
+        navbarToggle.classList.remove('bi-x');
+      }
+    }
+
+    scrollToSection(this.hash);
+  }, true);
+
+  const createTypedController = () => {
+    const typedElement = select('.typed');
+    if (!typedElement) return null;
+
+    let typeTimeout = null;
+    let phraseIndex = 0;
+    let charIndex = 0;
+    let deleting = false;
+
+    const getPhrases = () => {
+      const values = typedElement.getAttribute('data-typed-items') || '';
+      return values.split(',').map((item) => item.trim()).filter(Boolean);
+    };
+
+    const clearTimer = () => {
+      if (typeTimeout) {
+        window.clearTimeout(typeTimeout);
+        typeTimeout = null;
+      }
+    };
+
+    const tick = () => {
+      const phrases = getPhrases();
+      if (!phrases.length) {
+        typedElement.textContent = '';
+        return;
+      }
+
+      const current = phrases[phraseIndex % phrases.length];
+
+      if (!deleting) {
+        charIndex += 1;
+        typedElement.textContent = current.slice(0, charIndex);
+
+        if (charIndex >= current.length) {
+          deleting = true;
+          typeTimeout = window.setTimeout(tick, 1800);
+          return;
+        }
+
+        typeTimeout = window.setTimeout(tick, 85);
+        return;
+      }
+
+      charIndex -= 1;
+      typedElement.textContent = current.slice(0, Math.max(charIndex, 0));
+
+      if (charIndex <= 0) {
+        deleting = false;
+        phraseIndex += 1;
+        typeTimeout = window.setTimeout(tick, 220);
+        return;
+      }
+
+      typeTimeout = window.setTimeout(tick, 40);
+    };
+
+    return {
+      start() {
+        clearTimer();
+        phraseIndex = 0;
+        charIndex = 0;
+        deleting = false;
+        typedElement.textContent = '';
+        tick();
+      },
+      restart() {
+        this.start();
+      }
+    };
+  };
+
+  const typedController = createTypedController();
+  window.initTyped = () => {
+    if (typedController) typedController.restart();
+  };
+
+  const initSkillBars = () => {
+    const skillsContent = select('.skills-content');
+    if (!skillsContent) return;
+
+    const fillBars = () => {
+      select('.progress .progress-bar', true).forEach((bar) => {
+        bar.style.width = `${bar.getAttribute('aria-valuenow')}%`;
+      });
+    };
+
+    if (!('IntersectionObserver' in window)) {
+      fillBars();
+      return;
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+      if (!entries[0] || !entries[0].isIntersecting) return;
+      fillBars();
+      observer.disconnect();
+    }, { threshold: 0.2 });
+
+    observer.observe(skillsContent);
+  };
+
+  const initSectionReveal = () => {
+    const animatedNodes = select('[data-aos]', true);
+    if (!animatedNodes.length) return;
+
+    animatedNodes.forEach((node) => {
+      node.classList.add('aos-lite');
+    });
+
+    if (!('IntersectionObserver' in window)) {
+      animatedNodes.forEach((node) => node.classList.add('aos-lite-visible'));
+      return;
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('aos-lite-visible');
+        observer.unobserve(entry.target);
+      });
+    }, {
+      rootMargin: '0px 0px -10% 0px',
+      threshold: 0.15
+    });
+
+    animatedNodes.forEach((node) => observer.observe(node));
+  };
+
+  window.addEventListener('load', () => {
+    updateActiveNav();
+    toggleBackToTop();
+    if (window.location.hash && select(window.location.hash)) {
+      scrollToSection(window.location.hash);
+    }
+    if (typedController) typedController.start();
+    initSkillBars();
+    initSectionReveal();
+  });
+
+  document.addEventListener('scroll', updateActiveNav, { passive: true });
+  document.addEventListener('scroll', toggleBackToTop, { passive: true });
+})();

@@ -236,59 +236,74 @@
         }
     };
 
-    $(function () {
+    function initLanguageSwitcher() {
         var langs = ["EN", "ES", "PT"];
-        var langOptions = $(".lang-opt");
-        var langTrigger = $(".lang-trigger");
+        var langOptions = Array.from(document.querySelectorAll(".lang-opt"));
+        var langTrigger = document.querySelector(".lang-trigger");
 
-        // Get saved language or default to EN
         var savedLang = localStorage.getItem('portfolio-lang');
         var currentLang = savedLang ? savedLang.toUpperCase() : "EN";
         if (langs.indexOf(currentLang) === -1) currentLang = "EN";
 
-        // Update active state on language options
         function updateActiveState() {
-            langOptions.removeClass('active');
-            langOptions.filter('[data-lang="' + currentLang + '"]').addClass('active');
+            langOptions.forEach(function (option) {
+                option.classList.toggle('active', option.dataset.lang === currentLang);
+            });
 
-            // Update tooltip text on the custom tooltip element
             var tooltipText = textsToShow[currentLang.toLowerCase()].langTooltip;
-            $("#lang-tooltip-text").text(tooltipText);
+            var tooltipElement = document.getElementById('lang-tooltip-text');
+            if (tooltipElement) {
+                tooltipElement.textContent = tooltipText;
+            }
 
-            // Also remove the native title to avoid double tooltips
-            langTrigger.removeAttr('title');
+            if (langTrigger) {
+                langTrigger.removeAttribute('title');
+            }
         }
 
-        // Apply translations for current language
         function changeTo(lang) {
             var lowerCaseLang = lang.toLowerCase();
             Object.keys(textsToShow[lowerCaseLang]).forEach(function (elementId) {
                 if (elementId === 'heroTypedItems') {
-                    $("#hero-typed").attr('data-typed-items', textsToShow[lowerCaseLang][elementId]);
+                    var typed = document.getElementById('hero-typed');
+                    if (typed) {
+                        typed.setAttribute('data-typed-items', textsToShow[lowerCaseLang][elementId]);
+                    }
                     if (window.initTyped) {
                         window.initTyped();
                     }
-                } else {
-                    $("#" + elementId).text(textsToShow[lowerCaseLang][elementId]);
+                    return;
+                }
+
+                var element = document.getElementById(elementId);
+                if (element) {
+                    element.textContent = textsToShow[lowerCaseLang][elementId];
                 }
             });
+
+            document.documentElement.lang = lowerCaseLang;
             localStorage.setItem('portfolio-lang', lang);
         }
 
-        // Handle click on language options
-        langOptions.on("click", function (e) {
-            e.preventDefault();
-            e.stopPropagation(); // Avoid triggering parent links
-            var newLang = $(this).data('lang');
-            if (newLang !== currentLang) {
+        langOptions.forEach(function (option) {
+            option.addEventListener("click", function (e) {
+                e.preventDefault();
+                e.stopPropagation();
+                var newLang = option.dataset.lang;
+                if (newLang === currentLang) return;
                 currentLang = newLang;
                 changeTo(currentLang);
                 updateActiveState();
-            }
+            });
         });
 
-        // Initialize: apply current language and update active state
         changeTo(currentLang);
         updateActiveState();
-    });
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initLanguageSwitcher);
+    } else {
+        initLanguageSwitcher();
+    }
 })();

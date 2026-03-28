@@ -66,60 +66,33 @@ h6 {
 }
 
 /*--------------------------------------------------------------
-# Preloader
+# Progressive rendering
 --------------------------------------------------------------*/
-#preloader {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 9999;
-  overflow: hidden;
-  background: #fff;
+main>section,
+#footer {
+  content-visibility: auto;
+  contain-intrinsic-size: 1px 900px;
 }
 
-#preloader:before {
-  content: "";
-  position: fixed;
-  top: calc(50% - 30px);
-  left: calc(50% - 30px);
-  border: 6px solid #0563bb;
-  border-top-color: #fff;
-  border-bottom-color: #fff;
-  border-radius: 50%;
-  width: 60px;
-  height: 60px;
-  -webkit-animation: animate-preloader 1s linear infinite;
-  animation: animate-preloader 1s linear infinite;
+.aos-lite {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.45s ease, transform 0.45s ease;
 }
 
-@-webkit-keyframes animate-preloader {
-  0% {
-    transform: rotate(0deg);
-  }
-
-  100% {
-    transform: rotate(360deg);
-  }
+.aos-lite-visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
-@keyframes animate-preloader {
-  0% {
-    transform: rotate(0deg);
-  }
-
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
-/*--------------------------------------------------------------
-# Disable aos animation delay on mobile devices
---------------------------------------------------------------*/
-@media screen and (max-width: 768px) {
-  [data-aos-delay] {
-    transition-delay: 0 !important;
+@media (prefers-reduced-motion: reduce) {
+  .aos-lite,
+  .aos-lite-visible,
+  .back-to-top,
+  .nav-menu a,
+  .mobile-nav-toggle {
+    transition: none !important;
+    animation: none !important;
   }
 }
 
@@ -398,6 +371,8 @@ h6 {
 #hero p span {
   color: #0563bb;
   letter-spacing: 1px;
+  display: inline-block;
+  min-height: 1.4em;
 }
 
 #hero .social-links {
