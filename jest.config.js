@@ -17,7 +17,7 @@ module.exports = {
     '**/?(*.)+(spec|test).js'
   ],
   setupFilesAfterEnv: ['<rootDir>/jest.setup.js'],
-  moduleNameMapping: {
+  moduleNameMapper: {
     '^@/(.*)$': '<rootDir>/public/$1'
   },
   transformIgnorePatterns: [

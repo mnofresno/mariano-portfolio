@@ -30,20 +30,50 @@ const mimeTypes = {
   '.mp3': 'audio/mpeg',
 };
 
-http.createServer((req, res) => {
-  let filePath = path.join(PUBLIC_DIR, decodeURIComponent(req.url.split('?')[0]));
-  if (filePath.endsWith('/')) filePath += 'index.html';
+function sendFile(filePath, res) {
+  const ext = path.extname(filePath).toLowerCase();
+  const contentType = mimeTypes[ext] || 'application/octet-stream';
+  res.writeHead(200, { 'Content-Type': contentType });
+  fs.createReadStream(filePath).pipe(res);
+}
 
-  fs.stat(filePath, (err, stats) => {
-    if (!err && stats.isFile()) {
-      const ext = path.extname(filePath).toLowerCase();
-      const contentType = mimeTypes[ext] || 'application/octet-stream';
-      res.writeHead(200, { 'Content-Type': contentType });
-      fs.createReadStream(filePath).pipe(res);
-    } else {
-      res.writeHead(404, { 'Content-Type': 'text/html' });
-      res.end('<h1>404 Not Found</h1>');
+function resolveFilePath(requestPath, callback) {
+  const normalizedPath = decodeURIComponent(requestPath.split('?')[0] || '/');
+  const relativePath = normalizedPath === '/' ? '/index.html' : normalizedPath;
+  const directPath = path.join(PUBLIC_DIR, relativePath);
+  const candidates = [directPath];
+
+  if (!path.extname(directPath)) {
+    candidates.push(path.join(directPath, 'index.html'));
+    candidates.push(`${directPath}.html`);
+  }
+
+  (function next(index) {
+    if (index >= candidates.length) {
+      callback(null);
+      return;
     }
+
+    fs.stat(candidates[index], (err, stats) => {
+      if (!err && stats.isFile()) {
+        callback(candidates[index]);
+        return;
+      }
+
+      next(index + 1);
+    });
+  })(0);
+}
+
+http.createServer((req, res) => {
+  resolveFilePath(req.url, (filePath) => {
+    if (filePath) {
+      sendFile(filePath, res);
+      return;
+    }
+
+    res.writeHead(404, { 'Content-Type': 'text/html' });
+    res.end('<h1>404 Not Found</h1>');
   });
 }).listen(PORT, () => {
   console.log(`Static server running at http://localhost:${PORT}`);
