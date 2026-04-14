@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-03-28T11:30:52.575Z",
+  "generatedAt": "2026-04-14T11:58:27.681Z",
   "projects": [
     {
       "id": "mcp-ssh-secure",
@@ -61,7 +61,7 @@
       "repoUrl": "https://github.com/mnofresno/github-autodeploy",
       "demoUrl": null,
       "asset": "assets/img/projects/github-autodeploy.svg",
-      "updatedAt": "2026-03-11T22:59:22Z",
+      "updatedAt": "2026-04-09T14:38:13Z",
       "stars": 5,
       "forks": 1
     },
