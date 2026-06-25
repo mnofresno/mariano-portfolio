@@ -15,7 +15,7 @@ cv:
 
   sections:
     summary:
-      - Ingeniero de Sistemas Embebidos y Desarrollador de IoT con sólida base en electrónica, programación de bajo nivel e integración hardware-software. Formación técnica en electrónica y comunicaciones, combinada con amplia experiencia en desarrollo de software. Experiencia comprobada en programación de sistemas C/C++, sistemas de control de máquinas, procesamiento multimedia y aplicaciones embebidas. Experiencia desarrollando sistemas para máquinas industriales, control de dispositivos y aplicaciones embebidas en tiempo real.
+      - Ingeniero de Sistemas Embebidos y Desarrollador IoT con más de 15 años de experiencia en electrónica, programación de bajo nivel, control de máquinas e integración hardware-software. Base sólida en C/C++, sistemas industriales y aplicaciones embebidas, combinada con experiencia más amplia en desarrollo de software.
 
     experience:
       - company: Machines & Systems Automation S.R.L.
@@ -90,11 +90,13 @@ cv:
         start_date: 2025-08
         end_date: present
         location: Buenos Aires, Argentina
-        summary: Desarrollo full-stack con enfoque en integración de sistemas y rendimiento.
+        summary: Desarrollo full-stack con foco en integración de sistemas, diagnóstico y rendimiento.
         highlights:
-          - Integración de sistemas y desarrollo de APIs
-          - Optimización de rendimiento y debugging
-          - Arquitectura de microservicios para sistemas escalables
+          - Diagnóstico y resolución de problemas en entornos integrados
+          - Microservicios seguros para conectividad de dispositivos y telemetría
+          - Optimización de adquisición de datos en tiempo real para aplicaciones de salud
+          - Integración de sistemas con Docker y CI/CD para objetivos basados en Linux
+          - Mejoras de workflow para desarrollo y soporte de sistemas con hardware
 
     education:
       - institution: República Francesa
@@ -110,6 +112,13 @@ cv:
         degree: Licenciatura (40% completado)
         start_date: 2008
         end_date: 2012
+        location: Buenos Aires, Argentina
+
+      - institution: Universidad de Buenos Aires
+        area: Filosofía
+        degree: Licenciatura (Estudios introductorios)
+        start_date: 2012
+        end_date: 2013
         location: Buenos Aires, Argentina
 
     skills:
@@ -142,4 +151,3 @@ locale:
 
 settings:
     current_date: "2025-12-30"
-

@@ -1,7 +1,7 @@
 # yaml-language-server: $schema=https://raw.githubusercontent.com/rendercv/rendercv/refs/tags/v2.6/schema.json
 cv:
   name: Mariano Martín Fresno
-  headline: AI-Powered System Builder | Senior Full Stack Developer | Automation with Measurable ROI
+  headline: Senior Full Stack Developer | Automation, AI, and Infrastructure
   location: Argentina
   email: mnofresno@gmail.com
   phone: +54 9 11 6250-2232
@@ -15,7 +15,7 @@ cv:
 
   sections:
     summary:
-      - AI-Powered System Builder delivering measurable ROI through automation. Senior Full Stack Developer specializing in systems that replace manual processes, debug complex technical issues, and deploy production-ready solutions. Proven track record in modern JavaScript/TypeScript ecosystems, cloud platforms, and full-stack development with quantifiable outcomes.
+      - Senior Full Stack Developer with 15+ years of experience building production systems, internal tooling, and automation across modern JavaScript/TypeScript ecosystems, cloud platforms, and full-stack development. Strong focus on removing manual bottlenecks, improving delivery quality, and turning operational pain points into maintainable systems.
 
     experience:
       - company: Healthee
@@ -23,14 +23,13 @@ cv:
         start_date: 2025-08
         end_date: present
         location: Buenos Aires, Argentina
-        summary: Full-stack development of healthcare applications with focus on user experience and performance.
+        summary: Full-stack development for healthcare applications with focus on system integration, customer operations, and delivery workflows.
         highlights:
           - Frontend development with React, React Native, and Vue.js
           - Backend services with Node.js and TypeScript
-          - Microservices architecture deployed with Docker and Kubernetes
-          - CI/CD pipelines using GitHub Actions
+          - Workflow automation for customer success and technical onboarding
+          - CI/CD improvements for safer releases and faster iteration
           - AWS services including Amplify, Secrets Manager, DynamoDB
-          - Performance optimization and debugging with BetterStack
 
       - company: Proofpoint
         position: Senior Software Engineer
@@ -105,6 +104,13 @@ cv:
         end_date: 2012
         location: Buenos Aires, Argentina
 
+      - institution: Universidad de Buenos Aires
+        area: Philosophy
+        degree: Licenciatura (Introductory studies)
+        start_date: 2012
+        end_date: 2013
+        location: Buenos Aires, Argentina
+
       - institution: República Francesa
         area: Electronics and Communications
         degree: Electronic Technician
@@ -136,8 +142,7 @@ design:
   theme: moderncv
 
 locale:
-  language: english
+  language: en
 
 settings:
-    current_date: "2025-12-30"
-
+  current_date: "2025-12-30"

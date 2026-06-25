@@ -15,7 +15,7 @@ cv:
 
   sections:
     summary:
-      - Líder Técnico y Engineering Manager con historial comprobado liderando equipos de ingeniería, diseñando arquitecturas escalables y entregando sistemas distribuidos de gran escala. Sólida experiencia en liderazgo de equipos, mentoría técnica, diseño de sistemas e infraestructura cloud. Lideré exitosamente equipos multifuncionales y establecí mejores prácticas de ingeniería.
+      - Líder Técnico y Engineering Manager con más de 15 años de experiencia liderando equipos, diseñando arquitecturas escalables y mejorando entregas mediante automatización. Fuerte experiencia en liderazgo de ingeniería, diseño de sistemas, mentoría e infraestructura cloud para productos con complejidad operativa real.
 
     experience:
       - company: Avature
@@ -51,12 +51,14 @@ cv:
         start_date: 2025-08
         end_date: present
         location: Buenos Aires, Argentina
-        summary: Habilitación técnica y liderazgo para equipos de éxito del cliente.
+        summary: Habilitación técnica y liderazgo para ingeniería orientada a customer success, decisiones de plataforma y mejoras de entrega.
         highlights:
           - Liderazgo técnico en ingeniería orientada al cliente
           - Decisiones de arquitectura para microservicios e infraestructura cloud
-          - Mentoría y transferencia de conocimiento a equipos de éxito del cliente
-          - Diseño de sistemas para aplicaciones de salud escalables
+          - Mentoría y transferencia de conocimiento a equipos de customer success
+          - Automatización de workflows y mejoras de delivery para aplicaciones de salud
+          - Dirección del diseño de sistemas para plataformas de salud escalables en AWS
+          - Uso estratégico de AWS Secrets Manager y DynamoDB para operaciones seguras
 
       - company: Proofpoint
         position: Desarrollador de Software Senior
@@ -75,6 +77,13 @@ cv:
         degree: Licenciatura (40% completado)
         start_date: 2008
         end_date: 2012
+        location: Buenos Aires, Argentina
+
+      - institution: Universidad de Buenos Aires
+        area: Filosofía
+        degree: Licenciatura (Estudios introductorios)
+        start_date: 2012
+        end_date: 2013
         location: Buenos Aires, Argentina
 
       - institution: República Francesa
@@ -112,4 +121,3 @@ locale:
 
 settings:
     current_date: "2025-12-30"
-

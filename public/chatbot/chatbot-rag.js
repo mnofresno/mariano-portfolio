@@ -19,6 +19,13 @@ if (typeof window !== 'undefined' && window.RAGChatbot) {
 
   // Extraer información automáticamente del sitio web
   extractWebsiteContent() {
+    const structuredProfile = this.extractStructuredSiteProfile();
+
+    if (structuredProfile) {
+      this.knowledgeBase = this.structureKnowledgeBase(structuredProfile);
+      return this.knowledgeBase;
+    }
+
     const content = {
       personalInfo: this.extractPersonalInfo(),
       skills: this.extractSkills(),
@@ -32,6 +39,34 @@ if (typeof window !== 'undefined' && window.RAGChatbot) {
     // Convertir a base de conocimiento estructurada
     this.knowledgeBase = this.structureKnowledgeBase(content);
     return this.knowledgeBase;
+  }
+
+  extractStructuredSiteProfile() {
+    const element = document.getElementById('site-profile-data');
+
+    if (!element) {
+      return null;
+    }
+
+    try {
+      const data = JSON.parse(element.textContent);
+      if (!data || typeof data !== 'object') {
+        return null;
+      }
+
+      return {
+        personalInfo: data.personalInfo || {},
+        skills: Array.isArray(data.skills) ? data.skills : [],
+        services: Array.isArray(data.services) ? data.services : [],
+        about: data.about || {},
+        contact: data.contact || {},
+        experience: Array.isArray(data.experience) ? data.experience : [],
+        cvs: data.cvs || { variants: [] }
+      };
+    } catch (error) {
+      console.warn('No se pudo leer site-profile-data', error);
+      return null;
+    }
   }
 
   // Extraer información de CVs disponibles
@@ -51,11 +86,8 @@ if (typeof window !== 'undefined' && window.RAGChatbot) {
         { name: 'General (EN)', file: 'CV-en.pdf', lang: 'en', variant: 'general', downloadUrl: `${BASE_DOWNLOAD_URL}/CV-en.pdf` },
         { name: 'Development (EN)', file: 'CV-en-dev.pdf', lang: 'en', variant: 'dev', downloadUrl: `${BASE_DOWNLOAD_URL}/CV-en-dev.pdf` },
         { name: 'Tech Lead (EN)', file: 'CV-en-lead.pdf', lang: 'en', variant: 'lead', downloadUrl: `${BASE_DOWNLOAD_URL}/CV-en-lead.pdf` },
-        { name: 'IoT & Electronics (EN)', file: 'CV-en-iot.pdf', lang: 'en', variant: 'iot', downloadUrl: `${BASE_DOWNLOAD_URL}/CV-en-iot.pdf` },
         { name: 'General (ES)', file: 'CV-es.pdf', lang: 'es', variant: 'general', downloadUrl: `${BASE_DOWNLOAD_URL}/CV-es.pdf` },
-        { name: 'Desarrollo (ES)', file: 'CV-es-dev.pdf', lang: 'es', variant: 'dev', downloadUrl: `${BASE_DOWNLOAD_URL}/CV-es-dev.pdf` },
-        { name: 'Líder Técnico (ES)', file: 'CV-es-lead.pdf', lang: 'es', variant: 'lead', downloadUrl: `${BASE_DOWNLOAD_URL}/CV-es-lead.pdf` },
-        { name: 'IoT y Electrónica (ES)', file: 'CV-es-iot.pdf', lang: 'es', variant: 'iot', downloadUrl: `${BASE_DOWNLOAD_URL}/CV-es-iot.pdf` }
+        { name: 'Desarrollo (ES)', file: 'CV-es-dev.pdf', lang: 'es', variant: 'dev', downloadUrl: `${BASE_DOWNLOAD_URL}/CV-es-dev.pdf` }
       ]
     };
   }

@@ -22,7 +22,7 @@ fi
 # Create virtual environment if it doesn't exist
 if [ ! -d "venv" ]; then
     echo "📦 Creating Python virtual environment..."
-    python3 -m venv venv
+    python3.10 -m venv venv
 else
     echo "✅ Virtual environment already exists"
 fi

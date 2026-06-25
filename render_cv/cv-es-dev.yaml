@@ -1,7 +1,7 @@
 # yaml-language-server: $schema=https://raw.githubusercontent.com/rendercv/rendercv/refs/tags/v2.6/schema.json
 cv:
   name: Mariano Martín Fresno
-  headline: Desarrollador Full Stack Senior | Especialista en Software | Tecnologías Web y Cloud Modernas
+  headline: Desarrollador Full Stack Senior | Automatización, IA e Infraestructura
   location: Argentina
   email: mnofresno@gmail.com
   phone: +54 9 11 6250-2232
@@ -15,7 +15,7 @@ cv:
 
   sections:
     summary:
-      - Desarrollo Full Stack Senior con amplia experiencia construyendo aplicaciones web escalables, aplicaciones móviles y sistemas backend. Sólida experiencia en ecosistemas modernos de JavaScript/TypeScript, plataformas cloud y desarrollo full-stack. Historial comprobado entregando aplicaciones de nivel productivo usando React, Node.js, Python y AWS.
+      - Desarrollador Full Stack Senior con más de 15 años de experiencia construyendo sistemas productivos, herramientas internas y automatizaciones sobre ecosistemas modernos de JavaScript/TypeScript, plataformas cloud y desarrollo full-stack. Foco fuerte en sacar cuellos de botella manuales, mejorar la calidad de entrega y convertir dolores operativos en sistemas mantenibles.
 
     experience:
       - company: Healthee
@@ -23,14 +23,13 @@ cv:
         start_date: 2025-08
         end_date: present
         location: Buenos Aires, Argentina
-        summary: Desarrollo full-stack de aplicaciones de salud con enfoque en experiencia de usuario y rendimiento.
+        summary: Desarrollo full-stack de aplicaciones de salud con foco en integración de sistemas, operaciones de customer success y flujos de entrega.
         highlights:
           - Desarrollo frontend con React, React Native y Vue.js
           - Servicios backend con Node.js y TypeScript
-          - Arquitectura de microservicios desplegada con Docker y Kubernetes
-          - Pipelines CI/CD utilizando GitHub Actions
+          - Automatización de workflows para customer success y onboarding técnico
+          - Mejoras de CI/CD para releases más seguras e iteración más rápida
           - Servicios AWS incluyendo Amplify, Secrets Manager, DynamoDB
-          - Optimización de rendimiento y debugging con BetterStack
 
       - company: Proofpoint
         position: Desarrollador de Software Senior
@@ -105,6 +104,13 @@ cv:
         end_date: 2012
         location: Buenos Aires, Argentina
 
+      - institution: Universidad de Buenos Aires
+        area: Filosofía
+        degree: Licenciatura (Estudios introductorios)
+        start_date: 2012
+        end_date: 2013
+        location: Buenos Aires, Argentina
+
       - institution: República Francesa
         area: Electrónica y Comunicaciones
         degree: Técnico Electrónico
@@ -140,4 +146,3 @@ locale:
 
 settings:
     current_date: "2025-12-30"
-

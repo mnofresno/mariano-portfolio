@@ -15,7 +15,7 @@ cv:
 
   sections:
     summary:
-      - Embedded Systems Engineer and IoT Developer with strong foundation in electronics, low-level programming, and hardware-software integration. Technical background in electronics and communications, combined with extensive software development experience. Proven expertise in C/C++ systems programming, machine control systems, multimedia processing, and embedded applications. Experience developing systems for industrial machines, device control, and real-time embedded applications.
+      - Embedded Systems Engineer and IoT Developer with 15+ years of experience in electronics, low-level programming, machine control, and hardware-software integration. Strong foundation in C/C++, industrial systems, and embedded applications, combined with broader software development experience.
 
     experience:
       - company: Machines & Systems Automation S.R.L.
@@ -90,11 +90,13 @@ cv:
         start_date: 2025-08
         end_date: present
         location: Buenos Aires, Argentina
-        summary: Full-stack development with focus on system integration and performance.
+        summary: Full-stack development with focus on system integration, diagnostics, and performance.
         highlights:
-          - System integration and API development
-          - Performance optimization and debugging
-          - Microservices architecture for scalable systems
+          - System diagnostics and troubleshooting for integrated environments
+          - Secure microservices for device connectivity and telemetry
+          - Optimization of real-time data acquisition for healthcare applications
+          - System integration with Docker and CI/CD for Linux-based targets
+          - Workflow improvements for hardware-adjacent development and support
 
     education:
       - institution: República Francesa
@@ -110,6 +112,13 @@ cv:
         degree: Licenciatura (40% completed)
         start_date: 2008
         end_date: 2012
+        location: Buenos Aires, Argentina
+
+      - institution: Universidad de Buenos Aires
+        area: Philosophy
+        degree: Licenciatura (Introductory studies)
+        start_date: 2012
+        end_date: 2013
         location: Buenos Aires, Argentina
 
     skills:
@@ -142,4 +151,3 @@ locale:
 
 settings:
     current_date: "2025-12-30"
-

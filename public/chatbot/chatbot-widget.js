@@ -48,12 +48,12 @@ function initChatbotWidget(customConfig) {
     es: {
       placeholder: 'Escribe tu mensaje...',
       send: 'Enviar',
-      greeting: '¡Hola! ¿En qué puedo ayudarte? Puedes preguntarme sobre mi experiencia, habilidades, o pedirme mi CV. También puedo recomendarte la versión de CV más adecuada según el tipo de posición que buscas.'
+      greeting: 'Hola. Podes preguntarme por experiencia, automatización, infraestructura, CVs o proyectos actuales.'
     },
     en: {
       placeholder: 'Type your message...',
       send: 'Send',
-      greeting: 'Hi! How can I help you? You can ask me about my experience, skills, or request my CV. I can also recommend the most suitable CV version based on the type of position you\'re looking for.'
+      greeting: 'Hi. Ask about experience, automation, infrastructure, CV versions, or current projects.'
     }
   };
 
@@ -108,7 +108,7 @@ function initChatbotWidget(customConfig) {
     messagesDiv.appendChild(msg);
     messagesDiv.scrollTop = messagesDiv.scrollHeight;
   }
-  addMsg('bot', '¡Hola! ¿En qué puedo ayudarte?');
+  addMsg('bot', uiText[getLang()].greeting);
   // Animación de "escribiendo..." estilo typing
   function showTyping() {
     const typingMsg = document.createElement('div');
