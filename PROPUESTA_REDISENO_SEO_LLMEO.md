@@ -217,6 +217,7 @@ Medir como mínimo:
 - agregar JSON-LD,
 - corregir copy inconsistente,
 - reemplazar imágenes genéricas.
+- arreglar y estabilizar la suite de tests del sitio para que cada cambio de contenido o SEO tenga una base de validación repetible.
 
 ### Fase 2: autoridad
 
@@ -242,6 +243,7 @@ La propuesta debería mejorar:
 - tráfico orgánico de intención alta,
 - CTR desde buscadores y respuestas de LLM,
 - ratio de descargas de CV o solicitudes de auditoría.
+- estabilidad de tests y confianza en cada iteración de contenido o layout.
 
 ## Resumen ejecutivo
 
