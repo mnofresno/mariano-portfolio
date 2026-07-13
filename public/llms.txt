@@ -5,9 +5,8 @@
 Mariano Fresno is a technical operator focused on turning complex technical operations into systems teams can actually run. He works across automation, platforms, and production systems.
 
 ## Services
-- Technical Systems Audit: https://mariano.fresno.ar/services/systems-audit/
+- Services Overview: https://mariano.fresno.ar/services/
 - Automation Opportunity Assessment: https://mariano.fresno.ar/services/automation-assessment/
-- Production Reliability Sprint: https://mariano.fresno.ar/services/reliability-sprint/
 
 ## Experience Areas
 - CI/CD and delivery pipelines

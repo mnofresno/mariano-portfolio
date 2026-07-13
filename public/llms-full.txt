@@ -19,8 +19,8 @@ For teams with incidents, operational debt, or systems that are difficult to und
 ### Automation Opportunity Assessment
 For manual, repetitive, or error-prone processes. Deliverables include task inventories, impact/effort matrices, and optional prototypes.
 
-### Production Reliability Sprint
-For delivery, observability, and production diagnostics. Deliverables include baselines, scoped improvements, runbooks, and verification.
+### Self-Hosted AI Infrastructure
+For teams wanting to deploy private LLMs and agentic infrastructure. Deliverables include optimized gateways, per-client credentials, automated cloud failover, and real-time cost attribution.
 
 ## Experience Areas
 - CI/CD and delivery pipelines
