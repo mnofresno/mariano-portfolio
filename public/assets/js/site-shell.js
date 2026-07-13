@@ -40,7 +40,7 @@
 
     if (cta) {
       const ctaLink = document.createElement('a');
-      ctaLink.href = cta.tagName === 'A' ? cta.href : 'mailto:mnofresno@gmail.com';
+      ctaLink.href = cta.tagName === 'A' ? cta.href : 'mailto:mariano@fresno.ar';
       ctaLink.className = 'mt-4 flex items-center justify-center rounded-2xl bg-primary px-4 py-3 text-sm font-bold text-on-primary';
       ctaLink.textContent = cta.textContent.trim() || 'Contact';
       ctaLink.addEventListener('click', closeMenu);

@@ -23,7 +23,7 @@ const mockWebsiteHTML = `
     </div>
     <ul>
         <li><strong>Phone:</strong> +54 9 11-6250-2232</li>
-        <li><strong>E-mail:</strong> mnofresno@gmail.com</li>
+        <li><strong>E-mail:</strong> mariano@fresno.ar</li>
         <li><strong>City:</strong> Buenos Aires, Argentina</li>
         <li><strong>Birthday:</strong> 29 Jan 1986</li>
     </ul>
@@ -133,7 +133,7 @@ describe('RAG Chatbot System', () => {
       const contact = chatbot.extractContact();
       
       expect(contact.phone).toContain('+54 9 11-6250-2232');
-      expect(contact.email).toBe('mnofresno@gmail.com');
+      expect(contact.email).toBe('mariano@fresno.ar');
       expect(contact.city).toBe('Buenos Aires, Argentina');
     });
 
@@ -260,7 +260,7 @@ describe('RAG Chatbot System', () => {
       const chatbot = new window.RAGChatbot();
       const response = await chatbot.generateIntelligentResponse('contacto', []);
       
-      expect(response).toContain('Email: mnofresno@gmail.com');
+      expect(response).toContain('Email: mariano@fresno.ar');
       expect(response).toContain('WhatsApp');
       expect(response).toContain('bx bxl-whatsapp');
     });

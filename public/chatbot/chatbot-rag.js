@@ -297,7 +297,7 @@ if (typeof window !== 'undefined' && window.RAGChatbot) {
       },
       {
         id: 'contact',
-        content: 'Información de contacto: Email: mnofresno@gmail.com. Teléfono: +54 9 11-6250-2232. LinkedIn: https://ln.fresno.ar. GitHub: https://github.com/mnofresno. Twitter: https://tw.fresno.ar. WhatsApp: https://wa.me/5491162502232.',
+        content: 'Información de contacto: Email: mariano@fresno.ar. Teléfono: +54 9 11-6250-2232. LinkedIn: https://ln.fresno.ar. GitHub: https://github.com/mnofresno. Twitter: https://tw.fresno.ar. WhatsApp: https://wa.me/5491162502232.',
         keywords: ['contacto', 'email', 'teléfono', 'linkedin', 'github', 'whatsapp', 'phone', 'correo', 'mail']
       },
       {
@@ -778,7 +778,7 @@ Siempre responde solo con JSON válido, sin texto adicional.`;
     }
     
     if (queryLower.includes('email') || queryLower.includes('correo') || queryLower.includes('mail')) {
-      return 'El email de Mariano es mnofresno@gmail.com. También puedes contactarlo por LinkedIn: https://ln.fresno.ar o por WhatsApp: https://wa.me/5491162502232';
+      return 'El email de Mariano es mariano@fresno.ar. También puedes contactarlo por LinkedIn: https://ln.fresno.ar o por WhatsApp: https://wa.me/5491162502232';
     }
     
     if (queryLower.includes('contacto') || queryLower.includes('comunicarse') || queryLower.includes('contactar')) {
@@ -788,7 +788,7 @@ Siempre responde solo con JSON válido, sin texto adicional.`;
       const whatsappCTA = `<div style='display:flex;align-items:center;gap:8px;margin-top:8px;'>${whatsappIcon}<a href='${whatsappLink}' target='_blank' style='color:#25D366;font-weight:600;text-decoration:none;font-size:15px;'>WhatsApp</a></div>`;
       
       return `Puedes contactar a Mariano por:<br>
-      • Email: mnofresno@gmail.com<br>
+      • Email: mariano@fresno.ar<br>
       • Teléfono: +54 9 11-6250-2232<br>
       • LinkedIn: https://ln.fresno.ar<br>
       • GitHub: https://github.com/mnofresno<br>

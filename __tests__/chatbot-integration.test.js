@@ -34,7 +34,7 @@ const mockCompleteWebsite = `
     
     <ul>
         <li><strong>Phone:</strong> +54 9 11-6250-2232</li>
-        <li><strong>E-mail:</strong> mnofresno@gmail.com</li>
+        <li><strong>E-mail:</strong> mariano@fresno.ar</li>
         <li><strong>Website:</strong> mariano.fresno.ar</li>
         <li><strong>City:</strong> Buenos Aires, Argentina</li>
         <li><strong>Birthday:</strong> 29 Jan 1986</li>
@@ -180,7 +180,7 @@ describe('Chatbot Integration Tests', () => {
       expect(phoneResponse).toContain('wa.me');
       
       const contactResponse = await chatbot.processQuery('¿Cómo puedo contactarlo?');
-      expect(contactResponse).toContain('Email: mnofresno@gmail.com');
+      expect(contactResponse).toContain('Email: mariano@fresno.ar');
       expect(contactResponse).toContain('WhatsApp');
     });
 
@@ -332,7 +332,7 @@ describe('Chatbot Integration Tests', () => {
       
       // Second query should still work
       const response2 = await chatbot.processQuery('¿Cuál es su email?');
-      expect(response2).toContain('mnofresno@gmail.com');
+      expect(response2).toContain('mariano@fresno.ar');
       
       // System should still be initialized
       expect(chatbot.isModelLoaded).toBe(true);

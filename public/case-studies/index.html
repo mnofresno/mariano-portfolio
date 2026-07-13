@@ -26,15 +26,20 @@
 </head>
 <body class="bg-background text-on-background font-body">
   <header class="fixed top-0 left-0 right-0 z-50 flex items-center justify-center w-full px-8 pt-6">
-    <nav class="bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl rounded-full px-6 py-3 flex items-center justify-between w-full max-w-4xl">
-      <a href="../" class="text-xl font-black text-slate-900 dark:text-white tracking-tighter font-headline">Mariano Fresno</a>
-      <div class="hidden md:flex items-center space-x-8">
-        <a href="../" class="text-slate-600 dark:text-slate-400 hover:text-blue-500 font-headline font-bold">Home</a>
-        <a href="../labs/" class="text-slate-600 dark:text-slate-400 hover:text-blue-500 font-headline font-bold">Labs</a>
-        <a href="../about/" class="text-slate-600 dark:text-slate-400 hover:text-blue-500 font-headline font-bold">About</a>
-        <a href="../services/" class="text-slate-600 dark:text-slate-400 hover:text-blue-500 font-headline font-bold">Services</a>
+    <nav class="bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl shadow-[0_12px_32px_rgba(22,28,34,0.05)] rounded-full px-6 py-3 flex items-center justify-between w-full max-w-4xl">
+      <div class="text-xl font-black text-slate-900 dark:text-white tracking-tighter font-headline">
+        <a href="../">Mariano Fresno</a>
       </div>
-      <button onclick="window.location.href='mailto:mnofresno@gmail.com'" class="bg-primary text-on-primary px-6 py-2 rounded-full font-headline font-bold">Hire Me</button>
+      <div class="hidden md:flex items-center space-x-8">
+        <a class="text-slate-600 dark:text-slate-400 hover:text-blue-500 transition-colors duration-300 font-headline font-bold tracking-tight" href="../#expertise">Expertise</a>
+        <a class="text-slate-600 dark:text-slate-400 hover:text-blue-500 transition-colors duration-300 font-headline font-bold tracking-tight" href="../services/">Services</a>
+        <a class="text-blue-600 dark:text-blue-400 border-b-2 border-blue-600 pb-1 font-headline font-bold tracking-tight" href="./">Case Studies</a>
+        <a class="text-slate-600 dark:text-slate-400 hover:text-blue-500 transition-colors duration-300 font-headline font-bold tracking-tight" href="../about/">About</a>
+        <a class="text-slate-600 dark:text-slate-400 hover:text-blue-500 transition-colors duration-300 font-headline font-bold tracking-tight" href="../insights/">Insights</a>
+        <a class="text-slate-600 dark:text-slate-400 hover:text-blue-500 transition-colors duration-300 font-headline font-bold tracking-tight" href="../contact/">Contact</a>
+      </div>
+      <a href="https://wa.me/5491162502232?text=Hola%20Mariano,%20quiero%20hablar%20sobre%20un%20proyecto"
+        class="bg-tertiary hover:bg-tertiary-container text-on-tertiary-container px-5 py-2.5 rounded-full font-headline font-bold text-sm transition-colors duration-300">Hire Me</a>
     </nav>
   </header>
   <main class="pt-40 pb-20 px-6">
@@ -45,7 +50,58 @@
         <p class="text-xl text-on-surface-variant max-w-2xl">Documented results across platform delivery, automation, and production reliability.</p>
       </div>
       <div id="case-list" class="grid md:grid-cols-2 gap-8">
-        <p class="text-on-surface-variant">No case studies published yet. Contact me to discuss your situation.</p>
+        <a href="../services/" class="bg-surface-container-lowest p-8 rounded-2xl border border-outline-variant/15 space-y-6 flex flex-col justify-between hover:border-primary/30 transition-colors group">
+          <div class="space-y-4">
+            <div class="flex items-center gap-3">
+              <span class="text-[0.6rem] font-bold uppercase tracking-[0.2em] text-tertiary">Automation &amp; CI/CD</span>
+              <span class="text-[0.6rem] font-bold uppercase tracking-[0.2em] text-outline">Private product</span>
+            </div>
+            <h2 class="text-xl font-headline font-bold">Platform delivery for a containerized marketplace</h2>
+            <p class="text-sm text-on-surface-variant leading-relaxed">Built the full-stack architecture for a containerized marketplace (Next.js + Node.js + MongoDB) with custom passwordless authentication, Docker-first deployment, and Nginx reverse proxy. Reduced onboarding time and made release flows predictable across contributors.</p>
+          </div>
+          <div class="flex items-center gap-2 text-primary font-bold text-sm group-hover:underline">
+            See service <span class="material-symbols-outlined text-sm">arrow_forward</span>
+          </div>
+        </a>
+        <a href="../services/" class="bg-surface-container-lowest p-8 rounded-2xl border border-outline-variant/15 space-y-6 flex flex-col justify-between hover:border-primary/30 transition-colors group">
+          <div class="space-y-4">
+            <div class="flex items-center gap-3">
+              <span class="text-[0.6rem] font-bold uppercase tracking-[0.2em] text-tertiary">Automation</span>
+              <span class="text-[0.6rem] font-bold uppercase tracking-[0.2em] text-outline">Public project</span>
+            </div>
+            <h2 class="text-xl font-headline font-bold">Lightweight CI/CD webhook deployment service</h2>
+            <p class="text-sm text-on-surface-variant leading-relaxed">Designed and deployed a PHP-based webhook receiver that listens to GitHub pushes, validates payload signatures, and executes repo-scoped deployment shell chains. Cut manual deployment steps and standardized release operations across distributed nodes.</p>
+          </div>
+          <div class="flex items-center gap-2 text-primary font-bold text-sm group-hover:underline">
+            See service <span class="material-symbols-outlined text-sm">arrow_forward</span>
+          </div>
+        </a>
+        <a href="../services/" class="bg-surface-container-lowest p-8 rounded-2xl border border-outline-variant/15 space-y-6 flex flex-col justify-between hover:border-primary/30 transition-colors group">
+          <div class="space-y-4">
+            <div class="flex items-center gap-3">
+              <span class="text-[0.6rem] font-bold uppercase tracking-[0.2em] text-tertiary">Infrastructure</span>
+              <span class="text-[0.6rem] font-bold uppercase tracking-[0.2em] text-outline">Public project</span>
+            </div>
+            <h2 class="text-xl font-headline font-bold">Secure SSH automation for AI-assisted operations</h2>
+            <p class="text-sm text-on-surface-variant leading-relaxed">Created a Go-based MCP server that delegates SSH commands via local profiles and ssh-agent, keeping credentials off the network. Added append-only audit logs to trace LLM-assisted infrastructure actions, improving operational accountability and reducing incident risk.</p>
+          </div>
+          <div class="flex items-center gap-2 text-primary font-bold text-sm group-hover:underline">
+            See service <span class="material-symbols-outlined text-sm">arrow_forward</span>
+          </div>
+        </a>
+        <a href="../services/" class="bg-surface-container-lowest p-8 rounded-2xl border border-outline-variant/15 space-y-6 flex flex-col justify-between hover:border-primary/30 transition-colors group">
+          <div class="space-y-4">
+            <div class="flex items-center gap-3">
+              <span class="text-[0.6rem] font-bold uppercase tracking-[0.2em] text-tertiary">Full-Stack</span>
+              <span class="text-[0.6rem] font-bold uppercase tracking-[0.2em] text-outline">Private product</span>
+            </div>
+            <h2 class="text-xl font-headline font-bold">Shared household expense management ecosystem</h2>
+            <p class="text-sm text-on-surface-variant leading-relaxed">Engineered a Laravel backend API, Vite-based web backoffice, and Ionic mobile app for shared expense tracking. Containerized both local and production environments, enabling consistent monthly reconciliation and financial visibility for end users.</p>
+          </div>
+          <div class="flex items-center gap-2 text-primary font-bold text-sm group-hover:underline">
+            See service <span class="material-symbols-outlined text-sm">arrow_forward</span>
+          </div>
+        </a>
       </div>
       <div class="bg-surface-container-low p-10 rounded-[2rem]">
         <h2 class="font-headline text-2xl font-bold mb-4">Need help with something similar?</h2>
