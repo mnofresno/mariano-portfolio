@@ -10,3 +10,5 @@ render_cv/__pycache__/
 
 venv
 *.log
+.qwen/
+.playwright-mcp
