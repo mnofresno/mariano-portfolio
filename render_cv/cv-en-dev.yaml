@@ -142,7 +142,7 @@ design:
   theme: moderncv
 
 locale:
-  language: en
+  language: english
 
 settings:
   current_date: "2025-12-30"
