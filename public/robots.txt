@@ -1,0 +1,6 @@
+# robots.txt for mariano.fresno.ar
+# Allows all crawlers and points to the sitemap
+User-agent: *
+Disallow:
+
+Sitemap: https://mariano.fresno.ar/sitemap.xml
