@@ -19,7 +19,7 @@ const HIGH_RISK_PATTERNS = [
   { name: 'private-key', regex: /-----BEGIN\s+(?:RSA\s+)?PRIVATE\s+KEY-----/i, message: 'Private key detected' },
   { name: 'token-generic', regex: /(?:api[_-]?key|apikey|access[_-]?token|auth[_-]?token|secret[_-]?key)\s*[=:]\s*['"][A-Za-z0-9_\-]{16,}['"]/i, message: 'Potential API key or token' },
   { name: 'bearer-token', regex: /\bBearer\s+[A-Za-z0-9_\-\.]+/i, message: 'Bearer token detected' },
-  { name: 'url-with-credentials', regex: /(?:https?|ftp):\/\/[^/\s]+:[^/\s]+@/i, message: 'URL with embedded credentials' },
+  { name: 'url-with-credentials', regex: /(?:https?|ftp):\/\/[^/\s@]+:[^/\s@]+@/i, message: 'URL with embedded credentials' },
   { name: 'private-ip', regex: /\b(?:10\.\d{1,3}\.\d{1,3}\.\d{1,3}|172\.(?:1[6-9]|2\d|3[01])\.\d{1,3}\.\d{1,3}|192\.168\.\d{1,3}\.\d{1,3})\b/i, message: 'Private IP address' },
   { name: 'local-file-path', regex: /(?<!https?:\/\/)(?<!http:\/\/)[^a-zA-Z]:\/Users\/[^/\s]+\/[^\s'"]*/i, message: 'Local file path from developer machine' },
   { name: 'todo-requires-approval', regex: /TODO_REQUIRES_MARIANO_APPROVAL/i, message: 'Content pending approval marker' },
