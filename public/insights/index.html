@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>Insights | Mariano Fresno</title>
+  <meta name="description" content="Technical notes on production reliability, automation, delivery, and observability." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://mariano.fresno.ar/insights/" />
+  <meta property="og:title" content="Insights | Mariano Fresno" />
+  <meta property="og:description" content="Technical notes on production reliability, automation, delivery, and observability." />
+  <meta property="og:image" content="https://mariano.fresno.ar/assets/img/profile-meta.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Insights | Mariano Fresno" />
+  <meta name="twitter:description" content="Technical notes on production reliability, automation, delivery, and observability." />
+  <meta name="twitter:image" content="https://mariano.fresno.ar/assets/img/profile-meta.jpg" />
+  <link rel="canonical" href="https://mariano.fresno.ar/insights/" />
+  <link href="../assets/img/favicon.png" rel="icon" />
+  <link href="../assets/img/apple-touch-icon.png" rel="apple-touch-icon" />
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@graph":[{"@type":"Person","@id":"https://mariano.fresno.ar/#person","name":"Mariano Fresno","url":"https://mariano.fresno.ar/"},{"@type":"Blog","name":"Mariano Fresno Insights","description":"Technical notes on production reliability, automation, delivery, and observability.","publisher":{"@id":"https://mariano.fresno.ar/#person"},"url":"https://mariano.fresno.ar/insights/"}]}
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com" rel="preconnect" />
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script id="tailwind-config">
+    tailwind.config = { darkMode: "class", theme: { extend: {
+      "colors": { "primary-fixed-dim":"#aec6ff","tertiary-fixed-dim":"#2ae500","outline-variant":"#c1c6d7","tertiary":"#0f6b00","tertiary-fixed":"#79ff5b","surface":"#f7f9ff","on-background":"#161c22","on-surface-variant":"#414755","surface-container":"#e9eef6","surface-container-highest":"#dde3eb","on-surface":"#161c22","secondary-container":"#dde3eb","outline":"#717786","primary-container":"#006fee","surface-dim":"#d5dae2","surface-tint":"#005ac3","background":"#f7f9ff","on-secondary":"#ffffff","on-tertiary-container":"#f8ffef","surface-container-high":"#e3e9f0","surface-container-low":"#eff4fc","secondary-fixed":"#dde3eb","surface-container-lowest":"#ffffff","on-primary":"#ffffff","on-secondary-container":"#5f656c","tertiary-container":"#158700","primary-fixed":"#d8e2ff","primary":"#0058be","inverse-surface":"#2b3137","inverse-on-surface":"#ecf1f9","on-primary-fixed":"#001a42","on-tertiary-fixed":"#022100" },
+      "borderRadius": { "DEFAULT":"0.125rem","lg":"0.25rem","xl":"0.5rem","full":"0.75rem" },
+      "fontFamily": { "headline":["Space Grotesk"],"body":["Inter"],"label":["Inter"] }
+    } } }
+  </script>
+</head>
+<body class="bg-background text-on-background font-body overflow-x-hidden">
+  <header class="fixed top-0 left-0 right-0 z-50 flex items-center justify-center w-full px-8 pt-6">
+    <nav class="bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl shadow-[0_12px_32px_rgba(22,28,34,0.05)] rounded-full px-6 py-3 flex items-center justify-between w-full max-w-4xl">
+      <div class="text-xl font-black text-slate-900 dark:text-white tracking-tighter font-headline">
+        <a href="../">Mariano Fresno</a>
+      </div>
+      <div class="hidden md:flex items-center space-x-8">
+        <a class="text-slate-600 dark:text-slate-400 hover:text-blue-500 transition-colors duration-300 font-headline font-bold tracking-tight" href="../">Home</a>
+        <a class="text-slate-600 dark:text-slate-400 hover:text-blue-500 transition-colors duration-300 font-headline font-bold tracking-tight" href="../services/">Services</a>
+        <a class="text-slate-600 dark:text-slate-400 hover:text-blue-500 transition-colors duration-300 font-headline font-bold tracking-tight" href="../case-studies/">Case Studies</a>
+        <a class="text-slate-600 dark:text-slate-400 hover:text-blue-500 transition-colors duration-300 font-headline font-bold tracking-tight" href="../labs/">Labs</a>
+        <a class="text-slate-600 dark:text-slate-400 hover:text-blue-500 transition-colors duration-300 font-headline font-bold tracking-tight" href="../about/">About</a>
+      </div>
+      <button onclick="window.location.href='mailto:mnofresno@gmail.com'" class="bg-primary hover:bg-primary-container text-on-primary px-6 py-2 rounded-full font-headline font-bold">Hire Me</button>
+    </nav>
+  </header>
+  <main class="pt-40 pb-20 px-6">
+    <section class="max-w-7xl mx-auto space-y-24">
+      <div class="flex flex-col md:flex-row gap-12 items-start justify-between">
+        <div class="space-y-6">
+          <span class="text-[0.65rem] font-bold tracking-[0.2em] uppercase text-primary">Insights</span>
+          <h1 class="font-headline text-5xl md:text-7xl font-extrabold text-on-surface leading-tight tracking-tight">Technical <span class="text-primary italic">notes.</span></h1>
+        </div>
+        <p class="max-w-md text-xl text-on-surface-variant leading-relaxed">
+          Production reliability, automation, delivery, and observability -- written from the field.
+        </p>
+      </div>
+
+      <div class="bg-surface-container-low p-10 md:p-14 rounded-[3rem] border border-outline-variant/15 space-y-8">
+        <h2 class="font-headline text-2xl font-bold tracking-tight">Editorial lines</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="flex gap-3"><span class="material-symbols-outlined text-primary">event_repeat</span><div><h3 class="font-headline font-bold">Production RCA</h3><p class="text-on-surface-variant text-sm">Root cause analysis patterns, blameless postmortems, and recurrence prevention.</p></div></div>
+          <div class="flex gap-3"><span class="material-symbols-outlined text-tertiary">phishing</span><div><h3 class="font-headline font-bold">Assisted-first automation</h3><p class="text-on-surface-variant text-sm">Automation that augments human judgment rather than replacing it.</p></div></div>
+          <div class="flex gap-3"><span class="material-symbols-outlined text-primary">deploy</span><div><h3 class="font-headline font-bold">Reliable delivery</h3><p class="text-on-surface-variant text-sm">CI/CD pipelines, deployment strategies, and release risk reduction.</p></div></div>
+          <div class="flex gap-3"><span class="material-symbols-outlined text-primary">visibility</span><div><h3 class="font-headline font-bold">Observability</h3><p class="text-on-surface-variant text-sm">Logs, metrics, traces, and the signal-to-noise problem in production.</p></div></div>
+          <div class="flex gap-3"><span class="material-symbols-outlined text-primary">memory</span><div><h3 class="font-headline font-bold">Hardware-software systems</h3><p class="text-on-surface-variant text-sm">The intersection of embedded devices, network gear, and the software that manages them.</p></div></div>
+        </div>
+      </div>
+
+      <div class="bg-surface-container-lowest rounded-[3rem] border border-outline-variant/15 p-10 md:p-14 text-center space-y-6">
+        <h2 class="font-headline text-2xl font-bold tracking-tight">Articles coming soon</h2>
+        <p class="text-on-surface-variant max-w-lg mx-auto">Subscribe via RSS or check back. New posts will appear here as they are published.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-surface-container py-12 px-6 border-t border-outline-variant/10">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+      <div class="text-on-surface font-headline font-bold">Mariano Fresno</div>
+      <div class="flex gap-8 text-sm text-on-surface-variant font-bold uppercase tracking-widest">
+        <a class="hover:text-primary transition-colors" href="https://ln.fresno.ar">LinkedIn</a>
+        <a class="hover:text-primary transition-colors" href="https://github.com/mnofresno">GitHub</a>
+        <a class="hover:text-primary transition-colors" href="https://tw.fresno.ar">Twitter</a>
+      </div>
+    </div>
+  </footer>
+  <script src="../assets/js/site-shell.js" defer></script>
+</body>
+</html>
