@@ -11,7 +11,8 @@
     "test:all": "node test-all.js",
     "test:widget": "jest __tests__/chatbot-widget.test.js",
     "test:rag": "jest __tests__/chatbot-rag.test.js",
-    "test:integration": "jest __tests__/chatbot-integration.test.js"
+    "test:integration": "jest __tests__/chatbot-integration.test.js",
+    "validate:content": "node scripts/validate-public-content.mjs"
   },
   "dependencies": {
     "express": "^5.1.0"
