@@ -26,7 +26,7 @@ jobs:
           npx jest --ci --coverage
 
   deploy-prod:
-    if: github.ref == 'refs/heads/master' && always() && (needs.test.result == 'success' || needs.test.result == 'skipped')
+    if: github.ref == 'refs/heads/main' && always() && (needs.test.result == 'success' || needs.test.result == 'skipped')
     needs: [test]
     uses: mnofresno/github-autodeploy/.github/workflows/reusable-deploy.yml@master
     with:
