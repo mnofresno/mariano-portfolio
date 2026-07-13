@@ -8,6 +8,7 @@ on:
     paths:
       - 'render_cv/**'
       - 'public/**'
+      - '!public/assets/cv/**'
       - '.github/workflows/generate-cv.yml'
   workflow_dispatch:
 
@@ -61,6 +62,18 @@ jobs:
         run: |
           mkdir -p public/assets/cv/
           cp -f render_cv/rendercv_output/*.pdf public/assets/cv/
+
+      - name: Commit and push generated CVs
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add public/assets/cv/*.pdf
+          if ! git diff --cached --quiet; then
+            git commit -m "chore: update compiled CV PDFs"
+            git push origin HEAD:${{ github.ref }}
+          else
+            echo "No changes in CV PDFs."
+          fi
 
       - name: Create Release
         uses: softprops/action-gh-release@v1
