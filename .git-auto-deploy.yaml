@@ -1,0 +1,3 @@
+git_transport:
+  strategy: ssh
+  template_uri: git@github.com:mnofresno/mariano-portfolio.git
