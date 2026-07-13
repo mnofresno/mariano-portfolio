@@ -11,13 +11,9 @@ This repository contains the personal portfolio website of Mariano Fresno, full-
 Start a local development server to test the portfolio:
 
 ```bash
-npm run web
-```
-
-Or use the alternative commands:
-```bash
-npm start    # Same as npm run web
-npm run dev  # Same as npm run web
+npm start       # Start on http://localhost:3500
+npm run dev     # Same as npm start
+npm run web     # Same as npm start
 ```
 
 The server will start on `http://localhost:3500` (or the port specified in `PORT` environment variable).
@@ -38,6 +34,11 @@ The server will start on `http://localhost:3500` (or the port specified in `PORT
   - `assets/js/theme-toggle.js` — Dark mode toggle functionality
   - `assets/js/accessibility-enhancements.js` — Accessibility improvements
   - `assets/js/performance-optimizations.js` — Performance optimizations
+- `content/` — Content registry and policies
+  - `claims.json` — Claim registry with verification status
+  - `privacy-policy.md` — Privacy and confidentiality rules
+- `scripts/` — Build and validation utilities
+  - `validate-public-content.mjs` — Scans public files for secrets, tokens, and unapproved content
 - `server.js` — Node.js static file server (no dependencies required).
 - `README.md` — (this file) General documentation for the project.
 - `MODERNIZACION_2026.md` — Detailed modernization plan based on 2026 web design trends.
@@ -159,7 +160,7 @@ For detailed information, see:
 
 ## Available Scripts
 
-- `npm run web` or `npm start` or `npm run dev` - Start development server
+- `npm start` or `npm run dev` or `npm run web` - Start development server (port 3500)
 - `npm test` - Run Jest tests
 - `npm run test:watch` - Run tests in watch mode
 - `npm run test:coverage` - Run tests with coverage report
@@ -167,6 +168,7 @@ For detailed information, see:
 - `npm run test:widget` - Run chatbot widget tests only
 - `npm run test:rag` - Run chatbot RAG tests only
 - `npm run test:integration` - Run integration tests
+- `npm run validate:content` - Scan public files for privacy violations
 
 ## License
 
